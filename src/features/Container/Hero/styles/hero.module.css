@@ -33,7 +33,7 @@
 .heroTitle {
   --text-color: #F1F1F1;
   color: var(--text-color);
-  font-size: 140px; /* 140px */
+  font-size: 140px;
   letter-spacing: -4px;
   text-align: center;
 
@@ -45,6 +45,23 @@
   max-width: 900px;
   width: 100%;
   z-index: 10;
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 85vh;
+  }
+  .heroTitle {
+    font-size: 100px;
+  }
+}
+@media (max-width: 500px) {
+  .hero {
+    min-height: 75vh;
+  }
+  .heroTitle {
+    font-size: 80px;
+  }
 }
 
 .heroBackground {
@@ -64,6 +81,12 @@
 
   position: absolute;
   bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .heroFooter {
+    flex-direction: column;
+  }
 }
 
 .heroFooterLeft {

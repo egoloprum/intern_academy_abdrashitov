@@ -45,3 +45,22 @@
   flex-wrap: wrap;
   gap: 56px;
 }
+
+@media (max-width: 1000px) {
+  .about {
+    flex-direction: column; 
+    min-height: 85vh;
+  }
+  .textTitle {
+    max-width: 100%;
+    font-size: 60px;
+  }
+}
+@media (max-width: 500px) {
+  .about {
+    min-height: 75vh;
+  }
+  .textTitle {
+    font-size: 40px;
+  }
+}
