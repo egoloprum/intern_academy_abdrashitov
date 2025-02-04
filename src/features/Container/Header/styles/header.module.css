@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+
+  --text-color: #F1F1F1;
+  color: var(--text-color);
+  font-size: 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px; 
+}
+
+.headerNav {
+  display: flex;
+  gap: 40px;
+}
+
+.navContact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px; 
+}
