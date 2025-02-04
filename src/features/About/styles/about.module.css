@@ -1,0 +1,47 @@
+.about {
+  min-height: 95vh;
+  display: flex;
+  gap: 40px;
+}
+
+.aboutText {
+  flex-basis: 50%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.textTitle {
+  font-size: 80px;
+  color: #F1F1F1;
+  max-width: 75%;
+}
+.textImageContainer {
+  display: flex;
+  justify-content: center; 
+  margin-top: auto; 
+}
+
+.textImageContainer svg {
+  padding-top: 50px;
+}
+
+.aboutDescription {
+  flex-basis: 50%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.descriptionTitle {
+  color: #F1F1F1;
+  font-size: 24px;
+  letter-spacing: -1.4px;
+  line-height: 33.6px;
+  text-transform: uppercase;
+}
+.descriptionCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+}

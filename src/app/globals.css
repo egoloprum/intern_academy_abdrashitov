@@ -1,5 +1,6 @@
 :root {
   --background: #000;
+  --text-color: #F1F1F1;
 }
 
 html,
@@ -29,3 +30,42 @@ a {
   text-decoration: none;
 }
 
+.descriptionCard {
+  background: url('../../public/borderFrame.svg') no-repeat center center;
+  width: 240px;
+  height: 276px;
+  position: relative;
+}
+.descriptionCardText {
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.descriptionCardText h1 {
+  font-size: 18px;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.descriptionCardText p {
+  font-size: 16px;
+  font-weight: 400;
+}
+.descriptionCardTop {
+  width: 240px;
+  height: 190px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.descriptionCardBottom {
+  width: 240px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
