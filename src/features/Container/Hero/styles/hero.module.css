@@ -1,0 +1,92 @@
+.hero {
+  position: relative;
+  min-height: 95vh;
+  height: 100%;
+}
+
+.heroBarCode {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+.heroText {
+  --text-color: #F1F1F1;
+  color: var(--text-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 250px;
+}
+
+.heroTextTop {
+  font-size: 24px;
+  letter-spacing: -1.44px;
+}
+
+.heroTextBottom {
+  font-size: 16px;
+  opacity: 80%;
+}
+
+.heroTitle {
+  --text-color: #F1F1F1;
+  color: var(--text-color);
+  font-size: 140px; /* 140px */
+  letter-spacing: -4px;
+  text-align: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 900px;
+  width: 100%;
+  z-index: 10;
+}
+
+.heroBackground {
+  position: absolute;
+  max-height: 100vh;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.heroFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.heroFooterLeft {
+  font-size: 16px;
+  color: #F1F1F1;
+  text-wrap: nowrap;
+}
+
+.heroFooterMiddle {
+  border-top: 1px solid #fff;
+  width: 100%;
+}
+
+.heroFooterRight {
+  font-size: 16px;
+  color: #F1F1F1;
+  text-wrap: nowrap;
+  cursor: pointer;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
