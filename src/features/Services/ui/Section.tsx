@@ -1,12 +1,14 @@
 import ServicesBackground from '@/shared/ui/ServicesBackground'
 import styles from '../styles/services.module.css'
 import ServicesHoverElement from '@/shared/ui/ServicesHoverElement'
+import HoverBorderSvg from '@/shared/ui/HoverBorderSvg'
 
 const Section = ({}) => {
   return (
     <section className={styles.servicesSection}>
       <article className={styles.servicesInsideSection}>
         <ServicesBackground className={styles.servicesBackground} />
+        <HoverBorderSvg className={styles.hoverBorder} />
 
         <ServicesHoverElement 
           index="01" 

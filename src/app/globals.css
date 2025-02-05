@@ -82,6 +82,10 @@ a {
   max-width: 400px;
   max-height: 400px;
 }
+.servicesHoverBorderSvg {
+  max-width: 1000px;
+  max-height: 700px;
+}
 
 .servicesHoverElement {
   color: #F1F1F1;
