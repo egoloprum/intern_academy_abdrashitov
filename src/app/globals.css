@@ -78,3 +78,79 @@ a {
   max-width: 1363px;
   max-height: 965px;
 }
+.servicesBackgroundSvg {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.servicesHoverElement {
+  color: #F1F1F1;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  padding: 0 30px;
+}
+.servicesHoverElement:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  opacity: 1;
+}
+.servicesHoverElement:hover > section {
+  opacity: 1;
+}
+
+.servicesHoverElement > section {
+  max-width: 375px;
+  max-height: 250px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  opacity: 0;
+}
+
+.servicesHoverElement > section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.servicesHoverElement > section > span {
+  font-size: 16px;
+}
+.servicesHoverElement > section > div > h1 {
+  font-size: 32px;
+  font-weight: 500;
+  max-width: 220px;
+  letter-spacing: -2px;
+}
+.servicesHoverElement > section > div > p {
+  font-size: 16px;
+  letter-spacing: -0.6px;
+}
+
+@media (max-width: 1000px) { 
+  .servicesHoverElement {
+    padding: 0;
+  }
+  .servicesHoverElement:nth-child(odd) {
+    justify-content: left;
+  }
+  .servicesHoverElement:nth-child(even) {
+    justify-content: right;
+  }
+  .servicesHoverElement > section {
+    opacity: 1;
+    gap: 24px;
+  }
+  .servicesHoverElement > section > div {
+    gap: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .servicesHoverElement > section {
+    gap: 18px;
+  }
+}
