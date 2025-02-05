@@ -1,5 +1,6 @@
 .about {
-  min-height: 95vh;
+  /* min-height: 95vh; */
+  height: max-content;
   display: flex;
   gap: 40px;
 }
@@ -55,6 +56,9 @@
     max-width: 100%;
     font-size: 60px;
   }
+  .textImageContainer svg {
+    padding-top: 40px;
+  }
 }
 @media (max-width: 500px) {
   .about {
@@ -62,5 +66,8 @@
   }
   .textTitle {
     font-size: 40px;
+  }
+  .textImageContainer svg {
+    padding-top: 30px;
   }
 }

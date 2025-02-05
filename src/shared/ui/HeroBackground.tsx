@@ -6,7 +6,7 @@ interface HeroBackgroundProps {
 
 const HeroBackground: FC<HeroBackgroundProps> = ({className}) => {
   return (
-    <svg className={className} width="1363" height="965" viewBox="0 0 1363 965" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={`${className} heroBackgroundSvg`} width="100%" height="100%" viewBox="0 0 1363 965" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_dddddf_0_1)">
         <path d="M253.17 503.519C221.187 487.92 162.374 474.963 128.728 486.548C95.0819 498.133 67.4163 522.61 51.817 554.593C36.2178 586.576 33.9627 623.446 45.5479 657.092C57.1331 690.738 103.553 729.106 135.536 744.705C117.14 661.306 175.885 548.372 253.17 503.519Z" fill="url(#paint0_linear_0_1)"/>
         <path d="M131.658 495.058C146.378 489.989 167.726 490.064 190.122 493.722C205.633 496.255 220.981 500.395 233.969 505.174C199.731 529.365 170.287 565.75 150.417 605.644C130.928 644.772 120.198 688.199 123.843 727.821C112.412 720.627 100.161 711.363 88.999 701.054C72.3288 685.658 59.1261 668.882 54.0576 654.162C43.2495 622.773 45.3533 588.376 59.9062 558.538C74.4591 528.7 100.269 505.866 131.658 495.058Z" stroke="#6B71EB" strokeWidth="18"/>

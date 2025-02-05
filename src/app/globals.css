@@ -69,3 +69,12 @@ a {
   position: absolute;
   bottom: 0;
 }
+
+.aboutImageSvg {
+  max-width: 616px;
+  max-height: 524px;
+}
+.heroBackgroundSvg {
+  max-width: 1363px;
+  max-height: 965px;
+}

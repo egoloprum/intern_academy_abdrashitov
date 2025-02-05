@@ -49,18 +49,23 @@
 
 @media (max-width: 1000px) {
   .hero {
-    min-height: 85vh;
+    min-height: 90vh;
   }
   .heroTitle {
     font-size: 100px;
   }
 }
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 90px;
+  }
+}
 @media (max-width: 500px) {
   .hero {
-    min-height: 75vh;
+    min-height: 85vh;
   }
   .heroTitle {
-    font-size: 80px;
+    font-size: 75px;
   }
 }
 
