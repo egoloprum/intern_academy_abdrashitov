@@ -5,6 +5,7 @@ import { About } from "@/features/About";
 import { Services } from "@/features/Services";
 import { Portfolio } from "@/features/Portfolio";
 import { Testimonials } from "@/features/Testimonials";
+import { Footer } from "@/features/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Services />
         <Portfolio />
         <Testimonials />
+        <Footer />
       </main>
     </>
   );
