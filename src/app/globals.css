@@ -9,7 +9,6 @@ body {
 }
 
 body {
-  /* color: var(--foreground); */
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 40px;
@@ -28,46 +27,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.descriptionCard {
-  background: url('../../public/borderFrame.svg') no-repeat center center;
-  width: 240px;
-  height: 276px;
-  position: relative;
-}
-.descriptionCardText {
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.descriptionCardText h1 {
-  font-size: 18px;
-  letter-spacing: -1.2px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.descriptionCardText p {
-  font-size: 16px;
-  font-weight: 400;
-}
-.descriptionCardTop {
-  width: 240px;
-  height: 190px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
-.descriptionCardBottom {
-  width: 240px;
-  height: 85px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
 }
 
 .aboutImageSvg {
@@ -91,74 +50,23 @@ a {
   max-height: 365px;
 }
 
-.servicesHoverElement {
-  color: #F1F1F1;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-  padding: 0 30px;
-}
-.servicesHoverElement:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px);
-  opacity: 1;
-}
-.servicesHoverElement:hover > section {
-  opacity: 1;
-}
 
-.servicesHoverElement > section {
-  max-width: 375px;
-  max-height: 250px;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  opacity: 0;
-}
-
-.servicesHoverElement > section > div {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.servicesHoverElement > section > span {
-  font-size: 16px;
-}
-.servicesHoverElement > section > div > h1 {
-  font-size: 32px;
-  font-weight: 500;
-  max-width: 220px;
-  letter-spacing: -2px;
-}
-.servicesHoverElement > section > div > p {
-  font-size: 16px;
-  letter-spacing: -0.6px;
+.bigTextSize {
+  font-size: 80px;
 }
 
 @media (max-width: 1000px) { 
-  .servicesHoverElement {
-    padding: 0;
+  .bigTextSize {
+    font-size: 60px;
   }
-  .servicesHoverElement:nth-child(odd) {
-    justify-content: left;
-  }
-  .servicesHoverElement:nth-child(even) {
-    justify-content: right;
-  }
-  .servicesHoverElement > section {
-    opacity: 1;
-    gap: 24px;
-  }
-  .servicesHoverElement > section > div {
-    gap: 12px;
+}
+@media (max-width: 768px) {
+  .bigTextSize {
+    font-size: 50px;
   }
 }
 @media (max-width: 500px) {
-  .servicesHoverElement > section {
-    gap: 18px;
+  .bigTextSize {
+    font-size: 40px;
   }
 }

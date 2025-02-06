@@ -1,17 +1,16 @@
-import NavLink from '@/shared/ui/NavLink'
 import styles from "../styles/header.module.css"
-import ArrowUp from '@/shared/ui/ArrowUp'
+import Arrow from '@/shared/ui/Arrow'
 
 export const HeaderNavigation = ({}) => {
   return (
     <nav className={styles.headerNav}>
-      <NavLink>ABOUT</NavLink>
-      <NavLink>SERVICES</NavLink>
-      <NavLink>PORTFOLIO</NavLink>
-      <NavLink className={styles.navContact}>
+      <p>ABOUT</p>
+      <p>SERVICES</p>
+      <p>PORTFOLIO</p>
+      <p className={styles.navContact}>
         <span>LET&apos;S TALK</span>
-        <ArrowUp params='18' />
-      </NavLink>
+        <Arrow params='18' />
+      </p>
     </nav>
   )
 }

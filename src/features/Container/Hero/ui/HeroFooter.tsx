@@ -1,14 +1,14 @@
+import Arrow from "@/shared/ui/Arrow"
 import styles from "../styles/hero.module.css"
-import ArrowDown from '@/shared/ui/ArrowDown'
 
 const HeroFooter = ({}) => {
   return (
     <section className={styles.heroFooter}>
-      <p className={styles.heroFooterLeft}>BOLD VISIONS. PRECISE EXECUTION</p>
-      <p className={styles.heroFooterMiddle}>{}</p>
-      <p className={styles.heroFooterRight}>
+      <p>BOLD VISIONS. PRECISE EXECUTION</p>
+      <p>{}</p>
+      <p>
         <span>DISCOVER OUR WORK</span>
-        <ArrowDown />
+        <Arrow params="16" />
       </p>
     </section>
   )

@@ -1,7 +1,7 @@
-import ArrowDown from "@/shared/ui/ArrowDown"
 import styles from "./styles/testimonials.module.css"
 import List from "./ui/List"
 import Title from "./ui/Title"
+import Arrow from "@/shared/ui/Arrow"
 
 export const Testimonials = ({}) => {
   return (
@@ -10,7 +10,7 @@ export const Testimonials = ({}) => {
       <List />
       <p>
         <span>See more</span>
-        <ArrowDown height="24" width="24" />
+        <Arrow params="24" />
       </p>
     </article>
   )

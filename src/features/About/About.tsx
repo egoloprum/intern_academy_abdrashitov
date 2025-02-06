@@ -1,14 +1,14 @@
 import { Description } from './ui/Description'
 import styles from './styles/about.module.css'
 import { Title } from './ui/Title'
-import { ImageContainer } from './ui/ImageContainer'
+import AboutSvg from '@/shared/ui/svgs/AboutSvg'
 
 export const About = ({}) => {
   return (
     <article className={styles.about}>
       <section className={styles.aboutText}>
         <Title />
-        <ImageContainer />
+        <AboutSvg className={styles.textImageContainer} />
       </section>
 
       <section className={styles.aboutDescription}>

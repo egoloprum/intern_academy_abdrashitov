@@ -1,7 +1,6 @@
 .portfolio {
   min-height: 95vh;
   position: relative;
-
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -20,14 +19,13 @@
   gap: 24px;
   color: #f1f1f1;
 }
-.titleHeader {
-  font-size: 80px;
+.portfolioTitle > p:first-child {
   font-weight: 500;
   text-transform: uppercase;
   flex-basis: 50%;
   flex-grow: 1;
 }
-.titleParam {
+.portfolioTitle > p:last-child {
   font-size: 24px;
   text-transform: uppercase;
   flex-basis: 50%;
@@ -68,7 +66,6 @@
 .listOrder {
   display: flex;
   flex-direction: column;
-  
   flex-basis: 50%;
   color: #f1f1f1;
 }
@@ -95,10 +92,13 @@
   font-size: 24px;
 }
 
-@media (max-width: 1000px) {
-  .titleHeader {
-    font-size: 60px;
+@media (max-width: 1200px) {
+  .portfolio {
+    min-height: 85vh;
   }
+}
+
+@media (max-width: 1000px) {
   .portfolioList {
     flex-direction: column;
   }
@@ -120,9 +120,6 @@
 }
 
 @media (max-width: 500px) {
-  .titleHeader {
-    font-size: 40px;
-  }
   .listImage > p {
     font-size: 24px;
   }

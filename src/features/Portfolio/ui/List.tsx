@@ -1,6 +1,6 @@
 "use client"
 
-import PortfolioHoverElement from "@/shared/ui/elements/PortfolioHoverElement"
+import PortfolioHoverElement from "@/features/Portfolio/ui/PortfolioHoverElement"
 import styles from "../styles/portfolio.module.css"
 import PortfolioOddSvg from "@/shared/ui/svgs/PortfolioOddSvg"
 import PortfolioEvenSvg from "@/shared/ui/svgs/PortfolioEvenSvg"
@@ -27,13 +27,7 @@ const List = ({}) => {
           backgroundPosition: 'center'
         }}  
       >
-        <p
-          style={{
-            opacity: hoverIndex === 0 ? '1' : '0'
-          }}
-        >
-          hover on the list
-        </p>
+        <p style={{ opacity: hoverIndex === 0 ? '1' : '0' }}>hover on the list</p>
       </section>
       <section className={styles.listOrder}>
         <PortfolioHoverElement keyIndex={1} setHoverIndex={setHoverIndex} index="01" text="CASPIAN FOREST" barCode={<PortfolioOddSvg />} />

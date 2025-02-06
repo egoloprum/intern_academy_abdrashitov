@@ -1,9 +1,9 @@
+import Image from "next/image"
 import styles from "./styles/hero.module.css"
 import HeroText from './ui/HeroText'
 import HeroTitle from './ui/HeroTitle'
-import HeroBarCode from '@/shared/ui/barCodes/HeroBarCode'
 import HeroFooter from './ui/HeroFooter'
-import HeroBackground from '@/shared/ui/HeroBackground'
+import HeroBarCode from '@/shared/ui/barCodes/HeroBarCode'
 
 export const Hero = ({}) => {
   return (
@@ -11,7 +11,7 @@ export const Hero = ({}) => {
       <HeroText />
       <HeroTitle />
       <HeroBarCode className={styles.heroBarCode} />
-      <HeroBackground className={styles.heroBackground} />
+      <Image src={"/heroImage.png"} layout="fill" alt="hero-image" />
       <HeroFooter />
     </article>
   )

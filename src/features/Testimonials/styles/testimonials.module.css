@@ -1,7 +1,6 @@
 .testimonials {
   min-height: 95vh;
   margin-inline: 40px;
-
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -18,21 +17,23 @@
   font-size: 24px;
   text-transform: uppercase;
 }
+.testimonials > *:last-child > svg {
+  transform: rotate(135deg);
+}
+
 .testTitle {
   color: #f1f1f1;
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
-}
-.titleHeader {
-  font-size: 80px;
   text-align: center;
+}
+.testTitle > p:first-child {
   letter-spacing: -2px;
 }
-.titleParam {
+.testTitle > p:last-child {
   font-size: 24px;
-  text-align: center;
   max-width: 850px;
 }
 
@@ -79,9 +80,20 @@
   font-size: 14px;
 }
 
+@media (min-width: 1400px) {
+  .testimonials {
+    min-height: 100%;
+  }
+}
 @media (max-width:1350px) {
   .listOrder {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1000px) {
+  .testTitle {
+    align-items: start;
+    text-align: start;
   }
 }
 @media (max-width: 920px) {
@@ -89,21 +101,8 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media (min-width: 1400px) {
-  .testimonials {
-    min-height: 100%;
-  }
-}
-@media (max-width: 1000px) {
-  .titleHeader {
-    font-size: 60px;
-  }
-}
 
 @media (max-width: 500px) {
-  .titleHeader {
-    font-size: 40px;
-  }
   .listCard {
     background: none;
     display: flex;

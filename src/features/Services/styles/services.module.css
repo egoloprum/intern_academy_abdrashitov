@@ -13,18 +13,16 @@
   align-items: center;
   flex-direction: column;
   gap: 24px;
+  text-align: center;
 }
-.servicesTitle h1 {
-  font-size: 80px;
+.servicesTitle > p:first-child {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: -2px;
-  text-align: center;
   max-width: 850px;
 }
-.servicesTitle p {
+.servicesTitle > p:last-child {
   font-size: 24px;
-  text-align: center;
   text-transform: uppercase;
   letter-spacing: -1.4px;
   max-width: 850px;
@@ -51,19 +49,64 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
+.servicesHoverElement {
+  color: #F1F1F1;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  padding: 0 30px;
+  height: 350px;
+}
+.servicesHoverElement:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  opacity: 1;
+}
+.servicesHoverElement:hover > section {
+  opacity: 1;
+}
+.servicesHoverElement > section {
+  max-width: 375px;
+  max-height: 250px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  opacity: 0;
+}
+.servicesHoverElement > section > p:first-child {
+  font-size: 16px;
+}
+.servicesHoverElement > section > p:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.servicesHoverElement > section > p:last-child > span:first-child {
+  font-size: 32px;
+  font-weight: 500;
+  max-width: 220px;
+  letter-spacing: -2px;
+}
+.servicesHoverElement > section > p:last-child > span:last-child {
+  font-size: 16px;
+  letter-spacing: -0.6px;
+}
+
 .servicesInsideSection > *:nth-child(2n + 1) > section {
   text-align: right;
 }
-.servicesInsideSection > *:nth-child(2n + 1) > section > div > p, 
-.servicesInsideSection > *:nth-child(2n + 1) > section > div > h1 {
+.servicesInsideSection > *:nth-child(2n + 1) > section > p:last-child > span {
   align-self: flex-end;
 }
 
 .servicesInsideSection > *:nth-child(2n) > section {
   text-align: left;
 }
-.servicesInsideSection > *:nth-child(2n) > section > div > p, 
-.servicesInsideSection > *:nth-child(2n) > section > div > h1 {
+.servicesInsideSection > *:nth-child(2n) > section > p:last-child > span {
   align-self: flex-start;
 }
 
@@ -94,12 +137,14 @@
 }
 
 @media (max-width: 1000px) {
+  .servicesTitle {
+    text-align: start;
+    align-items: start;
+  }
+
   .servicesSection {
     padding: 0 0;
     max-height: 100%;
-  }
-  .servicesTitle h1 {
-    font-size: 60px;
   }
   .servicesInsideSection {
     max-height: fit-content;
@@ -115,10 +160,28 @@
   .servicesInsideSection > * {
     opacity: 1;
   }
+
+  .servicesHoverElement {
+    padding: 0;
+    height: auto;
+  }
+  .servicesHoverElement:nth-child(odd) {
+    justify-content: left;
+  }
+  .servicesHoverElement:nth-child(even) {
+    justify-content: right;
+  }
+  .servicesHoverElement > section {
+    opacity: 1;
+    gap: 24px;
+  }
+  .servicesHoverElement > section > p {
+    gap: 12px;
+  }
 }
 
 @media (max-width: 500px) {
-  .servicesTitle h1 {
-    font-size: 40px;
+  .servicesHoverElement > section {
+    gap: 18px;
   }
 }

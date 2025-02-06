@@ -12,70 +12,33 @@
 }
 
 .heroText {
-  --text-color: #F1F1F1;
-  color: var(--text-color);
-
+  color: #F1F1F1;
   display: flex;
   flex-direction: column;
   gap: 8px;
   max-width: 250px;
 }
-
-.heroTextTop {
+.heroText > p:first-child {
   font-size: 24px;
   letter-spacing: -1.44px;
 }
-
-.heroTextBottom {
+.heroText > p:last-child {
   font-size: 16px;
   opacity: 80%;
 }
 
 .heroTitle {
-  --text-color: #F1F1F1;
-  color: var(--text-color);
+  color: #F1F1F1;
   font-size: 140px;
   letter-spacing: -4px;
   text-align: center;
-
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   max-width: 900px;
   width: 100%;
   z-index: 10;
-}
-
-@media (max-width: 1000px) {
-  .hero {
-    min-height: 90vh;
-  }
-  .heroTitle {
-    font-size: 100px;
-  }
-}
-@media (max-width: 768px) {
-  .heroTitle {
-    font-size: 90px;
-  }
-}
-@media (max-width: 500px) {
-  .hero {
-    min-height: 85vh;
-  }
-  .heroTitle {
-    font-size: 75px;
-  }
-}
-
-.heroBackground {
-  position: absolute;
-  max-height: 100vh;
-  top: 0;
-  width: 100%;
-  z-index: 0;
 }
 
 .heroFooter {
@@ -88,34 +51,56 @@
   position: absolute;
   bottom: 0;
 }
-
-@media (max-width: 768px) {
-  .heroFooter {
-    flex-direction: column;
-  }
-}
-
-.heroFooterLeft {
+.heroFooter > p:first-child {
   font-size: 16px;
   color: #F1F1F1;
   text-wrap: nowrap;
 }
-
-.heroFooterMiddle {
+.heroFooter > p:nth-child(2) {
   border-top: 1px solid #fff;
   width: 100%;
 }
-
-.heroFooterRight {
+.heroFooter > p:last-child {
   font-size: 16px;
   color: #F1F1F1;
   text-wrap: nowrap;
   cursor: pointer;
-
   border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 18px 24px;
-
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.heroFooter > p:last-child > svg {
+  transform: rotate(135deg);
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 85vh;
+  }
+  .heroTitle {
+    font-size: 100px;
+    letter-spacing: -3px;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+  }
+  .heroTitle {
+    font-size: 75px;
+    letter-spacing: -2px;
+  }
+  .heroFooter {
+    flex-direction: column;
+  }
+}
+@media (max-width: 500px) {
+  .hero {
+    min-height: 75vh;
+  }
+  .heroTitle {
+    font-size: 60px;
+  }
 }

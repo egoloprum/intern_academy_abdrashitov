@@ -1,4 +1,4 @@
-import TestimonialCard from "@/shared/ui/TestimonialCard"
+import TestimonialCard from "@/features/Testimonials/ui/TestimonialCard"
 import styles from "../styles/testimonials.module.css"
 
 const List = ({}) => {
