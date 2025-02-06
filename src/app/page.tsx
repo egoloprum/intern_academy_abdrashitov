@@ -4,6 +4,7 @@ import styles from "./page.module.css"
 import { About } from "@/features/About";
 import { Services } from "@/features/Services";
 import { Portfolio } from "@/features/Portfolio";
+import { Testimonials } from "@/features/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <About />
         <Services />
         <Portfolio />
+        <Testimonials />
       </main>
     </>
   );
