@@ -1,0 +1,132 @@
+.portfolio {
+  min-height: 95vh;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.portfolioSvg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.portfolioTitle {
+  margin-inline: 40px;
+  display: flex;
+  gap: 24px;
+  color: #f1f1f1;
+}
+.titleHeader {
+  font-size: 80px;
+  font-weight: 500;
+  text-transform: uppercase;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+.titleParam {
+  font-size: 24px;
+  text-transform: uppercase;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.portfolioList {
+  margin-inline: 40px;
+  height: 100%;
+
+  display: flex;
+  gap: 24px;
+  flex-grow: 1;
+}
+
+.listImage {
+  min-height: 400px;
+  flex-grow: 1;
+  flex-basis: 50%;
+  position: relative;
+  z-index: 10;
+  box-shadow: inset -9px 10px 60px 0 rgba(255, 255, 255, 0.4);
+}
+.listImage > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(-20deg);
+
+  color: #f1f1f1;
+  font-size: 56px;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 285px;
+  letter-spacing: -2px;
+}
+
+.listOrder {
+  display: flex;
+  flex-direction: column;
+  
+  flex-basis: 50%;
+  color: #f1f1f1;
+}
+.listOrder > * {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 24px;
+  padding: 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(241, 241, 241, 0.2);
+}
+.listOrder > *:last-child {
+  border-bottom: 1px solid rgba(241, 241, 241, 0.2);
+}
+.listOrder > *:hover {
+  background: #111111;
+}
+.listOrder > * > p {
+  display: flex;
+  gap: 24px;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+@media (max-width: 1000px) {
+  .titleHeader {
+    font-size: 60px;
+  }
+  .portfolioList {
+    flex-direction: column;
+  }
+  .listImage {
+    flex-grow: 3;
+  }
+  .listImage > p {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolioTitle {
+    flex-direction: column;
+  }
+  .listOrder > * > p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .titleHeader {
+    font-size: 40px;
+  }
+  .listImage > p {
+    font-size: 24px;
+  }
+  .listOrder > * > svg {
+    display: none;
+  }
+}

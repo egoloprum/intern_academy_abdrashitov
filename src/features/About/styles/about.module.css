@@ -3,6 +3,7 @@
   height: max-content;
   display: flex;
   gap: 40px;
+  margin-inline: 40px;
 }
 
 .aboutText {

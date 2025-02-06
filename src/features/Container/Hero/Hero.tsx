@@ -1,7 +1,7 @@
 import styles from "./styles/hero.module.css"
 import HeroText from './ui/HeroText'
 import HeroTitle from './ui/HeroTitle'
-import HeroBarCode from '@/shared/ui/HeroBarCode'
+import HeroBarCode from '@/shared/ui/barCodes/HeroBarCode'
 import HeroFooter from './ui/HeroFooter'
 import HeroBackground from '@/shared/ui/HeroBackground'
 

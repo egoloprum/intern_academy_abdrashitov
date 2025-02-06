@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import DescriptionBarCode from './logo/DescriptionBarCode'
+import DescriptionBarCode from './barCodes/DescriptionBarCode'
 
 interface DescriptionCardProps {
   image: ReactNode

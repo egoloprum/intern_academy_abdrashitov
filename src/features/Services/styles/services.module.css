@@ -1,9 +1,10 @@
 .services {
-  min-height: 125vh;
+  min-height: 100vh;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-inline: 40px;
 }
 
 .servicesTitle {
@@ -50,19 +51,19 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-.servicesInsideSection > *:nth-child(2n) > section {
-  text-align: right;
-}
-.servicesInsideSection > *:nth-child(2n) > section > div > p, 
-.servicesInsideSection > *:nth-child(2n) > section > div > h1 {
-  align-self: flex-end;
-}
-
 .servicesInsideSection > *:nth-child(2n + 1) > section {
-  text-align: left;
+  text-align: right;
 }
 .servicesInsideSection > *:nth-child(2n + 1) > section > div > p, 
 .servicesInsideSection > *:nth-child(2n + 1) > section > div > h1 {
+  align-self: flex-end;
+}
+
+.servicesInsideSection > *:nth-child(2n) > section {
+  text-align: left;
+}
+.servicesInsideSection > *:nth-child(2n) > section > div > p, 
+.servicesInsideSection > *:nth-child(2n) > section > div > h1 {
   align-self: flex-start;
 }
 

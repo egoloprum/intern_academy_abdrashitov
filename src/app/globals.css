@@ -12,7 +12,7 @@ body {
   /* color: var(--foreground); */
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  padding: 40px;
+  padding-block: 40px;
 
   display: flex;
   flex-direction: column;
@@ -75,8 +75,8 @@ a {
   max-height: 524px;
 }
 .heroBackgroundSvg {
-  max-width: 1363px;
-  max-height: 965px;
+  max-width: 100%;
+  max-height: 100%;
 }
 .servicesBackgroundSvg {
   max-width: 400px;
@@ -85,6 +85,10 @@ a {
 .servicesHoverBorderSvg {
   max-width: 1000px;
   max-height: 700px;
+}
+.portfolioSvg {
+  max-width: 217px;
+  max-height: 365px;
 }
 
 .servicesHoverElement {

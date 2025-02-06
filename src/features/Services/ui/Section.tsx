@@ -1,7 +1,7 @@
 import ServicesBackground from '@/shared/ui/ServicesBackground'
 import styles from '../styles/services.module.css'
-import ServicesHoverElement from '@/shared/ui/ServicesHoverElement'
-import HoverBorderSvg from '@/shared/ui/HoverBorderSvg'
+import ServicesHoverElement from '@/shared/ui/elements/ServicesHoverElement'
+import HoverBorderSvg from '@/shared/ui/svgs/HoverBorderSvg'
 
 const Section = ({}) => {
   return (
