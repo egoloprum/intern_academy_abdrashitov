@@ -5,6 +5,7 @@ import styles from "../styles/portfolio.module.css"
 import PortfolioOddSvg from "@/shared/ui/svgs/PortfolioOddSvg"
 import PortfolioEvenSvg from "@/shared/ui/svgs/PortfolioEvenSvg"
 import { useState } from "react"
+import Image from "next/image"
 
 const List = ({}) => {
   const [hoverIndex, setHoverIndex] = useState<number>(0)
@@ -19,14 +20,10 @@ const List = ({}) => {
 
   return (
     <section className={styles.portfolioList}>
-      <section 
-        className={styles.listImage}
-        style={{
-          backgroundImage: hoverIndex > 0 ? `url(${images[hoverIndex]})` : 'none',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}  
-      >
+      <section className={styles.listImage}>
+        { images[hoverIndex] !== null ? (
+          <Image src={images[hoverIndex]} objectFit="contain" layout="fill" alt={`${images[hoverIndex]}`} />
+        ) : null }
         <p style={{ opacity: hoverIndex === 0 ? '1' : '0' }}>hover on the list</p>
       </section>
       <section className={styles.listOrder}>

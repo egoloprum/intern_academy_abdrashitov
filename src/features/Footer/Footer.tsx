@@ -7,7 +7,7 @@ import FooterLinks from "./ui/FooterLinks"
 export const Footer = ({}) => {
   return (
     <footer className={styles.footer}>
-      <Image src="/footerImage.png" layout="fill"  alt="" />
+      <Image src="/footerImage.png" layout="fill" objectFit="contain" alt="" />
       <FooterLinks />
       <Contact />
       <Copyright />

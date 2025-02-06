@@ -11,7 +11,7 @@ export const Hero = ({}) => {
       <HeroText />
       <HeroTitle />
       <HeroBarCode className={styles.heroBarCode} />
-      <Image src={"/heroImage.png"} layout="fill" alt="hero-image" />
+      <Image src={"/heroImage.png"} layout="fill" objectFit="contain" alt="hero-image" />
       <HeroFooter />
     </article>
   )
