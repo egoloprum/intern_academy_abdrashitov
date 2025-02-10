@@ -1,0 +1,117 @@
+:root {
+  --primary-main: rgba(151, 71, 255, 1);
+  --primary-hover: rgba(134, 40, 255, 1);
+  --primary-active: rgba(122, 19, 255, 1);
+
+  --secondary-main: rgba(151, 71, 255, 0.06);
+  --secondary-hover: rgba(134, 40, 255, 0.1);
+  --secondary-active: rgba(122, 19, 255, 0.14);
+
+  --clear-main: #fff;
+  --clear-hover: #fff;
+  --clear-active: #fff;
+
+  --critical-main: rgba(229, 69, 69, 1);
+  --critical-hover: rgba(229, 46, 46, 1);
+  --critical-active: rgba(229, 23, 23, 1);
+
+  --critical-secondary-main: rgba(229, 69, 69, 0.06);
+  --critical-secondary-hover: rgba(229, 69, 69, 0.1);
+  --critical-secondary-active: rgba(229, 69, 69, 0.14);
+
+  --text-primary-main: rgba(255, 255, 255, 1);
+  --text-primary-hover: rgba(255, 255, 255, 1);
+  --text-primary-active: rgba(255, 255, 255, 1);
+
+  --text-secondary-main: rgba(151, 71, 255, 1);
+  --text-secondary-hover: rgba(151, 71, 255, 1);
+  --text-secondary-active: rgba(151, 71, 255, 1);
+
+  --text-clear-main: rgba(151, 71, 255, 1);
+  --text-clear-hover: rgba(134, 40, 255, 1);
+  --text-clear-active: rgba(122, 19, 255, 1);
+
+  --text-critical-main: #fff;
+  --text-critical-hover: #fff;
+  --text-critical-active: #fff;
+
+  --text-critical-secondary-main: rgba(229, 69, 69, 1);
+  --text-critical-secondary-hover: rgba(229, 46, 46, 1);
+  --text-critical-secondary-active: rgba(229, 23, 23, 1);
+}
+
+.large-button {
+  max-width: 191px;
+  max-height: 48px;
+  padding: 16px 18px;
+  font-size: 16px;
+}
+.large-mini-button {
+  width: 48px;
+  height: 48px;
+}
+
+.medium-button {
+  max-width: 183px;
+  max-height: 40px;
+  padding: 16px;
+  font-size: 14px;
+}
+.medium-mini-button {
+  width: 40px;
+  height: 40px;
+}
+
+.small-button {
+  max-width: 141px;
+  max-height: 32px;
+  padding: 14px 16px;
+  font-size: 12px;
+}
+.small-mini-button {
+  width: 32px;
+  height: 32px;
+}
+
+.xs-button {
+  max-width: 100px;
+  max-height: 24px;
+  padding: 12px 16px;
+  font-size: 10px;
+}
+.xs-mini-button {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.button {
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-wrap: nowrap;
+}
+
+.disabled {
+  background: rgba(8, 9, 28, 0.08);
+  color: rgba(8, 9, 28, 0.36);
+  cursor: default;
+}
+
+.border-rounded-button {
+  border-radius: 64px;
+}
+
+span {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
