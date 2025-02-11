@@ -3,6 +3,7 @@
   --border-color: rgba(8, 9, 28, 0.08);
 
   --disabled-text-color: rgba(8, 9, 28, 0.36); 
+  --error-text-color: rgba(229, 69, 69, 1);
 
   --top-label-color: rgba(8, 9, 28, 0.6);
   --bottom-label-color: rgba(8, 9, 28, 1);
@@ -38,6 +39,9 @@
 }
 .input-hover-container {
   background: var(--border-color);
+}
+.input-error-container {
+  outline: 1px solid var(--error-text-color);
 }
 
 .border-rounded-container {
@@ -128,4 +132,7 @@
 
 .text-disabled {
   color: var(--disabled-text-color);
+}
+.text-error {
+  color: var(--error-text-color);
 }
