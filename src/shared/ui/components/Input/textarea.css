@@ -1,0 +1,116 @@
+:root {
+  --primary-active: rgba(122, 19, 255, 1);
+  --border-color: rgba(8, 9, 28, 0.08);
+
+  --disabled-text-color: rgba(8, 9, 28, 0.36); 
+  --error-text-color: rgba(229, 69, 69, 1);
+
+  --top-label-color: rgba(8, 9, 28, 0.6);
+  --bottom-label-color: rgba(8, 9, 28, 1);
+
+  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
+}
+
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  max-width: 340px;
+  font-family: var(--fontFamilyMain);
+}
+
+.textarea {
+  max-width: 340px;
+  width: 100%;
+  min-height: 80px;
+  outline: none;
+  padding: 18px 4px 18px 14px;
+
+  resize: none;
+  
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) #fff;
+}
+.textarea-active {
+  outline: 1px solid var(--primary-active);
+}
+.textarea-hover {
+  background: var(--border-color);
+}
+.textarea-error {
+  color: var(--error-text-color);
+  outline: 1px solid var(--error-text-color);
+}
+.textarea:disabled {
+  background: var(--border-color);
+}
+
+.textarea::placeholder {
+  text-transform: capitalize;
+}
+.border-rounded-textarea {
+  border-radius: 64px;
+}
+
+.large-textarea {
+  font-size: 16px;
+}
+.medium-textarea {
+  font-size: 14px;
+}
+.small-textarea {
+  font-size: 12px;
+}
+.xSmall-textarea {
+  font-size: 10px;
+}
+
+.top-label {
+  color: var(--top-label-color);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.top-large-label {
+  font-size: 16px;
+}
+.top-medium-label {
+  font-size: 14px;
+}
+.top-small-label {
+  font-size: 14px;
+}
+.top-xSmall-label {
+  font-size: 12px;
+}
+
+.bottom-label {
+  color: var(--bottom-label-color);
+  font-weight: 400;
+}
+.bottom-large-label {
+  font-size: 12px;
+}
+.bottom-medium-label {
+  font-size: 12px;
+}
+.bottom-small-label {
+  font-size: 10px;
+}
+.bottom-xSmall-label {
+  font-size: 10px;
+}
+
+.text-disabled {
+  color: var(--disabled-text-color);
+}
+.text-error {
+  color: var(--error-text-color);
+}
