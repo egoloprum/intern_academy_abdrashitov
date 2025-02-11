@@ -1,9 +1,9 @@
 import type { StoryObj } from '@storybook/react';
-import Button from './Button';
+import FileUploader from './FileUploader';
 
 const meta = {
-  component: Button,
-  title: 'Button/Button',
+  component: FileUploader,
+  title: 'File Upload/FileUploader',
   tags: ['autodocs'],
   excludeStories: /.*Data$/,
 }
@@ -11,8 +11,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const OnHover: Story = {
-  args: {
-    label: 'Button',
-  },
+export const OnTest: Story = {
+  args: {}
 };
