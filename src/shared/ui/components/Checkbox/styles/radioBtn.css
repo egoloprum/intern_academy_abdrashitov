@@ -1,0 +1,97 @@
+:root {
+  --disabled-color: rgba(8, 9, 28, 0.36);
+
+  --default-color: rgba(151, 71, 255, 1);
+  --hover-color: rgba(134, 40, 255, 1);
+  --active-color: rgba(122, 19, 255, 1);
+
+}
+
+.radioBtn {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  outline: 1px solid var(--default-color);
+  border-radius: 50%;
+  margin: 0;
+
+  position: relative;
+  cursor: pointer;
+}
+
+.radioBtn::before {
+  position: absolute;
+  top: 50%;
+  left: 50.1%;
+
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: var(--default-color);
+}
+.radioBtn:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radioBtn:hover {
+  outline-color: var(--hover-color);
+  
+}
+.radioBtn:hover::before {
+  background-color: var(--hover-color);
+}
+
+.radioBtn:active {
+  outline-color: var(--active-color);
+}
+.radioBtn:active::before {
+  background-color: var(--active-color);
+}
+
+.radioBtn:disabled {
+  cursor: default;
+  outline-color: var(--disabled-color);
+}
+.radioBtn:disabled::before {
+  background-color: var(--disabled-color);
+}
+
+.radioBtn-large {
+  width: 20px;
+  height: 20px;
+}
+.radioBtn-large::before {
+  width: 13.5px;
+  height: 13.5px;
+}
+
+.radioBtn-medium {
+  width: 18px;
+  height: 18px;
+}
+.radioBtn-medium::before {
+  width: 11.5px;
+  height: 11.5px;
+}
+
+.radioBtn-small {
+  width: 16px;
+  height: 16px;
+}
+.radioBtn-small::before {
+  width: 10px;
+  height: 10px;
+}
+
+.radioBtn-xSmall {
+  width: 14px;
+  height: 14px;
+}
+.radioBtn-xSmall::before {
+  width: 8px;
+  height: 8px;
+}
