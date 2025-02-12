@@ -1,0 +1,18 @@
+import { FC } from 'react'
+
+interface FileDropzoneSvgProps {
+  className?: string 
+  isClicked?: boolean
+  isDisabled?: boolean
+}
+
+const FileDropzoneSvg: FC<FileDropzoneSvgProps> = ({className, isClicked, isDisabled}) => {
+  return (
+    <svg className={className} width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd" d="M10 4.27083C8.51417 4.27083 7.19977 4.85464 6.25602 5.66856C5.4582 6.35663 4.88002 7.25177 4.73151 8.15103C2.98529 8.53658 1.66669 10.0574 1.66669 11.8939C1.66669 14.0271 3.44537 15.7292 5.60549 15.7292H14.8828C16.7733 15.7292 18.3334 14.239 18.3334 12.3674C18.3334 10.6631 17.0397 9.27511 15.381 9.0406C15.1285 6.35358 12.8024 4.27083 10 4.27083ZM12.4516 11.4099L10.3683 13.4933C10.1649 13.6967 9.83513 13.6967 9.63174 13.4933L7.5484 11.4099C7.345 11.2065 7.345 10.8768 7.5484 10.6734C7.7518 10.47 8.08157 10.47 8.28497 10.6734L9.47919 11.8676V7.91666C9.47919 7.62901 9.71237 7.39583 10 7.39583C10.2877 7.39583 10.5209 7.62901 10.5209 7.91666V11.8676L11.7151 10.6734C11.9185 10.47 12.2482 10.47 12.4516 10.6734C12.655 10.8768 12.655 11.2065 12.4516 11.4099Z" fill={isClicked ? "#7A13FF" : "#08091C"} opacity={isDisabled ? 0.36 : 1} />
+    </svg>
+
+  )
+}
+
+export default FileDropzoneSvg

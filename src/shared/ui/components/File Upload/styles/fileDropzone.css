@@ -1,0 +1,149 @@
+:root {
+  --text-purple-color: rgba(151, 71, 255, 1);
+  --text-black-color: rgba(8, 9, 28, 1);
+  --text-disabled-color: rgba(8, 9, 28, 0.36);
+
+  --border-default-color: rgba(8, 9, 28, 0.12);
+  --border-purple-color: rgba(134, 40, 255, 1);
+  --border-error-color: rgba(229, 69, 69, 1);
+
+  --svg-active-color: rgba(122, 19, 255, 1);
+  --bg-active-color: rgba(122, 19, 255, 0.08);
+  --bg-disable-color: rgba(8, 9, 28, 0.08);
+
+  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
+}
+
+.dropzone-wrapper {
+  outline: 2px dashed var(--border-default-color);
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  font-family: var(--fontFamilyMain);
+}
+.dropzone-wrapper:hover {
+  outline-color: var(--border-purple-color);
+}
+.dropzone-error-wrapper {
+  outline-color: var(--border-error-color);
+}
+.dropzone-active-wrapper {
+ background-color: var(--bg-active-color); 
+}
+.dropzone-disabled-wrapper {
+  background-color: var(--bg-disable-color);
+}
+.dropzone-disabled-wrapper:hover {
+  outline-color: var(--border-default-color);
+}
+
+.large-dropzone-wrapper {
+  max-width: 320px;
+  padding: 48px;
+}
+.medium-dropzone-wrapper {
+  max-width: 275px;
+  padding: 40px;
+}
+.small-dropzone-wrapper {
+  max-width: 230px;
+  padding: 32px;
+}
+.xs-dropzone-wrapper {
+  max-width: 190px;
+  padding: 24px;
+}
+
+.dropzone-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  position: relative;
+}
+
+.dropzone-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.dropzone-input:disabled {
+  cursor: default;
+}
+
+.dropzone-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.large-dropzone-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-dropzone-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-dropzone-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+.xs-dropzone-svg {
+  max-width: 12px;
+  max-height: 12px;
+}
+
+.dropzone-insider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropzone-button {
+  width: fit-content;
+  padding: 2px 26px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--text-purple-color);
+}
+.dropzone-error-button {
+  color: var(--border-error-color);
+}
+.dropzone-disabled-text {
+  color: var(--text-disabled-color);
+}
+
+.dropzone-text {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.large-dropzone-text {
+  max-width: 220px;
+  font-size: 16px;
+}
+.medium-dropzone-text {
+  max-width: 195px;
+  font-size: 14px;
+}
+.small-dropzone-text {
+  max-width: 170px;
+  font-size: 12px;
+}
+.xs-dropzone-text {
+  max-width: 140px;
+  font-size: 10px;
+}
+

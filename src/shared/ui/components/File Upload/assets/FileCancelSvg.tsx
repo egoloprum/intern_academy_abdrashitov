@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 interface FileCancelSvgProps {
   className?: string
