@@ -14,3 +14,9 @@ type Story = StoryObj<typeof meta>
 export const OnTest: Story = {
   args: {}
 };
+
+export const OnDisabled: Story = {
+  args: {
+    disabled: true
+  }
+};

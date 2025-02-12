@@ -15,4 +15,25 @@ export const OnTest: Story = {
   args: {
     disabled: false
   }
-};
+}
+
+export const OnRounded: Story = {
+  args: {
+    disabled: false,
+    rounded: true
+  }
+}
+
+export const OnError: Story = {
+  args: {
+    disabled: false,
+    error: true
+  }
+}
+
+export const OnDisabled: Story = {
+  args: {
+    disabled: true
+  }
+}
+

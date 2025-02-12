@@ -11,8 +11,29 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const OnHover: Story = {
+export const OnTest: Story = {
   args: {
     label: 'Button',
   },
-};
+}
+
+export const OnMini: Story = {
+  args: {
+    label: 'Button',
+    miniOrFull: true
+  },
+}
+
+export const OnRounded: Story = {
+  args: {
+    label: 'Button',
+    rounded: true
+  },
+}
+
+export const OnDisabled: Story = {
+  args: {
+    label: 'Button',
+    disabled: true
+  },
+}
