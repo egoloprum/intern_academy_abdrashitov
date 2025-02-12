@@ -47,12 +47,13 @@ const Button = ({
             : (isHovered ? `var(--text-${backgroundColor}-hover)` : `var(--text-${backgroundColor}-main)`))} 
         />
       </span>
+
       { !miniOrFull && (
         <span>
           {size} {label}
         </span>
-        
       )}
+      
       { !miniOrFull && (
         <span>
           <Right 

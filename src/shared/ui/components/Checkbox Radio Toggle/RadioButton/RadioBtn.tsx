@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, useState } from 'react'
-import './styles/radioBtn.css'
+import './radioBtn.css'
 
 interface RadioBtnProps {
   size?: 'large' | 'medium' | 'small' | 'xSmall'

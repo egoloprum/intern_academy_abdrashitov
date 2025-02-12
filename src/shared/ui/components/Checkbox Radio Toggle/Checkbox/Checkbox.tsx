@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import "./checkbox.css"
 
 interface CheckboxProps {
   size?: 'large' | 'medium' | 'small' | 'xSmall'

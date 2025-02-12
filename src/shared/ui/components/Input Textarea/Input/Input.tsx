@@ -5,7 +5,6 @@ import './input.css'
 import Left from './assets/Left'
 import Right from './assets/Right'
 
-
 interface InputProps {
   size?: 'large' | 'medium' | 'small'
   value?: string

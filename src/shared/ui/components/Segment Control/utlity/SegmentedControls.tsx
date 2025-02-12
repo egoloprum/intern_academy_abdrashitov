@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, useState, useEffect } from 'react'
-import '../styles/segment.css'
+import '../segment.css'
 
 interface SegmentedControlsProps {
   size?: 'large' | 'medium' | 'small' | 'xsmall'
@@ -19,7 +19,6 @@ const SegmentedControls: FC<SegmentedControlsProps> = ({
 
   useEffect(() => {
     const parentSelected = document.getElementById(`${elements.length}-segment-group`)
-    console.log(parentSelected?.childNodes)
     
     if (parentSelected) {
       const selectedElement = parentSelected.querySelector(`.segment-element:nth-child(${select + 2})`)

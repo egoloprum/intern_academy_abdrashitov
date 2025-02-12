@@ -1,8 +1,8 @@
 "use client"
 
 import { FC, useState } from 'react'
+import "./fileDropzone.css"
 import FileDropzoneSvg from './assets/FileDropzoneSvg'
-import "./styles/fileDropzone.css"
 
 interface FileDropzoneProps {
   size?: 'large' | 'medium' | 'small' | 'xs'

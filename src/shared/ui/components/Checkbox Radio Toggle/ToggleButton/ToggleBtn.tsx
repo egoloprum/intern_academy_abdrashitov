@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, useState } from 'react'
-import './styles/toggleBtn.css'
+import './toggleBtn.css'
 
 interface ToggleBtnProps {
   size?: 'large' | 'medium' | 'small' | 'xSmall'

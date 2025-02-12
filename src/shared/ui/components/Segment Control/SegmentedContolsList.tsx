@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import SegmentedControls from './components/SegmentedControls'
+import SegmentedControls from './utlity/SegmentedControls'
 
 interface SegmentedContolsListProps {
   size?: 'large' | 'medium' | 'small' | 'xsmall'

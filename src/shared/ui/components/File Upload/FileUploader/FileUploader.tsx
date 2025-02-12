@@ -1,9 +1,10 @@
 "use client"
 
 import { FC, useRef, useState } from 'react'
-import './styles/fileUploader.css'
+import './fileUploader.css'
 import FileUploaderSvg from './assets/FileUploaderSvg'
 import FileCancelSvg from './assets/FileCancelSvg'
+
 
 interface FileUploaderProps {
   size?: 'large' | 'medium' | 'small'
