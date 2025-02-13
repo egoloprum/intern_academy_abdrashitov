@@ -7,35 +7,45 @@ import Right from './assets/Right'
 
 interface InputProps {
   size?: 'large' | 'medium' | 'small'
-  value?: string
   rounded?: boolean
-  disabled: boolean
+  disabled?: boolean
   topLabel?: string
   bottomLabel?: string
-
   error?: boolean
+
+  className?: string
 }
 
 const Input: FC<InputProps> = ({
   size="medium",
-  value, 
   rounded,  
   disabled=false, 
   topLabel='label', 
   bottomLabel='This is a helper text',
-  error=false
+  error=false,
+  className
 }) => {
   const [onActive, setOnActive] = useState<boolean>(false)
   const [onHover, setOnHover] = useState<boolean>(false)
 
+  const [inputValue, setInputValue] = useState('')
+  const [isRotated, setIsRotated] = useState(false)
+
+  const handleRemoveValue = () => {
+    setInputValue('')
+    setIsRotated(true)
+
+    setTimeout(() => {
+      setIsRotated(false)
+    }, 300)
+  }
+
   return (
     <div className='input-wrapper'>
-      <label 
-        className={`top-label top-${size}-label`}
-      >
+      <label className={`top-label top-${size}-label`}>
         {size} {topLabel}
       </label>
-      <div 
+      <section 
         className={[
           'input-container',
           `${size}-container`,
@@ -53,7 +63,8 @@ const Input: FC<InputProps> = ({
             `${error && 'text-error'}`,
           ].join(' ')} 
           type="text" 
-          value={value}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
           placeholder={`${size} Input`}
           onFocus={() => setOnActive(true)}
           onBlur={() => setOnActive(false)}
@@ -61,8 +72,13 @@ const Input: FC<InputProps> = ({
           onMouseLeave={() => setOnHover(false)}
           disabled={disabled}
         />
-        <Right disabled={disabled} />
-      </div>
+        <Right 
+          className={`input-remove-svg ${isRotated && 'rotate'}`} 
+          onClick={handleRemoveValue}  
+          disabled={disabled} 
+        />
+      </section>
+
       <label 
         className={[
           'bottom-label',
