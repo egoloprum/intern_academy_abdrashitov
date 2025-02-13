@@ -11,6 +11,27 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const OnTest: Story = {
-  args: {}
-};
+export const OnDefault: Story = {
+  args: {
+    mode: 'default'
+  }
+}
+
+export const OnMinus: Story = {
+  args: {
+    mode: 'minus'
+  }
+}
+
+export const OnPlus: Story = {
+  args: {
+    mode: 'plus'
+  }
+}
+export const OnDisabled: Story = {
+  args: {
+    mode: 'plus',
+    isClicked: true,
+    isDisabled: true
+  }
+}
