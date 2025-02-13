@@ -1,5 +1,5 @@
 :root {
-  --primary-active: rgba(122, 19, 255, 1);
+  --active-bg-color: rgba(122, 19, 255, 1);
   --border-color: rgba(8, 9, 28, 0.08);
 
   --disabled-text-color: rgba(8, 9, 28, 0.36); 
@@ -15,7 +15,6 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-
   max-width: 340px;
   font-family: var(--fontFamilyMain);
 }
@@ -26,38 +25,32 @@
   min-height: 80px;
   outline: none;
   padding: 18px 4px 18px 14px;
-
   resize: none;
-  
   border: 1px solid var(--border-color);
   border-radius: 8px;
-
   text-overflow: ellipsis;
-
   box-sizing: border-box;
-
   scrollbar-width: thin;
   scrollbar-color: var(--border-color) #fff;
 }
-.textarea-active {
-  outline: 1px solid var(--primary-active);
-}
-.textarea-hover {
-  background: var(--border-color);
-}
-.textarea-error {
-  color: var(--error-text-color);
-  outline: 1px solid var(--error-text-color);
-}
-.textarea:disabled {
-  background: var(--border-color);
-}
-
 .textarea::placeholder {
   text-transform: capitalize;
 }
-.border-rounded-textarea {
-  border-radius: 64px;
+
+.textarea:active {
+  outline: 1px solid var(--active-bg-color);
+}
+.textarea:hover {
+  background: var(--border-color);
+}
+.textarea:disabled {
+  outline: none;
+  background: var(--border-color);
+}
+
+.textarea-error {
+  color: var(--error-text-color);
+  outline: 1px solid var(--error-text-color);
 }
 
 .large-textarea {

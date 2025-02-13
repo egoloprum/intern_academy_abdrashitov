@@ -17,20 +17,14 @@ export const OnTest: Story = {
   },
 }
 
-export const OnRounded: Story = {
-  args: {
-    rounded: true
-  },
-}
-
 export const OnError: Story = {
   args: {
-    error: true
+    isError: true
   },
 }
 
 export const OnDisabled: Story = {
   args: {
-    disabled: true
+    isDisabled: true
   },
 }
