@@ -13,27 +13,29 @@ type Story = StoryObj<typeof meta>
 
 export const OnTest: Story = {
   args: {
-    label: 'Button',
   },
 }
 
 export const OnMini: Story = {
   args: {
-    label: 'Button',
-    miniOrFull: true
+    isMini: true
   },
 }
 
 export const OnRounded: Story = {
   args: {
-    label: 'Button',
-    rounded: true
+    isRounded: true
+  },
+}
+
+export const OnWithoutIcons: Story = {
+  args: {
+    isIconsNeeded: false
   },
 }
 
 export const OnDisabled: Story = {
   args: {
-    label: 'Button',
-    disabled: true
+    isDisabled: true
   },
 }

@@ -1,23 +1,26 @@
 :root {
-  --primary-main: rgba(151, 71, 255, 1);
-  --primary-hover: rgba(134, 40, 255, 1);
-  --primary-active: rgba(122, 19, 255, 1);
+  --primary-bg-main: rgba(151, 71, 255, 1);
+  --primary-bg-hover: rgba(134, 40, 255, 1);
+  --primary-bg-active: rgba(122, 19, 255, 1);
 
-  --secondary-main: rgba(151, 71, 255, 0.06);
-  --secondary-hover: rgba(134, 40, 255, 0.1);
-  --secondary-active: rgba(122, 19, 255, 0.14);
+  --secondary-bg-main: rgba(151, 71, 255, 0.06);
+  --secondary-bg-hover: rgba(134, 40, 255, 0.1);
+  --secondary-bg-active: rgba(122, 19, 255, 0.14);
 
-  --clear-main: #fff;
-  --clear-hover: #fff;
-  --clear-active: #fff;
+  --clear-bg-main: #fff;
+  --clear-bg-hover: #fff;
+  --clear-bg-active: #fff;
 
-  --critical-main: rgba(229, 69, 69, 1);
-  --critical-hover: rgba(229, 46, 46, 1);
-  --critical-active: rgba(229, 23, 23, 1);
+  --critical-bg-main: rgba(229, 69, 69, 1);
+  --critical-bg-hover: rgba(229, 46, 46, 1);
+  --critical-bg-active: rgba(229, 23, 23, 1);
 
-  --critical-secondary-main: rgba(229, 69, 69, 0.06);
-  --critical-secondary-hover: rgba(229, 69, 69, 0.1);
-  --critical-secondary-active: rgba(229, 69, 69, 0.14);
+  --critical-secondary-bg-main: rgba(229, 69, 69, 0.06);
+  --critical-secondary-bg-hover: rgba(229, 69, 69, 0.1);
+  --critical-secondary-bg-active: rgba(229, 69, 69, 0.14);
+
+  --disabled-bg-color: rgba(8, 9, 28, 0.08);
+  --text-disabled-color: rgba(8, 9, 28, 0.36);
 
   --text-primary-main: rgba(255, 255, 255, 1);
   --text-primary-hover: rgba(255, 255, 255, 1);
@@ -38,80 +41,175 @@
   --text-critical-secondary-main: rgba(229, 69, 69, 1);
   --text-critical-secondary-hover: rgba(229, 46, 46, 1);
   --text-critical-secondary-active: rgba(229, 23, 23, 1);
-}
 
-.large-button {
-  max-width: 191px;
-  max-height: 48px;
-  padding: 16px 18px;
-  font-size: 16px;
-}
-.large-mini-button {
-  width: 48px;
-  height: 48px;
-}
-
-.medium-button {
-  max-width: 183px;
-  max-height: 40px;
-  padding: 16px;
-  font-size: 14px;
-}
-.medium-mini-button {
-  width: 40px;
-  height: 40px;
-}
-
-.small-button {
-  max-width: 141px;
-  max-height: 32px;
-  padding: 14px 16px;
-  font-size: 12px;
-}
-.small-mini-button {
-  width: 32px;
-  height: 32px;
-}
-
-.xs-button {
-  max-width: 100px;
-  max-height: 24px;
-  padding: 12px 16px;
-  font-size: 10px;
-}
-.xs-mini-button {
-  padding: 0;
-  width: 24px;
-  height: 24px;
+  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
 }
 
 .button {
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  text-wrap: nowrap;
-}
 
-.disabled {
-  background: rgba(8, 9, 28, 0.08);
-  color: rgba(8, 9, 28, 0.36);
-  cursor: default;
-}
+  background: inherit;
+  border: none;
+  border-radius: 8px;
 
-.border-rounded-button {
+  cursor: pointer;
+
+  font-family: var(--fontFamilyMain);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.rounded-button {
   border-radius: 64px;
 }
 
-span {
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.large-button {
+  padding: 16px 18px;
+  font-size: 16px;
+}
+.medium-button {
+  padding: 16px;
+  font-size: 14px;
+}
+.small-button {
+  padding: 14px 16px;
+  font-size: 12px;
+}
+.xs-button {
+  padding: 12px 16px;
+  font-size: 10px;
 }
 
+.mini-button {
+  justify-content: center;
+  box-sizing: border-box;
+}
+.mini-large-button {
+  width: 48px;
+  height: 48px;
+  padding: 14px;
+}
+.mini-medium-button {
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+}
+.mini-small-button {
+  width: 32px;
+  height: 32px;
+  padding: 9px;
+}
+.mini-xs-button {
+  width: 24px;
+  height: 24px;
+  padding: 7px;
+}
+
+.primary-button {
+  background-color: var(--primary-bg-main);
+  color: var(--text-primary-main);
+}
+.primary-button:hover {
+  background-color: var(--primary-bg-hover);
+}
+.primary-button:active {
+  background-color: var(--primary-bg-active);
+}
+.primary-button-svg {
+  fill: var(--text-primary-main);
+}
+
+.secondary-button {
+  background-color: var(--secondary-bg-main);
+  color: var(--text-secondary-main);
+}
+.secondary-button:hover {
+  background-color: var(--secondary-bg-hover);
+  color: var(--text-secondary-hover);
+}
+.secondary-button:active {
+  background-color: var(--secondary-bg-active);
+  color: var(--text-secondary-active);
+}
+.secondary-button-svg {
+  fill: var(--text-secondary-main);
+}
+
+.clear-button {
+  background-color: inherit;
+  color: var(--text-clear-main);
+}
+.clear-button:hover {
+  background-color: inherit;
+  color: var(--text-clear-hover);
+}
+.clear-button:active {
+  background-color: inherit;
+  color: var(--text-clear-active);
+}
+.clear-button-svg {
+  fill: var(--text-clear-main);;
+}
+
+.critical-button {
+  background-color: var(--critical-bg-main);
+  color: var(--text-critical-main);
+}
+.critical-button:hover {
+  background-color: var(--critical-bg-hover);
+  color: var(--text-critical-hover);
+}
+.critical-button:active {
+  background-color: var(--critical-bg-active);
+  color: var(--text-critical-active);
+}
+.critical-button-svg {
+  fill: var(--text-critical-main);;
+}
+
+.critical-secondary-button {
+  background-color: var(--critical-secondary-bg-main);
+  color: var(--text-critical-secondary-main);
+}
+.critical-secondary-button:hover {
+  background-color: var(--critical-secondary-bg-hover);
+  color: var(--text-critical-secondary-hover);
+}
+.critical-secondary-button:active {
+  background-color: var(--critical-secondary-bg-active);
+  color: var(--text-critical-secondary-active);
+}
+.critical-secondary-button-svg {
+  fill: var(--text-critical-secondary-main);;
+}
+
+.button-svg {
+  
+}
+.large-button-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-button-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-button-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+.xs-button-svg {
+  max-width: 12px;
+  max-height: 12px;
+}
+
+.button:disabled {
+  background-color: var(--disabled-bg-color);
+  color: var(--text-disabled-color);
+  cursor: default;
+}
+.disabled-button-svg {
+  fill: var(--text-disabled-color);
+}

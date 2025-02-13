@@ -1,82 +1,83 @@
 "use client"
 
-import React, { useState } from 'react';
-import './button.css';
-import Left from './assets/Left';
-import Right from './assets/Right';
+import { FC } from 'react'
+import './button.css'
+import Left from './assets/Left'
+import Right from './assets/Right'
 
-export interface ButtonProps {
-  miniOrFull?: boolean
-  rounded?: boolean
+interface ButtonProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
-  label: string
-  backgroundColor?: 'primary' | 'secondary' | 'clear' | 'critical' | 'critical-secondary'
-  disabled?: boolean
+  mode?: 'primary' | 'secondary' | 'clear' | 'critical' | 'critical-secondary'
+  isRounded?: boolean 
+  isMini?: boolean 
+  isDisabled?: boolean
+
+  isIconsNeeded?: boolean
+
+  text?: string
+  onClick?: () => void
+  className?: string
 }
 
-const Button = ({
-  miniOrFull, 
-  rounded, 
-  size="medium", 
-  label="Button", 
-  backgroundColor="primary",
-  disabled=false
-}: ButtonProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isActive, setIsActive] = useState(false);
-
+const Button: FC<ButtonProps> = ({
+  size='large',
+  mode='primary',
+  isRounded=false,
+  isMini=false,
+  isDisabled=false,
+  text='large button',
+  isIconsNeeded=true,
+  className
+}) => {
   return (
-    <button
-      type='button'
+    <button 
       className={[
-        'button fontP4', 
-        `${size}-button`, `${rounded ? 'border-rounded-button' : ''}`,
-        `${disabled ? 'disabled' : ''}`,
-        `${miniOrFull ? `${size}-mini-button` : ''}`
+        'button',
+        `${size}-button`,
+        `${mode}-button`,
+        `${isRounded && 'rounded-button'}`,
+        `${isMini && `mini-button mini-${size}-button`}`,
+        `${className}`
       ].join(' ')}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseDown={() => setIsActive(true)}
-      onMouseUp={() => setIsActive(false)}
-      disabled={disabled}
+      disabled={isDisabled}
     >
-      <span>
-        <Left 
-          size={size} 
-          color={disabled ? 'rgba(8, 9, 28, 0.36)' : (isActive ? `var(--text-${backgroundColor}-active)` 
-            : (isHovered ? `var(--text-${backgroundColor}-hover)` : `var(--text-${backgroundColor}-main)`))} 
-        />
-      </span>
 
-      { !miniOrFull && (
-        <span>
-          {size} {label}
+    {isIconsNeeded && (
+      <Left 
+        className={`
+          button-svg 
+          ${size}-button-svg 
+          ${mode}-button-svg
+          ${isDisabled && 'disabled-button-svg'}
+        `} 
+      />
+    )}
+
+      {!isMini && (
+        <span 
+          className={[
+            'button-text'
+          ].join(' ')}
+        >
+          {text}
         </span>
       )}
-      
-      { !miniOrFull && (
-        <span>
+
+      {isIconsNeeded && (
+        !isMini && (
           <Right 
-            size={size} 
-            color={disabled ? 'rgba(29, 29, 38, 0.36)' : (isActive ? `var(--text-${backgroundColor}-active)` 
-              : (isHovered ? `var(--text-${backgroundColor}-hover)` : `var(--text-${backgroundColor}-main)`))} 
-            />
-        </span>
+            className={`
+              button-svg 
+              ${size}-button-svg 
+              ${mode}-button-svg
+              ${isDisabled && 'disabled-button-svg'}
+            `} 
+          />
+        )      
       )}
 
-      <style jsx>{`
-        button {
-          background-color: ${disabled ? 'rgba(8, 9, 28, 0.08)' : (isActive ? `var(--${backgroundColor}-active)` 
-            : (isHovered ? `var(--${backgroundColor}-hover)` : `var(--${backgroundColor}-main)`))};
-          color: ${disabled ? 'rgba(8, 9, 28, 0.36)' : (isActive ? `var(--text-${backgroundColor}-active)` 
-            : (isHovered ? `var(--text-${backgroundColor}-hover)` : `var(--text-${backgroundColor}-main)`))};
-          cursor: ${disabled ? 'default' : 'pointer'};
-        }
-        svg {
-          fill: ${disabled ? 'rgba(8, 9, 28, 0.36)' : (isActive ? `var(--text-${backgroundColor}-active)` 
-            : (isHovered ? `var(--text-${backgroundColor}-hover)` : `var(--text-${backgroundColor}-main)`))};
-        }
-      `}</style>
+
+
     </button>
   )
 }

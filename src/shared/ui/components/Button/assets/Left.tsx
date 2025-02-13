@@ -2,35 +2,16 @@ import { FC } from 'react';
 import '../button.css';
 
 interface LeftProps {
-  color?: string
-  size?: string
+  className?: string
 }
 
-const Left: FC<LeftProps> = ({ color, size = 20 }) => {
-  let sizeAct = 0
-
-  switch (size) {
-    case "large":
-      sizeAct = 20
-      break
-    case "medium":
-      sizeAct = 16
-      break
-    case "small":
-      sizeAct = 14
-      break
-    case "xs":
-      sizeAct = 10
-      break
-    default:
-      sizeAct = 16
-      break
-  }
+const Left: FC<LeftProps> = ({ className }) => {
 
   return (
     <svg
-      width={sizeAct}
-      height={sizeAct}
+      className={className}
+      width="100%"
+      height="100%"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +23,6 @@ const Left: FC<LeftProps> = ({ color, size = 20 }) => {
       <g mask="url(#mask0_2_39781)">
         <path
           d="M9.16666 10.8333H5C4.76389 10.8333 4.56597 10.7535 4.40625 10.5938C4.24653 10.434 4.16666 10.2361 4.16666 10C4.16666 9.76389 4.24653 9.56598 4.40625 9.40625C4.56597 9.24653 4.76389 9.16667 5 9.16667H9.16666V5.00001C9.16666 4.76389 9.24652 4.56598 9.40625 4.40626C9.56597 4.24653 9.76389 4.16667 10 4.16667C10.2361 4.16667 10.434 4.24653 10.5937 4.40626C10.7535 4.56598 10.8333 4.76389 10.8333 5.00001V9.16667H15C15.2361 9.16667 15.434 9.24653 15.5937 9.40625C15.7535 9.56598 15.8333 9.76389 15.8333 10C15.8333 10.2361 15.7535 10.434 15.5937 10.5938C15.434 10.7535 15.2361 10.8333 15 10.8333H10.8333V15C10.8333 15.2361 10.7535 15.434 10.5937 15.5938C10.434 15.7535 10.2361 15.8333 10 15.8333C9.76389 15.8333 9.56597 15.7535 9.40625 15.5938C9.24652 15.434 9.16666 15.2361 9.16666 15V10.8333Z"
-          fill={color}
         />
       </g>
     </svg>
