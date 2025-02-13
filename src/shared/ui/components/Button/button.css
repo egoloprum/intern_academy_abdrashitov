@@ -7,10 +7,6 @@
   --secondary-bg-hover: rgba(134, 40, 255, 0.1);
   --secondary-bg-active: rgba(122, 19, 255, 0.14);
 
-  --clear-bg-main: #fff;
-  --clear-bg-hover: #fff;
-  --clear-bg-active: #fff;
-
   --critical-bg-main: rgba(229, 69, 69, 1);
   --critical-bg-hover: rgba(229, 46, 46, 1);
   --critical-bg-active: rgba(229, 23, 23, 1);
@@ -51,7 +47,7 @@
   justify-content: space-between;
   gap: 8px;
 
-  background: inherit;
+  background: none;
   border: none;
   border-radius: 8px;
 
@@ -60,6 +56,9 @@
   font-family: var(--fontFamilyMain);
   font-weight: 500;
   text-transform: capitalize;
+}
+.no-icon-button {
+  justify-content: center;
 }
 .rounded-button {
   border-radius: 64px;
@@ -138,15 +137,15 @@
 }
 
 .clear-button {
-  background-color: inherit;
+  background-color: none;
   color: var(--text-clear-main);
 }
 .clear-button:hover {
-  background-color: inherit;
+  background-color: none;
   color: var(--text-clear-hover);
 }
 .clear-button:active {
-  background-color: inherit;
+  background-color: none;
   color: var(--text-clear-active);
 }
 .clear-button-svg {
@@ -185,9 +184,6 @@
   fill: var(--text-critical-secondary-main);;
 }
 
-.button-svg {
-  
-}
 .large-button-svg {
   max-width: 20px;
   max-height: 20px;

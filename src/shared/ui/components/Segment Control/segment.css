@@ -4,7 +4,6 @@
 
   --element-bg-color: rgba(151, 71, 255, 0.06);
   --text-color: rgba(151, 71, 255, 1);
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
 }
 
 .segment-list {
@@ -14,13 +13,16 @@
 }
 
 .segment-group {
+  display: flex;
   max-width: 550px;
   width: 100%;
-
   padding: 4px;
-  display: flex;
   border-radius: 8px;
   position: relative;
+}
+
+.segment-element {
+  flex-grow: 1;
 }
 
 .segment-group-white {
@@ -28,37 +30,6 @@
 }
 .segment-group-default {
   background-color: var(--segment-bg-default-color);
-}
-
-.segment-element {
-  flex-grow: 1;
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--text-color);
-  font-family: var(--fontFamilyMain);
-  cursor: pointer;
-  font-weight: 500;
-  user-select: none;
-  position: relative;
-}
-
-.large-segment-element {
-  font-size: 16px;
-  padding: 16px 18px;
-}
-.medium-segment-element {
-  font-size: 14px;
-  padding: 16px;
-}
-.small-segment-element {
-  font-size: 12px;
-  padding: 14px 16px;
-}
-.xsmall-segment-element {
-  font-size: 10px;
-  padding: 12px 16px;
 }
 
 .sliding-background {

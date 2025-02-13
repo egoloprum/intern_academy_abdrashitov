@@ -27,6 +27,7 @@ const Button: FC<ButtonProps> = ({
   isDisabled=false,
   text='large button',
   isIconsNeeded=true,
+  onClick,
   className
 }) => {
   return (
@@ -37,8 +38,10 @@ const Button: FC<ButtonProps> = ({
         `${mode}-button`,
         `${isRounded && 'rounded-button'}`,
         `${isMini && `mini-button mini-${size}-button`}`,
+        `${!isIconsNeeded && 'no-icon-button'}`,
         `${className}`
       ].join(' ')}
+      onClick={onClick}
       disabled={isDisabled}
     >
 

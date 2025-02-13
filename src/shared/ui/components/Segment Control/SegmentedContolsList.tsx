@@ -2,7 +2,7 @@ import { FC } from 'react'
 import SegmentedControls from './utlity/SegmentedControls'
 
 interface SegmentedContolsListProps {
-  size?: 'large' | 'medium' | 'small' | 'xsmall'
+  size?: 'large' | 'medium' | 'small' | 'xs'
   elements?: string[]
 }
 

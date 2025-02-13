@@ -2,9 +2,10 @@
 
 import { FC, useState, useEffect } from 'react'
 import '../segment.css'
+import Button from '../../Button/Button'
 
 interface SegmentedControlsProps {
-  size?: 'large' | 'medium' | 'small' | 'xsmall'
+  size?: 'large' | 'medium' | 'small' | 'xs'
   elements: string[]
   mode: 'default' | 'white'
 }
@@ -39,16 +40,15 @@ const SegmentedControls: FC<SegmentedControlsProps> = ({
         style={{ transform: `translate(${slidePosition}px, -50%)`, width: `${(100 - 2) / elements.length}%` }} 
       />
       {elements.map((element, index) => (
-        <label 
-          key={index} 
-          className={[
-            'segment-element',
-            `${size}-segment-element`
-          ].join(' ')}
+        <Button 
+          key={index}
+          size={size}
+          mode={'clear'}
+          isIconsNeeded={false}
           onClick={() => setSelect(index)}
-        >
-          <span>{element}</span>
-        </label>
+          text={element}
+          className='segment-element'
+        />
       ))}
     </div>
   )
