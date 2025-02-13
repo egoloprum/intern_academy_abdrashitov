@@ -61,7 +61,8 @@ const FileUploader: FC<FileUploaderProps> = ({
 
   return (
     <div className='file-uploader-wrapper'>
-      <div 
+      <section 
+        id='file-uploader-container'
         className={`file-uploader-container ${disabled && 'file-disabled-container'}`}
       >
         <input 
@@ -97,8 +98,9 @@ const FileUploader: FC<FileUploaderProps> = ({
           disabled={disabled}
         />
 
-      </div>
+      </section>
       <label 
+        htmlFor='#file-uploader-container'
         className={`file-label ${size}-file-label`}
       >
         This is a helper text

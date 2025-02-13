@@ -3,18 +3,21 @@
 import { FC, useState } from 'react'
 import "./fileDropzone.css"
 import FileDropzoneSvg from './assets/FileDropzoneSvg'
+import Button from '../../Button/Button'
 
 interface FileDropzoneProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
+  error?: boolean
   disabled?: boolean
 }
 
 const FileDropzone: FC<FileDropzoneProps> = ({
   size="medium",
+  error=false,
   disabled=false
 }) => {
   const [file, setFile] = useState<File | null>(null)
-  const [isError, setIsError] = useState<boolean>(false)
+  const [isError, setIsError] = useState<boolean>(error)
   const [isClicked, setIsClicked] = useState<boolean>(false)
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
@@ -61,10 +64,7 @@ const FileDropzone: FC<FileDropzoneProps> = ({
         ${disabled && 'dropzone-disabled-wrapper'}
       `}
     >
-      <div 
-        className='dropzone-container'
-        onDrop={handleDrop}
-      >
+      <section className='dropzone-container' onDrop={handleDrop}>
         <input 
           type="file" 
           className={[
@@ -75,26 +75,32 @@ const FileDropzone: FC<FileDropzoneProps> = ({
           onClick={handleClicked}
           disabled={disabled}
         />
-        <FileDropzoneSvg className={`dropzone-svg ${size}-dropzone-svg`} isClicked={isClicked} isDisabled={disabled} />
+        <FileDropzoneSvg 
+          className={`dropzone-svg ${size}-dropzone-svg`} 
+          isClicked={isClicked} 
+          isDisabled={disabled} 
+        />
 
         <div className='dropzone-insider'>
           <span 
-            className={`dropzone-text ${size}-dropzone-text ${disabled && 'dropzone-disabled-text'}`}
+            className={`
+              dropzone-text 
+              ${size}-dropzone-text 
+              ${disabled && 'dropzone-disabled-text'}
+            `}
           >
             {file ? file.name : 'Перетащите файл сюда или'}
           </span>
-          <button 
-            className={`
-              dropzone-button 
-              ${size}-dropzone-text 
-              ${disabled && 'dropzone-disabled-text'}
-              ${isError && 'dropzone-error-button'}
-            `}
-          >
-            {size} Button
-          </button>
+          <Button 
+            size={size}
+            mode={'clear'}
+            isIconsNeeded={false}
+            isDisabled={disabled}
+            text={`${size} button`}
+            className={`dropzone-button ${size}-dropzone-button ${isError && 'error-dropzone-button'}`}
+          />
         </div>
-      </div>
+      </section>
     </div>
   )
 }

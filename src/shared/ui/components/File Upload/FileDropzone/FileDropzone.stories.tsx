@@ -15,8 +15,14 @@ export const OnTest: Story = {
   args: {}
 }
 
+export const OnError: Story = {
+  args: {
+    error: true
+  }
+}
+
 export const OnDisabled: Story = {
   args: {
-    disabled:true
+    disabled: true
   }
 }
