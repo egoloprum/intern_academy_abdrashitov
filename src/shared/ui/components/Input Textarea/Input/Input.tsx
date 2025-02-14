@@ -12,8 +12,6 @@ interface InputProps {
   topLabel?: string
   bottomLabel?: string
   error?: boolean
-
-  className?: string
 }
 
 const Input: FC<InputProps> = ({
@@ -23,7 +21,6 @@ const Input: FC<InputProps> = ({
   topLabel='label', 
   bottomLabel='This is a helper text',
   error=false,
-  className
 }) => {
   const [onActive, setOnActive] = useState<boolean>(false)
   const [onHover, setOnHover] = useState<boolean>(false)
