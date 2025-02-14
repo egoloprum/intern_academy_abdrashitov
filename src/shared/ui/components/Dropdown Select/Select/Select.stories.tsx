@@ -1,9 +1,9 @@
 import type { StoryObj } from '@storybook/react';
-import Dropdown from './Dropdown';
+import Select from './Select';
 
 const meta = {
-  component: Dropdown,
-  title: 'Dropdown/Dropdown',
+  component: Select,
+  title: 'Dropdown/Select',
   tags: ['autodocs'],
   excludeStories: /.*Data$/,
 }
@@ -13,4 +13,4 @@ type Story = StoryObj<typeof meta>
 
 export const OnTest: Story = {
   args: {}
-};
+}

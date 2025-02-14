@@ -1,0 +1,49 @@
+:root {
+  --bg-color: rgba(8, 9, 28, 0.04);
+}
+
+
+.tag-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  width: fit-content;
+  text-wrap: nowrap;
+}
+.large-tag-wrapper {
+  padding: 14px 16px;
+  font-size: 16px;
+}
+.medium-tag-wrapper {
+  padding: 12px 14px;
+  font-size: 14px;
+}
+.small-tag-wrapper {
+  padding: 10px 12px;
+  font-size: 12px;
+}
+
+.multi-select-svg {
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.multi-select-svg:hover {
+  transform: rotate(90deg); 
+}
+
+.large-multi-select-svg {
+  width: 20px;
+  height: 20px;
+}
+.medium-multi-select-svg {
+  width: 16px;
+  height: 16px;
+}
+.small-multi-select-svg {
+  width: 14px;
+  height: 14px;
+}

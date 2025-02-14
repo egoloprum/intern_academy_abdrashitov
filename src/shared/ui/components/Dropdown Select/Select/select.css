@@ -1,0 +1,113 @@
+:root {
+  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
+
+  --border-color: rgba(8, 9, 28, 0.12);
+
+  --text-primary-color: rgba(8, 9, 28, 1);
+  --text-secondary-color: rgba(8, 9, 28, 0.6);
+
+  --bg-color: rgba(8, 9, 28, 0.04);
+  --hover-bg-color: rgba(151, 71, 255, 0.06);
+}
+
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 340px;
+  height: max-content;
+  font-family: var(--fontFamilyMain);
+}
+
+.select-opener {
+  padding: 14px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.opener-button:hover {
+  background-color: var(--bg-color);
+}
+.open-select-opener {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+}
+
+.select-text {
+  width: 100%;
+  color: var(--text-secondary-color);
+}
+.open-select-text {
+  color: var(--text-primary-color);
+}
+
+.large-select-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+.medium-select-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+.small-select-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.large-select-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-select-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-select-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+
+.select-label {
+  color: var(--text-secondary-color);
+}
+
+.select-list {
+  width: inherit;
+  padding: 8px;
+  margin: 0;
+  margin-top: 10px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+}
+.select-element {
+  list-style: none;
+  width: 100%;
+}
+
+.select-button {
+  width: 100%;
+  justify-content: left;
+  color: var(--text-primary-color);
+}
+.select-button > svg {
+  fill: var(--text-primary-color);
+}
+.select-button > span {
+  color: var(--text-primary-color);
+}
+
+.select-button:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.select-button > *:last-child {
+  margin-left: auto;
+}
