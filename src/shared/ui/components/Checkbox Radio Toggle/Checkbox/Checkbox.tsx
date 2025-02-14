@@ -43,7 +43,6 @@ const Checkbox: FC<CheckboxProps> = ({
         onMouseLeave={()  => setIsHover(false)}
         onFocus={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}
-
         disabled={isDisabled}
       />
 

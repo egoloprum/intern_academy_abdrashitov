@@ -2,38 +2,60 @@
 
 import { FC, useState } from 'react'
 import './radioBtn.css'
+import Checked from './assets/Checked'
+import Unchecked from './assets/Unchecked'
 
 interface RadioBtnProps {
-  size?: 'large' | 'medium' | 'small' | 'xSmall'
-  disabled?: boolean
+  size?: 'large' | 'medium' | 'small' | 'xs'
+  isDisabled?: boolean
 }
 
 const RadioBtn: FC<RadioBtnProps> = ({
   size='medium',
-  disabled=false
+  isDisabled=false
 }) => {
-  const [toggler, setToggler] = useState<boolean>(false)
-  const [onHover, setOnHover] = useState<boolean>(false)
-  const [onActive, setOnActive] = useState<boolean>(false)
 
+  const [isClicked, setIsClicked] = useState<boolean>(false)
+  const [isHover, setIsHover] = useState<boolean>(false)
+  const [isActive, setIsActive] = useState<boolean>(false)
+  
   return (
-    <input 
-      type="radio"
-      className={[
-        'radioBtn',
-        `radioBtn-${size}`,
-        `${onHover && ''}`,
-        `${onActive && ''}`,
-        `${disabled && ''}`
-      ].join(' ')}
-      disabled={disabled}
-      onClick={() => setToggler(!toggler)} 
-      checked={toggler}
-      onMouseEnter={() => setOnHover(true)}
-      onMouseLeave={() => setOnHover(false)}
-      onFocus={() => setOnActive(true)}
-      onBlur={() => setOnActive(false)}
-    />
+    <div className={`input-wrapper ${size}-input-wrapper`}>
+      <input 
+        className={[
+          'input-radio',
+          `${size}-input-radio`,
+        ].join(' ')}
+        type="radio"
+        onClick={() => setIsClicked(!isClicked)}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={()  => setIsHover(false)}
+        onFocus={() => setIsActive(true)}
+        onBlur={() => setIsActive(false)}
+        disabled={isDisabled}
+      />
+
+      { isClicked ?
+        <Checked 
+          className={`
+            radio-svg 
+            ${size}-radio-svg
+            ${isHover && 'hover-radio-svg'} 
+            ${isActive && 'active-radio-svg'} 
+            ${isDisabled && 'disabled-radio-svg'} 
+          `} 
+        /> : 
+        <Unchecked 
+          className={`
+            radio-svg 
+            ${size}-radio-svg
+            ${isHover && 'hover-radio-svg'} 
+            ${isActive && 'active-radio-svg'} 
+            ${isDisabled && 'disabled-radio-svg'} 
+          `} 
+        />
+      }
+    </div>
   )
 }
 

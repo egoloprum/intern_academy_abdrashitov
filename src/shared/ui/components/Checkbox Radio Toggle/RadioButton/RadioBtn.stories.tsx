@@ -11,6 +11,10 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const OnTest: Story = {
+export const OnDefault: Story = {
   args: {}
-};
+}
+
+export const OnDisabled: Story = {
+  args: {isDisabled: true}
+}
