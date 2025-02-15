@@ -29,12 +29,12 @@
 
 4. **Запустите проект:**
    ```bash
-   npm run build && npm start
+   npm run storybook
    ``` 
 
 5. **Откройте браузер и перейдите по адресу:**
    ```bash
-   http://localhost:3000
+   http://localhost:6006
    ``` 
 
 ## Стек используемых технологий
