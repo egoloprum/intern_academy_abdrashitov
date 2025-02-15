@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, useState, useEffect } from 'react'
-import '../segment.css'
+import styles from './segment.module.scss'
 import Button from '../../Button/Button'
 
 interface SegmentedControlsProps {
@@ -22,7 +22,7 @@ const SegmentedControls: FC<SegmentedControlsProps> = ({
     const parentSelected = document.getElementById(`${elements.length}-segment-group`)
     
     if (parentSelected) {
-      const selectedElement = parentSelected.querySelector(`.segment-element:nth-child(${select + 2})`)
+      const selectedElement = parentSelected.children[select + 1]
       if (selectedElement) {
         const { offsetLeft } = selectedElement as HTMLElement
         setSlidePosition(offsetLeft)
@@ -32,11 +32,17 @@ const SegmentedControls: FC<SegmentedControlsProps> = ({
 
   return (
     <div 
-      className={`segment-group segment-group-${mode}`}
+      className={[
+        styles[`segment-group`],
+        styles[`segment-group-${mode}`]
+      ].join(' ')}
       id={`${elements.length}-segment-group`} 
     >
       <div 
-        className={`sliding-background sliding-background-${mode}`}
+        className={[
+          styles[`sliding-background`],
+          styles[`sliding-background-${mode}`]
+        ].join(' ')}
         style={{ transform: `translate(${slidePosition}px, -50%)`, width: `${(100 - 2) / elements.length}%` }} 
       />
       {elements.map((element, index) => (
@@ -47,7 +53,7 @@ const SegmentedControls: FC<SegmentedControlsProps> = ({
           isIconsNeeded={false}
           onClick={() => setSelect(index)}
           text={element}
-          className='segment-element'
+          className={styles['segment-element']}
         />
       ))}
     </div>

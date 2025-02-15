@@ -1,9 +1,9 @@
 "use client"
 
 import { FC, useState } from 'react'
-import './input.css'
 import Left from './assets/Left'
 import Right from './assets/Right'
+import styles from './input.module.scss'
 
 interface InputProps {
   size?: 'large' | 'medium' | 'small'
@@ -38,26 +38,27 @@ const Input: FC<InputProps> = ({
   }
 
   return (
-    <div className='input-wrapper'>
-      <label className={`top-label top-${size}-label`}>
+    <div className={styles['input-wrapper']}>
+      <label className={[styles[`top-label`], styles[`top-${size}-label`]].join(' ')}>
         {size} {topLabel}
       </label>
       <section 
         className={[
-          'input-container',
-          `${size}-container`,
-          `${rounded && 'border-rounded-container'}`,
-          `${onActive && 'input-active-container'}`,
-          `${onHover && 'input-hover-container'}`,
-          `${error && 'input-error-container'}`
+          styles[`input-container`],
+          styles[`${size}-container`],
+          styles[`${rounded && 'border-rounded-container'}`],
+          styles[`${onActive && 'input-active-container'}`],
+          styles[`${onHover && 'input-hover-container'}`],
+          styles[`${error && 'input-error-container'}`]
         ].join(' ')}
       >
         <Left disabled={disabled} />
         <input
           className={[
-            `input ${size}-input`,
-            `${onHover && 'input-hover'}`,
-            `${error && 'text-error'}`,
+            styles[`input`],
+            styles[`${size}-input`],
+            styles[`${onHover && 'input-hover'}`],
+            styles[`${error && 'text-error'}`]
           ].join(' ')} 
           type="text" 
           value={inputValue}
@@ -70,7 +71,7 @@ const Input: FC<InputProps> = ({
           disabled={disabled}
         />
         <Right 
-          className={`input-remove-svg ${isRotated && 'rotate'}`} 
+          className={[styles[`input-remove-svg`], styles[`${isRotated && 'rotate'}`]].join(' ')} 
           onClick={handleRemoveValue}  
           disabled={disabled} 
         />
@@ -78,10 +79,10 @@ const Input: FC<InputProps> = ({
 
       <label 
         className={[
-          'bottom-label',
-          `bottom-${size}-label`,
-          `${error && 'text-error'}`,
-          `${disabled && 'text-disabled'}`,
+          styles[`bottom-label`],
+          styles[`bottom-${size}-label`],
+          styles[`${error && 'text-error'}`],
+          styles[`${disabled && 'text-disabled'}`]
         ].join(' ')}
       >
         {bottomLabel}

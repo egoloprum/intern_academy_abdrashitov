@@ -1,9 +1,9 @@
 "use client"
 
 import { FC, useState } from 'react'
-import "./fileDropzone.css"
 import FileDropzoneSvg from './assets/FileDropzoneSvg'
 import Button from '../../Button/Button'
+import styles from './fileDropzone.module.scss'
 
 interface FileDropzoneProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
@@ -56,38 +56,36 @@ const FileDropzone: FC<FileDropzoneProps> = ({
 
   return (
     <div 
-      className={`
-        dropzone-wrapper 
-        ${size}-dropzone-wrapper 
-        ${isError && 'dropzone-error-wrapper'} 
-        ${isClicked && 'dropzone-active-wrapper'}
-        ${disabled && 'dropzone-disabled-wrapper'}
-      `}
+      className={[
+        styles[`dropzone-wrapper`],
+        styles[`${size}-dropzone-wrapper`],
+        styles[`${isError && 'dropzone-error-wrapper'}`],
+        styles[`${isClicked && 'dropzone-active-wrapper'}`],
+        styles[`${disabled && 'dropzone-disabled-wrapper'}`],
+      ].join(' ')}
     >
-      <section className='dropzone-container' onDrop={handleDrop}>
+      <section className={styles['dropzone-container']} onDrop={handleDrop}>
         <input 
           type="file" 
-          className={[
-            'dropzone-input'
-          ].join(' ')}
+          className={styles['dropzone-input']}
           accept="image/png, image/jpeg, image/gif, image/webp, image/svg+xml"
           onChange={handleFileChange}
           onClick={handleClicked}
           disabled={disabled}
         />
         <FileDropzoneSvg 
-          className={`dropzone-svg ${size}-dropzone-svg`} 
+          className={[styles[`dropzone-svg`], styles[`${size}-dropzone-svg`]].join(' ')} 
           isClicked={isClicked} 
           isDisabled={disabled} 
         />
 
-        <div className='dropzone-insider'>
+        <div className={styles['dropzone-insider']}>
           <span 
-            className={`
-              dropzone-text 
-              ${size}-dropzone-text 
-              ${disabled && 'dropzone-disabled-text'}
-            `}
+            className={[
+              styles[`dropzone-text`],
+              styles[`${size}-dropzone-text`],
+              styles[`${disabled && 'dropzone-disabled-text'}`],
+            ].join(' ')}
           >
             {file ? file.name : 'Перетащите файл сюда или'}
           </span>
@@ -97,7 +95,11 @@ const FileDropzone: FC<FileDropzoneProps> = ({
             isIconsNeeded={false}
             isDisabled={disabled}
             text={`${size} button`}
-            className={`dropzone-button ${size}-dropzone-button ${isError && 'error-dropzone-button'}`}
+            className={[
+              styles[`dropzone-button`],
+              styles[`${size}-dropzone-button`],
+              styles[`${isError && 'error-dropzone-button'}`]
+            ].join(' ')}
           />
         </div>
       </section>

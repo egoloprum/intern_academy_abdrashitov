@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useRef, useState } from 'react'
 import Button from '../../Button/Button'
-import './dropdown.css'
+import styles from './dropdown.module.scss'
 
 interface DropdownProps {
   size?: 'large' | 'medium' | 'small'
@@ -27,7 +27,9 @@ const Dropdown: FC<DropdownProps> = ({
   }, [isOpen, elements])
 
   return (
-    <div className={`dropdown-wrapper`}>
+    <div className={[
+        styles['dropdown-wrapper']
+      ].join(' ')}>
       <Button 
         text={'Dropdown Button'} 
         size={size}
@@ -36,17 +38,17 @@ const Dropdown: FC<DropdownProps> = ({
         isDisabled={isDisabled}
       />
       <ul 
-        className={`dropdown-list`} 
+        className={styles[`dropdown-list`]} 
         style={{ opacity: isOpen ? `1` : '0', maxHeight: dropdownHeight }}
         ref={dropdownListRef}
       >
         {elements.map((element, index) => (
-          <li key={index} className={`dropdown-element`} >
+          <li key={index} className={styles[`dropdown-element`]}>
             <Button 
               text={element}
               size={size}
               mode='clear'
-              className='dropdown-button'
+              className={styles['dropdown-button']}
               onClick={() => setIsOpen(false)}
             />
           </li>

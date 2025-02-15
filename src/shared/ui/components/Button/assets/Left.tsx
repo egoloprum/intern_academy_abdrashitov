@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import '../button.css';
+import styles from '../button.module.scss';
 
 interface LeftProps {
   className?: string

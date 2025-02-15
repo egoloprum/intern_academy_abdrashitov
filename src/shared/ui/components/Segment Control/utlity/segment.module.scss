@@ -1,10 +1,6 @@
-:root {
-  --segment-bg-default-color: rgba(8, 9, 28, 0.04);
-  --segment-bg-white-color: #fff;
-
-  --element-bg-color: rgba(151, 71, 255, 0.06);
-  --text-color: rgba(151, 71, 255, 1);
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .segment-list {
   display: flex;
@@ -17,19 +13,24 @@
   max-width: 550px;
   width: 100%;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: var(--border-large);
   position: relative;
 }
 
-.segment-element {
+.segment-group > * {
   flex-grow: 1;
+  justify-content: center;
+}
+.segment-group > * > span {
+  width: 100%;
+  text-align: center;
 }
 
 .segment-group-white {
-  background-color: var(--segment-bg-white-color);
+  background-color: var(--colorWhiteMain);
 }
 .segment-group-default {
-  background-color: var(--segment-bg-default-color);
+  background-color: var(--bgLightSecondary);
 }
 
 .sliding-background {
@@ -43,11 +44,11 @@
 .sliding-background-default {
   top: 50%;
   height: calc(100% - 8px);
-  background-color: var(--element-bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightAccentSubdued);
+  border-radius: var(--border-large);
 }
 .sliding-background-white {
   bottom: 0;
   height: 2px;
-  background-color: var(--text-color);
+  background-color: var(--textLightAccent);
 }

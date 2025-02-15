@@ -1,7 +1,8 @@
 "use client"
 
 import { FC } from 'react'
-import './button.css'
+// import './button.css'
+import styles from './button.module.scss'
 import Left from './assets/Left'
 import Right from './assets/Right'
 
@@ -33,13 +34,14 @@ const Button: FC<ButtonProps> = ({
   return (
     <button 
       className={[
-        'button',
-        `${size}-button`,
-        `${mode}-button`,
-        `${isRounded && 'rounded-button'}`,
-        `${isMini && `mini-button mini-${size}-button`}`,
-        `${!isIconsNeeded && 'no-icon-button'}`,
-        `${className}`
+        styles.button,
+        `${styles[size + '-button']}`,
+        `${styles[mode + '-button']}`,
+        `${styles[isRounded ? 'rounded-button' : '']}`,
+        `${styles[isMini ? 'mini-button' : '']}`,
+        `${styles[isMini ? `mini-${size}-button` : '']}`,
+        `${styles[isRounded ? 'no-icon-button' : '']}`,
+        `${styles[`${className}`]}`
       ].join(' ')}
       onClick={onClick}
       disabled={isDisabled}
@@ -48,19 +50,17 @@ const Button: FC<ButtonProps> = ({
     {isIconsNeeded && (
       <Left 
         className={`
-          button-svg 
-          ${size}-button-svg 
-          ${mode}-button-svg
-          ${isDisabled && 'disabled-button-svg'}
+          ${styles[`button-svg`]}
+          ${styles[`${size}-button-svg`]}
+          ${styles[`${mode}-button-svg`]}
+          ${styles[`${isDisabled && 'disabled-button-svg'}`]}
         `} 
       />
     )}
 
       {!isMini && (
         <span 
-          className={[
-            'button-text'
-          ].join(' ')}
+          className={`${styles['button-text']}`}
         >
           {text}
         </span>
@@ -70,10 +70,10 @@ const Button: FC<ButtonProps> = ({
         !isMini && (
           <Right 
             className={`
-              button-svg 
-              ${size}-button-svg 
-              ${mode}-button-svg
-              ${isDisabled && 'disabled-button-svg'}
+              ${styles[`button-svg`]}
+              ${styles[`${size}-button-svg`]}
+              ${styles[`${mode}-button-svg`]}
+              ${styles[`${isDisabled && 'disabled-button-svg'}`]}
             `} 
           />
         )      

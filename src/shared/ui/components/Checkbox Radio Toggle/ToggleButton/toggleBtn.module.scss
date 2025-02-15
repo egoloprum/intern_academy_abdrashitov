@@ -1,52 +1,37 @@
-:root {
-  --light-toggle-color: rgba(255, 255, 255, 1);
-  --dark-toggle-color: rgba(8, 9, 28, 0.88);
-  --disabled-toggle-color: rgba(8, 9, 28, 0.08);
-
-  --light-default-bg-color: rgba(151, 71, 255, 1);
-  --dark-default-bg-color: rgba(8, 9, 28, 0.04);
-
-  --light-hover-bg-color: rgba(134, 40, 255, 1);
-  --dark-hover-bg-color: rgba(8, 9, 28, 0.08);
-
-  --light-active-bg-color: rgba(122, 19, 255, 1);
-  --dark-active-bg-color: rgba(8, 9, 28, 0.12);
-
-  --disabled-bg-color: rgba(8, 9, 28, 0.08);
-
-  --border-color: rgba(8, 9, 28, 0.12);
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .toggle-wrapper {
-  border-radius: 100px;
+  border-radius: var(--border-special);
   position: relative;
 }
 
 .light-toggle-wrapper {
-  background-color: var(--light-default-bg-color);
+  background-color: var(--bgLightAccent);
 }
 .dark-toggle-wrapper {
-  background-color: var(--dark-default-bg-color);
-  outline: 1px solid var(--border-color);
+  background-color: var(--bgLightSecondary);
+  outline: 1px solid var(--borderLightPrimary);
 }
 
 .light-hover-toggle-wrapper {
-  background-color: var(--light-hover-bg-color);
+  background-color: var(--bgLightAccentHover);
 }
 .dark-hover-toggle-wrapper {
-  background-color: var(--dark-hover-bg-color);  
+  background-color: var(--bgLightSecondaryHover);  
 }
 
 .light-active-toggle-wrapper {
-  background-color: var(--light-active-bg-color);
+  background-color: var(--bgLightAccentActive);
 }
 .dark-active-toggle-wrapper {
-  background-color: var(--dark-active-bg-color);
+  background-color: var(--bgLightSecondaryHoverActive);
 }
 
 .disabled-toggle-wrapper {
-  outline: 1px solid var(--border-color);
-  background-color: var(--disabled-bg-color);
+  outline: 1px solid var(--borderLightPrimary);
+  background-color: var(--bgLightDisabled);
 }
 
 .large-toggle-wrapper {
@@ -110,13 +95,13 @@
 }
 
 .light-toggler-svg {
-  fill: var(--light-toggle-color);
+  fill: var(--bgLightPrimary);
 }
 .dark-toggler-svg {
-  fill: var(--dark-toggle-color);
+  fill: var(--colorBlack600);
 }
 .disabled-toggler-svg {
-  fill: var(--disabled-toggle-color);
+  fill: var(--bgLightDisabled);
 }
 
 .large-toggler-svg {

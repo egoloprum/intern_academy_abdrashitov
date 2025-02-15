@@ -1,7 +1,6 @@
-:root {
-  --bg-color: rgba(8, 9, 28, 0.04);
-  --hover-bg-color: rgba(151, 71, 255, 0.06);
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .dropdown-wrapper {
   position: relative;
@@ -10,12 +9,11 @@
 .dropdown-list {
   width: fit-content;
   padding: 8px;
-  background-color: var(--bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightSecondary);
+  border-radius: var(--border-large);
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
-
   position: absolute;
   z-index: 10;
 }
@@ -31,7 +29,7 @@
 }
 
 .dropdown-button:hover {
-  background-color: var(--hover-bg-color);
+  background-color: var(--bgLightAccentSubdued);
 }
 
 .dropdown-button > *:last-child {

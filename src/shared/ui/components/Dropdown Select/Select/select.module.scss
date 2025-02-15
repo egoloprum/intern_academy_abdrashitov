@@ -1,14 +1,6 @@
-:root {
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
-
-  --border-color: rgba(8, 9, 28, 0.12);
-
-  --text-primary-color: rgba(8, 9, 28, 1);
-  --text-secondary-color: rgba(8, 9, 28, 0.6);
-
-  --bg-color: rgba(8, 9, 28, 0.04);
-  --hover-bg-color: rgba(151, 71, 255, 0.06);
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .select-wrapper {
   display: flex;
@@ -21,8 +13,8 @@
 
 .select-opener {
   padding: 14px 18px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border: 1px solid var(--borderLightPrimary);
+  border-radius: var(--border-large);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -31,31 +23,31 @@
   cursor: pointer;
 }
 .opener-button:hover {
-  background-color: var(--bg-color);
+  background-color: var(--bgLightSecondary);
 }
 .open-select-opener {
-  background-color: var(--bg-color);
-  border-color: var(--bg-color);
+  background-color: var(--bgLightSecondary);
+  border-color: var(--bgLightSecondary);
 }
 
 .select-text {
   width: 100%;
-  color: var(--text-secondary-color);
+  color: var(--textLightSecondary);
 }
 .open-select-text {
-  color: var(--text-primary-color);
+  color: var(--textLightPrimary);
 }
 
 .large-select-text {
-  font-size: 16px;
+  font-size: var(--font-size-p3);
   font-weight: 500;
 }
 .medium-select-text {
-  font-size: 14px;
+  font-size: var(--font-size-p5);
   font-weight: 500;
 }
 .small-select-text {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
   font-weight: 500;
 }
 
@@ -73,7 +65,7 @@
 }
 
 .select-label {
-  color: var(--text-secondary-color);
+  color: var(--textLightSecondary);
 }
 
 .select-list {
@@ -81,8 +73,8 @@
   padding: 8px;
   margin: 0;
   margin-top: 10px;
-  background-color: var(--bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightSecondary);
+  border-radius: var(--border-large);
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
@@ -92,22 +84,22 @@
   width: 100%;
 }
 
-.select-button {
+.select-element > * {
   width: 100%;
   justify-content: left;
-  color: var(--text-primary-color);
+  color: var(--textLightPrimary);
 }
-.select-button > svg {
-  fill: var(--text-primary-color);
+.select-element > * > svg {
+  fill: var(--textLightPrimary);
 }
-.select-button > span {
-  color: var(--text-primary-color);
-}
-
-.select-button:hover {
-  background-color: var(--hover-bg-color);
+.select-element > * > span {
+  color: var(--textLightPrimary);
 }
 
-.select-button > *:last-child {
+.select-element > *:hover {
+  background-color: var(--bgLightAccentSubdued);
+}
+
+.select-element > * > *:last-child {
   margin-left: auto;
 }

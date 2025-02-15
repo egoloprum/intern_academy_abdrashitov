@@ -1,11 +1,11 @@
 "use client"
 
 import { FC, useEffect, useState } from 'react'
-import "./checkbox.css"
 import Checked from './assets/Checked'
 import UnChecked from './assets/UnChecked'
 import Minus from './assets/Minus'
 import Plus from './assets/Plus'
+import styles from "./checkbox.module.scss"
 
 interface CheckboxProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
@@ -31,11 +31,16 @@ const Checkbox: FC<CheckboxProps> = ({
   }, [clicked])
 
   return (
-    <div className={`input-wrapper ${size}-checkbox ${className}`}>
+    <div className={[
+      styles[`input-wrapper`],
+      styles[`${size}-checkbox`], 
+      styles[`${className}`], 
+      ].join(' ')}
+    >
       <input
         className={[
-          'input',
-          `${size}-checkbox`
+          styles[`input`],
+          styles[`${size}-checkbox`],
         ].join(' ')} 
         type="checkbox" 
         onClick={() => setClicked(!clicked)}
@@ -48,37 +53,41 @@ const Checkbox: FC<CheckboxProps> = ({
 
       {clicked ? (
         mode === 'default' ? <Checked 
-        className={`
-          checkbox-svg 
-          ${isHover && 'hover-checkbox-svg'} 
-          ${isActive && 'active-checkbox-svg'} 
-          ${isDisabled && 'disabled-checkbox-svg'} 
-          ${size}-checkbox`} 
+        className={[
+          styles[`checkbox-svg`],
+          styles[`${isHover ? 'hover-checkbox-svg' : ''}`],
+          styles[`${isActive ? 'active-checkbox-svg' : ''}`],
+          styles[`${isDisabled ? 'disabled-checkbox-svg' : ''}`],
+          styles[`${size}-checkbox`],
+        ].join(' ')} 
         />
-         : mode === 'minus' ? <Minus 
-        className={`
-          checkbox-svg 
-          ${isHover && 'hover-checkbox-svg'} 
-          ${isActive && 'active-checkbox-svg'} 
-          ${isDisabled && 'disabled-checkbox-svg'} 
-          ${size}-checkbox`} 
+        : mode === 'minus' ? <Minus 
+        className={[
+          styles[`checkbox-svg`],
+          styles[`${isHover ? 'hover-checkbox-svg' : ''}`],
+          styles[`${isActive ? 'active-checkbox-svg' : ''}`],
+          styles[`${isDisabled ? 'disabled-checkbox-svg' : ''}`],
+          styles[`${size}-checkbox`],
+        ].join(' ')} 
         /> 
         : mode === 'plus' ? <Plus 
-        className={`
-          checkbox-svg 
-          ${isHover && 'hover-checkbox-svg'} 
-          ${isActive && 'active-checkbox-svg'} 
-          ${isDisabled && 'disabled-checkbox-svg'} 
-          ${size}-checkbox`} 
+        className={[
+          styles[`checkbox-svg`],
+          styles[`${isHover ? 'hover-checkbox-svg' : ''}`],
+          styles[`${isActive ? 'active-checkbox-svg' : ''}`],
+          styles[`${isDisabled ? 'disabled-checkbox-svg' : ''}`],
+          styles[`${size}-checkbox`],
+        ].join(' ')} 
         /> : null
       ) : (
         <UnChecked 
-        className={`
-          checkbox-svg 
-          ${isHover && 'hover-checkbox-svg'} 
-          ${isActive && 'active-checkbox-svg'} 
-          ${isDisabled && 'disabled-checkbox-svg'} 
-          ${size}-checkbox`} 
+        className={[
+          styles[`checkbox-svg`],
+          styles[`${isHover ? 'hover-checkbox-svg' : ''}`],
+          styles[`${isActive ? 'active-checkbox-svg' : ''}`],
+          styles[`${isDisabled ? 'disabled-checkbox-svg' : ''}`],
+          styles[`${size}-checkbox`],
+        ].join(' ')} 
         />
       )}
     </div>

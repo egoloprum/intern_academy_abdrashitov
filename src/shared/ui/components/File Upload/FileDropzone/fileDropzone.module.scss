@@ -1,41 +1,29 @@
-:root {
-  --text-purple-color: rgba(151, 71, 255, 1);
-  --text-black-color: rgba(8, 9, 28, 1);
-  --text-disabled-color: rgba(8, 9, 28, 0.36);
-
-  --border-default-color: rgba(8, 9, 28, 0.12);
-  --border-purple-color: rgba(134, 40, 255, 1);
-  --border-error-color: rgba(229, 69, 69, 1);
-
-  --svg-active-color: rgba(122, 19, 255, 1);
-  --bg-active-color: rgba(122, 19, 255, 0.08);
-  --bg-disable-color: rgba(8, 9, 28, 0.08);
-
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .dropzone-wrapper {
-  outline: 2px dashed var(--border-default-color);
-  border-radius: 8px;
+  outline: 2px dashed var(--borderLightPrimary);
+  border-radius: var(--border-large);
 
   box-sizing: border-box;
 
   font-family: var(--fontFamilyMain);
 }
 .dropzone-wrapper:hover {
-  outline-color: var(--border-purple-color);
+  outline-color: var(--borderAccentHover);
 }
 .dropzone-error-wrapper {
-  outline-color: var(--border-error-color);
+  outline-color: var(--borderCritical);
 }
 .dropzone-active-wrapper {
- background-color: var(--bg-active-color); 
+ background-color: var(--bgLightAccentSubduedActive); 
 }
 .dropzone-disabled-wrapper {
-  background-color: var(--bg-disable-color);
+  background-color: var(--bgLightDisabled);
 }
 .dropzone-disabled-wrapper:hover {
-  outline-color: var(--border-default-color);
+  outline-color: var(--borderLightPrimary);
 }
 
 .large-dropzone-wrapper {
@@ -121,10 +109,10 @@
   padding-inline: 20px;
 }
 .error-dropzone-button {
-  color: var(--border-error-color);
+  color: var(--borderCritical);
 }
 .dropzone-button:disabled {
-  outline: 2px dashed var(--border-default-color);
+  outline: 2px dashed var(--borderLightPrimary);
   background-color: inherit;
 }
 
@@ -135,18 +123,18 @@
 }
 .large-dropzone-text {
   max-width: 220px;
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .medium-dropzone-text {
   max-width: 195px;
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 }
 .small-dropzone-text {
   max-width: 170px;
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 .xs-dropzone-text {
   max-width: 140px;
-  font-size: 10px;
+  font-size: var(--font-size-p9);
 }
 

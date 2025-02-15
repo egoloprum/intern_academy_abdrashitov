@@ -1,8 +1,8 @@
 "use client"
 
 import { FC, useState } from 'react'
-import './toggleBtn.css'
 import Toggler from './assets/Toggler'
+import styles from './toggleBtn.module.scss'
 
 interface ToggleBtnProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
@@ -20,17 +20,20 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
   const [isActive, setIsActive] = useState<boolean>(false)
 
   return (
-    <div className={`
-      toggle-wrapper 
-      ${size}-toggle-wrapper
-      ${theme}-toggle-wrapper
-      ${isHover ? `${theme}-hover-toggle-wrapper` : ''} 
-      ${isActive ? `${theme}-active-toggle-wrapper` : ''}
-      ${isDisabled && `disabled-toggle-wrapper`}
-    `}>
+    <div className={[
+      styles[`toggle-wrapper`],
+      styles[`${size}-toggle-wrapper`],
+      styles[`${theme}-toggle-wrapper`],
+      styles[`${isHover ? `${theme}-hover-toggle-wrapper` : ''}`],
+      styles[`${isActive ? `${theme}-active-toggle-wrapper` : ''}`],
+      styles[`${isDisabled && `disabled-toggle-wrapper`}`],
+    ].join(' ')}>
       <input 
         type="checkbox"  
-        className={`toggle-input ${size}-toggle-input`}
+        className={[
+          styles[`toggle-input`],
+          styles[`${size}-toggle-input`],
+        ].join(' ')}
         onClick={() => setToggler(!toggler)}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
@@ -40,13 +43,13 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
       />
 
       <Toggler
-       className={`
-        toggler-svg
-        ${size}-toggler-svg
-        ${theme}-toggler-svg
-        ${toggler && 'clicked-toggler-svg'}
-        ${isDisabled && 'disabled-toggler-svg'}
-      `}
+       className={[
+        styles[`toggler-svg`],
+        styles[`${size}-toggler-svg`],
+        styles[`${theme}-toggler-svg`],
+        styles[`${toggler && 'clicked-toggler-svg'}`],
+        styles[`${isDisabled && 'disabled-toggler-svg'}`],
+      ].join(' ')}
       />
       
     </div>

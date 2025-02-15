@@ -1,9 +1,9 @@
 "use client"
 
 import { FC, useEffect, useRef, useState } from 'react'
-import "./select.css"
 import IconSelect from './assets/IconSelect'
 import Button from '../../Button/Button'
+import styles from './select.module.scss'
 
 interface SelectProps {
   size?: 'large' | 'medium' | 'small' 
@@ -31,41 +31,43 @@ const Select: FC<SelectProps> = ({
   }, [isOpen, elements])
 
   return (
-    <div className={`select-wrapper`} id='select-wrapper'>
+    <div className={styles[`select-wrapper`]} id='select-wrapper'>
       <label
-        className={`${size}-select-text select-label`} 
+        className={[styles[`${size}-select-text`], styles[`select-label`]].join(' ')} 
         htmlFor="#select-wrapper"
       >
           {topLabel}
       </label>
       <button 
-        className={`select-opener ${isOpen && 'open-select-opener'}`}
+        className={[styles[`select-opener`], styles[`${isOpen && 'open-select-opener'}`]].join(' ')}
         onClick={() => setIsOpen(prev => !prev)}
       >
-        <span className={`select-text ${size}-select-text ${isOpen && 'open-select-text'}`}>{selectValue}</span>
-        <IconSelect className={`select-svg ${size}-select-svg`} />
+        <span className={[
+          styles[`select-text`],
+          styles[`${size}-select-text`],
+          styles[`${isOpen && 'open-select-text'}`]
+        ].join(' ')}>{selectValue}</span>
+        <IconSelect className={[styles[`select-svg`], styles[`${size}-select-svg`]].join(' ')} />
       </button>
 
       <ul 
-        className={`select-list`} 
+        className={styles[`select-list`]} 
         style={{ opacity: isOpen ? `1` : '0', maxHeight: dropdownHeight }}
         ref={dropdownListRef}
       >
         {elements.map((element, index) => (
-          <li key={index} className={`select-element`} >
+          <li key={index} className={styles[`select-element`]} >
             <Button 
               text={element}
               size={size}
               mode='clear'
-              className='select-button'
+              className={styles['select-button']}
               onClick={() => {setIsOpen(false); setSelectValue(element)}}
             />
           </li>
         ))}
       </ul>
-
     </div>
-
   )
 }
 

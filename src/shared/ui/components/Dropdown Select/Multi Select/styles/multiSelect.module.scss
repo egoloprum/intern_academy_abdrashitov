@@ -1,15 +1,6 @@
-:root {
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
-
-  --border-color: rgba(8, 9, 28, 0.12);
-
-  --text-primary-color: rgba(8, 9, 28, 1);
-  --text-secondary-color: rgba(8, 9, 28, 0.6);
-
-  --bg-color: rgba(8, 9, 28, 0.04);
-  --hover-bg-color: rgba(151, 71, 255, 0.06);
-}
-
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typegraphy.scss';
+@import '../../../../styles/radius.scss';
 
 .multi-select-wrapper {
   display: flex;
@@ -22,8 +13,8 @@
 
 .multi-select-opener {
   padding: 14px 18px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border: 1px solid var(--borderLightPrimary);
+  border-radius: var(--border-large);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -40,11 +31,11 @@
 }
 
 .multi-select-opener:hover {
-  background-color: var(--bg-color);
+  background-color: var(--bgLightSecondary);
 }
 .open-multi-select-opener {
-  background-color: var(--bg-color);
-  border-color: var(--bg-color);
+  background-color: var(--bgLightSecondary);
+  border-color: var(--bgLightSecondary);
 }
 
 .selected-list {
@@ -58,22 +49,22 @@
 
 .multi-select-text {
   width: 100%;
-  color: var(--text-secondary-color);
+  color: var(--textLightSecondary);
 }
 .open-multi-select-text {
-  color: var(--text-primary-color);
+  color: var(--textLightPrimary);
 }
 
 .large-multi-select-text {
-  font-size: 16px;
+  font-size: var(--font-size-p3);
   font-weight: 500;
 }
 .medium-multi-select-text {
-  font-size: 14px;
+  font-size: var(--font-size-p5);
   font-weight: 500;
 }
 .small-multi-select-text {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
   font-weight: 500;
 }
 
@@ -106,15 +97,15 @@
 }
 
 .multi-select-label {
-  color: var(--text-secondary-color);
+  color: var(--textLightSecondary);
 }
 
 .multi-select-search {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightSecondary);
+  border-radius: var(--border-large);
 }
 .multi-select-input {
   background-color: transparent;
@@ -137,8 +128,8 @@
   width: inherit;
   padding: 8px;
   margin: 0;
-  background-color: var(--bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightSecondary);
+  border-radius: var(--border-large);
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
@@ -148,21 +139,21 @@
   width: 100%;
 }
 
-.multi-select-button {
+.multi-select-element > * {
   width: 100%;
-  color: var(--text-primary-color);
+  color: var(--textLightPrimary);
 }
-.multi-select-button > svg {
-  fill: var(--text-primary-color);
+.multi-select-element > * > svg {
+  fill: var(--textLightPrimary);
 }
-.multi-select-button > span {
-  color: var(--text-primary-color);
+.multi-select-element > * > span {
+  color: var(--textLightPrimary);
   width: 100%;
   text-align: left;
 }
 
-.multi-select-button:hover {
-  background-color: var(--hover-bg-color);
+.multi-select-element > *:hover {
+  background-color: var(--bgLightAccentSubdued);
 }
 
 

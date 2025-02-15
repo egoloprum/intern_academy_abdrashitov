@@ -1,0 +1,101 @@
+:root {
+  --colorWhiteMain: #FFF;
+  --colorWhite600: rgba(255, 255, 255, 0.88);
+  --colorWhite500: rgba(255, 255, 255, 0.64);
+  --colorWhite400: rgba(255, 255, 255, 0.40);
+  --colorWhite300: rgba(255, 255, 255, 0.14);
+  --colorWhite200: rgba(255, 255, 255, 0.09);
+  --colorWhite100: rgba(255, 255, 255, 0.06);
+
+  --colorBlackMain: #08091C;
+  --colorBlack600: rgba(8, 9, 28, 0.88);
+  --colorBlack500: rgba(8, 9, 28, 0.60);
+  --colorBlack400: rgba(8, 9, 28, 0.36);
+  --colorBlack300: rgba(8, 9, 28, 0.12);
+  --colorBlack200: rgba(8, 9, 28, 0.08);
+  --colorBlack100: rgba(8, 9, 28, 0.04);
+
+  --colorPurple800: #7A13FF;
+  --colorPurple700: #8628FF;
+  --colorPurpleMain: #9747FF;
+  --colorPurple600: rgba(151, 71, 255, 0.88);
+  --colorPurple500: rgba(151, 71, 255, 0.60);
+  --colorPurple400: rgba(151, 71, 255, 0.36);
+  --colorPurple300: rgba(151, 71, 255, 0.14);
+  --colorPurple200: rgba(151, 71, 255, 0.10);
+  --colorPurple100: rgba(151, 71, 255, 0.06);
+
+  --colorRed800: #E51717;
+  --colorRed700: #E52E2E;
+  --colorRedMain: #E54545;
+  --colorRed600: rgba(229, 69, 69, 0.88);
+  --colorRed500: rgba(229, 69, 69, 0.60);
+  --colorRed400: rgba(229, 69, 69, 0.36);
+  --colorRed300: rgba(229, 69, 69, 0.14);
+  --colorRed200: rgba(229, 69, 69, 0.10);
+  --colorRed100: rgba(229, 69, 69, 0.06);
+
+  --bgLightPrimary:               var(--colorWhiteMain);
+  --bgLightSecondary:             var(--colorBlack100);
+  --bgLightSecondaryHover:        var(--colorBlack200);
+  --bgLightSecondaryHoverActive:  var(--colorBlack300);
+  --bgLightDisabled:              var(--colorBlack200);
+
+  --bgLightAccent:                var(--colorPurpleMain);
+  --bgLightAccentHover:           var(--colorPurple700);
+  --bgLightAccentActive:          var(--colorPurple800);
+
+  --bgLightAccentSubdued:         var(--colorPurple100);
+  --bgLightAccentSubduedHover:    var(--colorPurple200);
+  --bgLightAccentSubduedActive:   var(--colorPurple300);
+
+  --bgLightCritical:              var(--colorRedMain);
+  --bgLightCriticalHover:         var(--colorRed700);
+  --bgLightCriticalActive:        var(--colorRed800);
+
+  --bgLightCriticalSubdued:       var(--colorRed100);
+  --bgLightCriticalSubduedHover:  var(--colorRed200);
+  --bgLightCriticalSubduedActive: var(--colorRed300);
+
+  --textLightPrimary:             var(--colorBlackMain);
+  --textLightSecondary:           var(--colorBlack500);
+  --textLightDisabled:            var(--colorBlack400);
+
+  --textLightAccent:              var(--colorPurpleMain);    
+  --textLightAccentHover:         var(--colorPurple700);
+  --textLightAccentActive:        var(--colorPurple800);
+
+  --textLightAccentSubdued:       var(--colorPurple100);
+  --textLightAccentSubduedHover:  var(--colorPurple200);
+  --textLightAccentSubduedActive: var(--colorPurple300);
+
+  --textLightCritical:            var(--colorRedMain);
+  --textLightCriticalHover:       var(--colorRed700);
+  --textLightCriticalActive:      var(--colorRed800);
+
+  --iconLightPrimary:             var(--colorBlackMain);
+  --iconLightSecondary:           var(--colorBlack500);
+  --iconLightDisabled:            var(--colorBlack400);
+
+  --iconLightAccent:              var(--colorPurpleMain);    
+  --iconLightAccentHover:         var(--colorPurple700);
+  --iconLightAccentActive:        var(--colorPurple800);
+
+  --iconLightAccentSubdued:       var(--colorPurple100);
+  --iconLightAccentSubduedHover:  var(--colorPurple200);
+  --iconLightAccentSubduedActive: var(--colorPurple300);
+
+  --iconLightCritical:            var(--colorRedMain);
+  --iconLightCriticalHover:       var(--colorRed700);
+  --iconLightCriticalActive:      var(--colorRed800);
+
+  --borderLightPrimary: var(--colorBlack300);
+  --borderSecondary:    var(--colorBlack200); 
+  --borderFocus:        var(--colorBlackMain);
+
+  --borderAccent:       var(--colorPurpleMain);
+  --borderAccentHover:  var(--colorPurple700);
+  --borderAccentActive: var(--colorPurple800);
+  
+  --borderCritical:     var(--colorRedMain);
+}

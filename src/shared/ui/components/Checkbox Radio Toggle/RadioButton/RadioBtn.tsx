@@ -1,9 +1,9 @@
 "use client"
 
 import { FC, useState } from 'react'
-import './radioBtn.css'
 import Checked from './assets/Checked'
 import Unchecked from './assets/Unchecked'
+import styles from './radioBtn.module.scss'
 
 interface RadioBtnProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
@@ -20,11 +20,16 @@ const RadioBtn: FC<RadioBtnProps> = ({
   const [isActive, setIsActive] = useState<boolean>(false)
   
   return (
-    <div className={`input-wrapper ${size}-input-wrapper`}>
+    <div 
+      className={[
+        styles[`input-wrapper`],
+        styles[`${size}-input-wrapper`]
+      ].join(' ')}
+    >
       <input 
         className={[
-          'input-radio',
-          `${size}-input-radio`,
+          styles[`input-radio`],
+          styles[`${size}-input-radio`],
         ].join(' ')}
         type="radio"
         onClick={() => setIsClicked(!isClicked)}
@@ -37,22 +42,22 @@ const RadioBtn: FC<RadioBtnProps> = ({
 
       { isClicked ?
         <Checked 
-          className={`
-            radio-svg 
-            ${size}-radio-svg
-            ${isHover && 'hover-radio-svg'} 
-            ${isActive && 'active-radio-svg'} 
-            ${isDisabled && 'disabled-radio-svg'} 
-          `} 
+          className={[
+            styles[`radio-svg`],
+            styles[`${size}-radio-svg`],
+            styles[`${isHover ? 'hover-radio-svg' : ''}`],
+            styles[`${isActive ? 'active-radio-svg' : ''}`],
+            styles[`${isDisabled ? 'disabled-radio-svg' : ''}`],
+          ].join(' ')} 
         /> : 
         <Unchecked 
-          className={`
-            radio-svg 
-            ${size}-radio-svg
-            ${isHover && 'hover-radio-svg'} 
-            ${isActive && 'active-radio-svg'} 
-            ${isDisabled && 'disabled-radio-svg'} 
-          `} 
+          className={[
+            styles[`radio-svg`],
+            styles[`${size}-radio-svg`],
+            styles[`${isHover ? 'hover-radio-svg' : ''}`],
+            styles[`${isActive ? 'active-radio-svg' : ''}`],
+            styles[`${isDisabled ? 'disabled-radio-svg' : ''}`],
+          ].join(' ')} 
         />
       }
     </div>

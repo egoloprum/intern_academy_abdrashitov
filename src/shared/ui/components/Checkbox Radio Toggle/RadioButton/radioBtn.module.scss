@@ -1,10 +1,6 @@
-:root {
-  --default-bg-color: rgba(151, 71, 255, 1);
-  --hover-bg-color: rgba(134, 40, 255, 1);
-  --active-bg-color: rgba(122, 19, 255, 1);
-  --disabled-bg-color: rgba(8, 9, 28, 0.36);
-
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .input-wrapper {
   position: relative;
@@ -61,16 +57,16 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  fill: var(--default-bg-color);
+  fill: var(--bgLightAccent);
 }
 .hover-radio-svg {
-  fill: var(--hover-bg-color);
+  fill: var(--bgLightAccentHover);
 }
 .active-radio-svg {
-  fill: var(--active-bg-color);
+  fill: var(--bgLightAccentActive);
 }
 .disabled-radio-svg {
-  fill: var(--disabled-bg-color);
+  fill: var(--textLightDisabled);
 }
 
 .large-radio-svg {
@@ -89,3 +85,4 @@
   max-width: 14px;
   max-height: 14px;
 }
+

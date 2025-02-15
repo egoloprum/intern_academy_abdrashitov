@@ -1,10 +1,9 @@
 "use client"
 
 import { FC, useRef, useState } from 'react'
-import './fileUploader.css'
 import FileUploaderSvg from './assets/FileUploaderSvg'
 import FileCancelSvg from './assets/FileCancelSvg'
-
+import styles from './fileUploader.module.scss'
 
 interface FileUploaderProps {
   size?: 'large' | 'medium' | 'small'
@@ -60,48 +59,58 @@ const FileUploader: FC<FileUploaderProps> = ({
   }
 
   return (
-    <div className='file-uploader-wrapper'>
+    <div className={styles['file-uploader-wrapper']}>
       <section 
         id='file-uploader-container'
-        className={`file-uploader-container ${disabled && 'file-disabled-container'}`}
+        className={[
+          styles[`file-uploader-container`],
+          styles[`${disabled && 'file-disabled-container'}`],
+        ].join(' ')}
       >
         <input 
-          className='file-input' 
+          className={styles['file-input']} 
           type="file" 
           onChange={handleFileChange} 
           ref={fileInputRef}
           disabled={disabled}
         />
-        <div className={`loading-bar ${isLoading ? 'loading-start' : 'loading-end'} `} />
-        <FileUploaderSvg className={`${size}-file-svg`} disabled={disabled} />
+        <div className={[
+          styles[`loading-bar`],
+          styles[`${isLoading ? 'loading-start' : 'loading-end'}`],
+        ].join(' ')} />
+        <FileUploaderSvg className={styles[`${size}-file-svg`]} disabled={disabled} />
         <span 
           className={[
-            'file-text',
-            `${size}-file-font`,
-            `${disabled && 'file-disabled-text'}`
+            styles[`file-text`],
+            styles[`${size}-file-font`],
+            styles[`${disabled && 'file-disabled-text'}`],            
           ].join(' ')}
         >
           {fileName ? fileName : 'File Upload'}
         </span>
         <span 
           className={[
-            'file-size',
-            `${size}-file-font`,
-            `${disabled && 'file-disabled-text'}`
+            styles[`file-text`],
+            styles[`${size}-file-font`],
+            styles[`${disabled && 'file-disabled-text'}`],    
           ].join(' ')}
         >
           {fileSize ? formatFileSize(fileSize) : '3.32 MB'}
         </span>
         <FileCancelSvg
           onClick={handleRemoveFile}
-          className={`${size}-file-svg ${!disabled && 'file-cancel-svg'} ${!disabled && isRotated ? 'rotate' : ''}`} 
+          className={[
+            styles[`${size}-file-svg`],
+            styles[`${!disabled && 'file-cancel-svg'}`],
+            styles[`${!disabled && isRotated ? 'rotate' : ''}`],
+          ].join(' ')}
           disabled={disabled}
         />
 
       </section>
       <label 
         htmlFor='#file-uploader-container'
-        className={`file-label ${size}-file-label`}
+        className={[styles[`file-label`], styles[`${size}-file-label`]].join(' ')}
       >
         This is a helper text
       </label>

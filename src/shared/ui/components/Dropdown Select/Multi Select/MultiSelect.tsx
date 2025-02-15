@@ -2,11 +2,11 @@
 
 import { FC, useEffect, useRef, useState } from 'react'
 import IconSelect from '../Select/assets/IconSelect'
-import "./styles/multiSelect.css"
 import Button from '../../Button/Button'
 import IconSearch from './assets/IconSearch'
 import IconRemove from './assets/IconRemove'
 import SelectedList from './components/SelectedList'
+import styles from './styles/multiSelect.module.scss'
 
 interface MultiSelectProps {
   size?: 'large' | 'medium' | 'small' 
@@ -66,19 +66,19 @@ const MultiSelect: FC<MultiSelectProps> = ({
 
 
   return (
-    <div className={'multi-select-wrapper'}>
+    <div className={styles['multi-select-wrapper']}>
       <label
-        className={`${size}-multi-select-text multi-select-label`} 
+        className={[styles[`${size}-multi-select-text`], styles[`multi-select-label`]].join(' ')} 
         htmlFor="#multi-select-wrapper"
       >
           {topLabel}
       </label>
       <button 
-        className={`
-          multi-select-opener 
-          ${isOpen && 'multi-open-select-opener'}
-          ${selectedValue.length && 'selected-opener'}
-        `}
+        className={[
+          styles[`multi-select-opener`],
+          styles[`${isOpen && 'multi-open-select-opener'}`],
+          styles[`${selectedValue.length && 'selected-opener'}`]
+        ].join(' ')}
         onClick={() => setIsOpen(prev => !prev)}
       >
         { selectedValue.length ? (
@@ -87,41 +87,62 @@ const MultiSelect: FC<MultiSelectProps> = ({
             setCurrentElements={setCurrentElements}
             setSelectedValue={setSelectedValue}
             size={size} 
-            className='selected-list' 
+            className={styles['selected-list']}
           />
         ) : (
-          <span className={`multi-select-text ${size}-multi-select-text ${isOpen && 'open-multi-select-text'}`}>{placeholder}</span>
+          <span 
+            className={[
+              styles[`multi-select-text`],
+              styles[`${size}-multi-select-text`],
+              styles[`${isOpen && 'open-multi-select-text'}`]
+            ].join(' ')}
+          >{placeholder}</span>
         )}
         <IconRemove 
-          className={`multi-select-svg multi-select-remove-svg ${size}-multi-select-svg ${selectedValue.length && 'selected-svg'}`} 
+          className={[
+            styles[`multi-select-svg`],
+            styles[`multi-select-remove-svg`],
+            styles[`${size}-multi-select-svg`],
+            styles[`${selectedValue.length && 'selected-svg'}`],
+          ].join(' ')} 
           onClick={removeHandler} 
         />
-        <IconSelect className={`multi-select-dropper-svg ${size}-multi-select-svg ${isOpen && 'rotated-svg'}`} />
+        <IconSelect className={[
+          styles[`multi-select-dropper-svg`],
+          styles[`${size}-multi-select-svg`],
+          styles[`${isOpen && 'rotated-svg'}`],
+        ].join(' ')} />
       </button>
 
       <ul 
-        className={`multi-select-list`} 
+        className={styles[`multi-select-list`]} 
         style={{ opacity: isOpen ? `1` : '0', maxHeight: dropdownHeight }}
         ref={dropdownListRef}
       >
-        <div className={`multi-select-search ${size}-multi-select-search`} ref={searchRef}>
-          <IconSearch className={`${size}-multi-select-svg`} />
+        <div 
+          className={[
+            styles[`${size}-multi-select-search`], 
+            styles[`multi-select-search`]
+          ].join(' ')} 
+          ref={searchRef}
+        >
+          <IconSearch className={styles[`${size}-multi-select-svg`]} />
           <input 
             type="text"
-            className={`multi-select-input`}
+            className={styles[`multi-select-input`]}
             placeholder='Поиск'
             onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
         {currentElements.map((element, index) => (
-          <li key={index} className={`multi-select-element`} >
+          <li key={index} className={styles[`multi-select-element`]} >
             <Button 
               text={element}
               size={size}
               mode='clear'
-              className='multi-select-button'
               isIconsNeeded={false}
               onClick={() => {setIsOpen(false); selectHandler(element)}}
+              className={styles['multi-select-button']}
             />
           </li>
         ))}

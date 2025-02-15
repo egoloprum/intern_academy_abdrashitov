@@ -1,7 +1,7 @@
 "use client"
 
 import { FC } from 'react'
-import './textarea.css'
+import styles from './textarea.module.scss'
 
 interface TextareaProps {
   size?: 'large' | 'medium' | 'small' | 'xSmall'
@@ -22,20 +22,21 @@ const Textarea: FC<TextareaProps> = ({
 }) => {
   return (
     <div 
-      className={`textarea-container`}
+      className={styles[`textarea-container`]}
     >
       <label 
-        className={
-          `top-label top-${size}-label`
-        }
+        className={[
+          styles[`top-label`],
+          styles[`top-${size}-label`]
+        ].join(' ')}
       >
         {size} {topLabel}
       </label>
       <textarea 
         className={[
-          'textarea',
-          `${size}-textarea`,
-          `${isError && 'textarea-error'}`
+          styles[`textarea`],
+          styles[`${size}-textarea`],
+          styles[`${isError && 'textarea-error'}`]
         ].join(' ')}
         placeholder={`${size} text area`}
         disabled={isDisabled}
@@ -43,10 +44,10 @@ const Textarea: FC<TextareaProps> = ({
       </textarea>
       <label 
         className={[
-          'bottom-label', 
-          `bottom-${size}-label`,
-          `${isError && 'text-error'}`,
-          `${isDisabled && 'text-disabled'}`,
+          styles[`bottom-label`],
+          styles[`bottom-${size}-label`],
+          styles[`${isError && 'text-error'}`],
+          styles[`${isDisabled && 'text-disabled'}`]
         ].join(' ')}
       >
         {bottomLabel}

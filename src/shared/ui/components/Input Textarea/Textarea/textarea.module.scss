@@ -1,0 +1,111 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
+
+:root {
+  --bgLightAccent: rgba(122, 19, 255, 1);
+  --borderSecondary: rgba(8, 9, 28, 0.08);
+
+  --textLightDisabled: rgba(8, 9, 28, 0.36); 
+  --textLightCritical: rgba(229, 69, 69, 1);
+
+  --textLightSecondary: rgba(8, 9, 28, 0.6);
+  --textLightPrimary: rgba(8, 9, 28, 1);
+}
+
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 340px;
+  font-family: var(--fontFamilyMain);
+}
+
+.textarea {
+  max-width: 340px;
+  width: 100%;
+  min-height: 80px;
+  outline: none;
+  padding: 18px 4px 18px 14px;
+  resize: none;
+  border: 1px solid var(--borderSecondary);
+  border-radius: var(--border-large);
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--borderSecondary) #fff;
+}
+.textarea::placeholder {
+  text-transform: capitalize;
+}
+
+.textarea:active {
+  outline: 1px solid var(--bgLightAccent);
+}
+.textarea:hover {
+  background: var(--borderSecondary);
+}
+.textarea:disabled {
+  outline: none;
+  background: var(--borderSecondary);
+}
+
+.textarea-error {
+  color: var(--textLightCritical);
+  outline: 1px solid var(--textLightCritical);
+}
+
+.large-textarea {
+  font-size: var(--font-size-p3);
+}
+.medium-textarea {
+  font-size: var(--font-size-p5);
+}
+.small-textarea {
+  font-size: var(--font-size-p7);
+}
+.xSmall-textarea {
+  font-size: var(--font-size-p9);
+}
+
+.top-label {
+  color: var(--textLightSecondary);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.top-large-label {
+  font-size: var(--font-size-p3);
+}
+.top-medium-label {
+  font-size: var(--font-size-p5);
+}
+.top-small-label {
+  font-size: var(--font-size-p5);
+}
+.top-xSmall-label {
+  font-size: var(--font-size-p7);
+}
+
+.bottom-label {
+  color: var(--textLightPrimary);
+  font-weight: 400;
+}
+.bottom-large-label {
+  font-size: var(--font-size-p7);
+}
+.bottom-medium-label {
+  font-size: var(--font-size-p7);
+}
+.bottom-small-label {
+  font-size: var(--font-size-p9);
+}
+.bottom-xSmall-label {
+  font-size: var(--font-size-p9);
+}
+
+.text-disabled {
+  color: var(--textLightDisabled);
+}
+.text-error {
+  color: var(--textLightCritical);
+}

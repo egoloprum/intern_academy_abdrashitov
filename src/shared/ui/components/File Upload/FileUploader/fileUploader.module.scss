@@ -1,17 +1,6 @@
-:root {
-  --text-primary-color: rgba(8, 9, 28, 1);
-  --text-secondary-color: rgba(8, 9, 28, 0.6);
-  --text-disabled-color: rgba(8, 9, 28, 0.36);
-
-  --default-bg-color: rgba(8, 9, 28, 0.04);
-  --hover-bg-color: rgba(8, 9, 28, 0.08);
-  --active-bg-color: rgba(8, 9, 28, 0.12);
-  --disabled-bg-color: rgba(8, 9, 28, 0.08);
-
-  --loader-bg-color: rgba(151, 71, 255, 0.06);
-
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .file-uploader-wrapper {
   max-width: 340px;
@@ -27,8 +16,8 @@
 .file-uploader-container {
   padding: 14px 18px;
 
-  background-color: var(--default-bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightSecondary);
+  border-radius: var(--border-large);
 
   display: flex;
   align-items: center;
@@ -37,13 +26,13 @@
 }
 
 .file-uploader-container:active {
-  background-color: var(--active-bg-color);
+  background-color: var(--bgLightSecondaryHoverActive);
 }
 .file-uploader-container:hover {
-  background-color: var(--hover-bg-color);
+  background-color: var(--bgLightSecondaryHover);
 }
 .file-disabled-container {
-  background-color: var(--disabled-bg-color);
+  background-color: var(--bgLightSecondaryHover);
   user-select: none;
 }
 
@@ -63,43 +52,43 @@
 
 .large-file-uploader-container {
   padding: 14px 18px;
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .medium-file-uploader-container {
   padding: 10px 16px;
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 } 
 .small-file-uploader-container {
   padding: 8px 14px;
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 
 .file-text {
   width: 100%;
   font-weight: 500;
-  color: var(--text-primary-color);
+  color: var(--textLightPrimary);
   text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .file-disabled-text {
-  color: var(--text-disabled-color);
+  color: var(--textLightDisabled);
 }
 
 .file-size {
   font-weight: 400;
   text-wrap: nowrap;
-  color: var(--text-secondary-color);
+  color: var(--textLightSecondary);
 }
 
 .large-file-font {
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .medium-file-font {
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 }
 .small-file-font {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 
 .file-cancel-svg {
@@ -128,21 +117,21 @@
   font-weight: 400;
 }
 .large-file-label {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 .medium-file-label {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 .small-file-label {
-  font-size: 10px;
+  font-size: var(--font-size-p9);
 }
 
 .loading-bar {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--loader-bg-color);
-  border-radius: 8px; 
+  background-color: var(--bgLightAccentSubdued);
+  border-radius: var(--border-large); 
   width: 0%; 
   height: 100%;  
 }

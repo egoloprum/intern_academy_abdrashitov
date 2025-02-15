@@ -1,11 +1,10 @@
-:root {
-  --bg-color: rgba(8, 9, 28, 0.04);
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
-}
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
 
 .nested-wrapper {
-  background-color: var(--bg-color);
-  border-radius: 8px;
+  background-color: var(--bgLightSecondary);
+  border-radius: var(--border-large);
   font-family: var(--fontFamilyMain);
   font-weight: 500;
   display: flex;
@@ -45,14 +44,14 @@
 }
 
 .large-nested-text {
-  font-size: 20px;
+  font-size: var(--font-size-p2);
 }
 .medium-nested-text {
-  font-size: 18px;
+  font-size: var(--font-size-p2);
 }
 .small-nested-text {
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .xs-nested-text {
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 }

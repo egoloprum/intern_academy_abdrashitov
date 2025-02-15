@@ -1,14 +1,16 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typegraphy.scss';
+@import '../../../styles/radius.scss';
+
 :root {
-  --primary-active: rgba(122, 19, 255, 1);
-  --border-color: rgba(8, 9, 28, 0.08);
+  --colorPurpleMain: rgba(122, 19, 255, 1);
+  --borderSecondary: rgba(8, 9, 28, 0.08);
 
-  --disabled-text-color: rgba(8, 9, 28, 0.36); 
-  --error-text-color: rgba(229, 69, 69, 1);
+  --textLightDisabled: rgba(8, 9, 28, 0.36); 
+  --textLightCritical: rgba(229, 69, 69, 1);
 
-  --top-label-color: rgba(8, 9, 28, 0.6);
-  --bottom-label-color: rgba(8, 9, 28, 1);
-
-  --fontFamilyMain: 'Inter', 'Arial', sans-serif;
+  --textLightSecondary: rgba(8, 9, 28, 0.6);
+  --textLightPrimary: rgba(8, 9, 28, 1);
 }
 
 .input-wrapper {
@@ -31,21 +33,21 @@
   max-height: 40px;
   flex-grow: 1;
 
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border: 1px solid var(--borderSecondary);
+  border-radius: var(--border-large);
 }
 .input-active-container {
-  outline: 1px solid var(--primary-active);
+  outline: 1px solid var(--colorPurpleMain);
 }
 .input-hover-container {
-  background: var(--border-color);
+  background: var(--borderSecondary);
 }
 .input-error-container {
-  outline: 1px solid var(--error-text-color);
+  outline: 1px solid var(--textLightCritical);
 }
 
 .border-rounded-container {
-  border-radius: 64px;
+  border-radius: var(--border-rounded);
 }
 
 .input {
@@ -59,24 +61,24 @@
   text-overflow: ellipsis;
 }
 .input-container:has(.input:disabled) {
-  background: var(--border-color);
+  background: var(--borderSecondary);
 }
 .input::placeholder {
   text-transform: capitalize;
 }
 .large-input {
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .medium-input {
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 }
 .small-input {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 
 .large-container {
   padding: 14px 18px;
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .large-container > svg {
   max-height: 20px;
@@ -85,7 +87,7 @@
 
 .medium-container {
   padding: 12px 16px;
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 }
 .medium-container > svg {
   max-height: 16px;
@@ -94,7 +96,7 @@
 
 .small-container {
   padding: 10px 14px;
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 .small-container > svg {
   max-height: 14px;
@@ -102,39 +104,39 @@
 }
 
 .top-label {
-  color: var(--top-label-color);
+  color: var(--textLightSecondary);
   text-transform: capitalize;
   font-weight: 500;
 }
 .top-large-label {
-  font-size: 16px;
+  font-size: var(--font-size-p3);
 }
 .top-medium-label {
-  font-size: 14px;
+  font-size: var(--font-size-p5);
 }
 .top-small-label {
-  font-size: 14px;
+  font-size: var(--font-size-p7);
 }
 
 .bottom-label {
-  color: var(--bottom-label-color);
+  color: var(--textLightPrimary);
   font-weight: 400;
 }
 .bottom-large-label {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 .bottom-medium-label {
-  font-size: 12px;
+  font-size: var(--font-size-p7);
 }
 .bottom-small-label {
-  font-size: 10px;
+  font-size: var(--font-size-p9);
 }
 
 .text-disabled {
-  color: var(--disabled-text-color);
+  color: var(--textLightDisabled);
 }
 .text-error {
-  color: var(--error-text-color);
+  color: var(--textLightCritical);
 }
 
 .input-remove-svg {

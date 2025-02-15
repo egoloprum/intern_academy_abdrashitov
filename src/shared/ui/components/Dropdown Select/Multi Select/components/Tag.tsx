@@ -1,8 +1,8 @@
 "use client"
 
 import { FC } from 'react'
-import '../styles/tag.css'
 import IconRemove from '../assets/IconRemove'
+import styles from '../styles/tag.module.scss'
 
 interface TagProps {
   size?: string
@@ -27,9 +27,16 @@ const Tag: FC<TagProps> = ({
   }
 
   return (
-    <div className={`tag-wrapper ${size}-tag-wrapper ${className}`}>
+    <div className={[
+        styles[`tag-wrapper`],
+        styles[`${size}-tag-wrapper`],
+        styles[`${className}`],
+      ].join(' ')}>
       <span>{text}</span>
-      <IconRemove className={`multi-select-svg ${size}-multi-select-svg`} onClick={removeHandler} />
+      <IconRemove className={[
+        styles[`multi-select-svg`],
+        styles[`${size}-multi-select-svg`],
+      ].join(' ')} onClick={removeHandler} />
     </div>
   )
 }
