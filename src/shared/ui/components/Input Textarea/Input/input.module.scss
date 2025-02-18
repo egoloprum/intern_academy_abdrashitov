@@ -9,19 +9,18 @@
   max-width: 340px;
   width: 100%;
   font-family: $fontFamilyMain;
+
+  
 }
 
 .input-container {
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   padding: 12px 16px;
-
-  max-width: 340px;
-  max-height: 40px;
-  flex-grow: 1;
-
+  max-width: inherit;
   border: 1px solid $borderSecondary;
   border-radius: $border-large;
 }

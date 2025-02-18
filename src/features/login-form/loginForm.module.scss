@@ -1,0 +1,69 @@
+@import '../../shared/ui/styles/index.scss';
+
+.form {
+  background-color: $bgLightPrimary;
+  max-width: 600px;
+  width: 100%;
+  padding: 32px;
+
+  border-radius: $border-large;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  font-family: $fontFamilyMain;
+}
+
+.h3 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.fieldset {
+  border: none;
+}
+
+.form-element-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-element-1 > *:first-child, .form-element-1 > *:nth-child(2)  {
+  max-width: none;
+}
+
+.form-element-2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  font-size: $font-size-p4;
+  font-weight: 500;
+  color: $textLightDisabled;
+}
+.form-element-2 > span:nth-child(odd) {
+ outline: 1px solid $borderLightPrimary;
+ width: 100%;
+ max-height: 1px;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+// .login-button {
+
+// }
+
+.register-button {
+  text-decoration: none;
+}
+
+.google-button {
+  text-transform: none;
+}
