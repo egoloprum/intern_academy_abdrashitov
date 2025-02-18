@@ -8,13 +8,13 @@
   gap: 4px;
   max-width: 340px;
   height: max-content;
-  font-family: var(--fontFamilyMain);
+  font-family: $fontFamilyMain;
 }
 
 .select-opener {
   padding: 14px 18px;
-  border: 1px solid var(--borderLightPrimary);
-  border-radius: var(--border-large);
+  border: 1px solid $borderLightPrimary;
+  border-radius: $border-large;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -23,31 +23,31 @@
   cursor: pointer;
 }
 .opener-button:hover {
-  background-color: var(--bgLightSecondary);
+  background-color: $bgLightSecondary;
 }
 .open-select-opener {
-  background-color: var(--bgLightSecondary);
-  border-color: var(--bgLightSecondary);
+  background-color: $bgLightSecondary;
+  border-color: $bgLightSecondary;
 }
 
 .select-text {
   width: 100%;
-  color: var(--textLightSecondary);
+  color: $textLightSecondary;
 }
 .open-select-text {
-  color: var(--textLightPrimary);
+  color: $textLightPrimary;
 }
 
 .large-select-text {
-  font-size: var(--font-size-p3);
+  font-size: $font-size-p3;
   font-weight: 500;
 }
 .medium-select-text {
-  font-size: var(--font-size-p5);
+  font-size: $font-size-p5;
   font-weight: 500;
 }
 .small-select-text {
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
   font-weight: 500;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .select-label {
-  color: var(--textLightSecondary);
+  color: $textLightSecondary;
 }
 
 .select-list {
@@ -73,8 +73,8 @@
   padding: 8px;
   margin: 0;
   margin-top: 10px;
-  background-color: var(--bgLightSecondary);
-  border-radius: var(--border-large);
+  background-color: $bgLightSecondary;
+  border-radius: $border-large;
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
@@ -87,17 +87,17 @@
 .select-element > * {
   width: 100%;
   justify-content: left;
-  color: var(--textLightPrimary);
+  color: $textLightPrimary;
 }
 .select-element > * > svg {
-  fill: var(--textLightPrimary);
+  fill: $textLightPrimary;
 }
 .select-element > * > span {
-  color: var(--textLightPrimary);
+  color: $textLightPrimary;
 }
 
 .select-element > *:hover {
-  background-color: var(--bgLightAccentSubdued);
+  background-color: $bgLightAccentSubdued;
 }
 
 .select-element > * > *:last-child {

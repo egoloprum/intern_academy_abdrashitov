@@ -3,9 +3,9 @@
 @import '../../../styles/radius.scss';
 
 .nested-wrapper {
-  background-color: var(--bgLightSecondary);
-  border-radius: var(--border-large);
-  font-family: var(--fontFamilyMain);
+  background-color: $bgLightSecondary;
+  border-radius: $border-large;
+  font-family: $fontFamilyMain;
   font-weight: 500;
   display: flex;
   flex-direction: column;
@@ -44,14 +44,14 @@
 }
 
 .large-nested-text {
-  font-size: var(--font-size-p2);
+  font-size: $font-size-p2;
 }
 .medium-nested-text {
-  font-size: var(--font-size-p2);
+  font-size: $font-size-p2;
 }
 .small-nested-text {
-  font-size: var(--font-size-p3);
+  font-size: $font-size-p3;
 }
 .xs-nested-text {
-  font-size: var(--font-size-p5);
+  font-size: $font-size-p5;
 }

@@ -13,7 +13,7 @@
   max-width: 550px;
   width: 100%;
   padding: 4px;
-  border-radius: var(--border-large);
+  border-radius: $border-large;
   position: relative;
 }
 
@@ -27,10 +27,10 @@
 }
 
 .segment-group-white {
-  background-color: var(--colorWhiteMain);
+  background-color: $colorWhiteMain;
 }
 .segment-group-default {
-  background-color: var(--bgLightSecondary);
+  background-color: $bgLightSecondary;
 }
 
 .sliding-background {
@@ -44,11 +44,11 @@
 .sliding-background-default {
   top: 50%;
   height: calc(100% - 8px);
-  background-color: var(--bgLightAccentSubdued);
-  border-radius: var(--border-large);
+  background-color: $bgLightAccentSubdued;
+  border-radius: $border-large;
 }
 .sliding-background-white {
   bottom: 0;
   height: 2px;
-  background-color: var(--textLightAccent);
+  background-color: $textLightAccent;
 }

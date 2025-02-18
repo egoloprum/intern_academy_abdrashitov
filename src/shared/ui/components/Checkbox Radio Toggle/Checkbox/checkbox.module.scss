@@ -20,16 +20,16 @@
 }
 
 .checkbox-svg {
-  fill: var(--bgLightAccent);
+  fill: $bgLightAccent;
 }
 .hover-checkbox-svg {
-  fill: var(--bgLightAccentHover);
+  fill: $bgLightAccentHover;
 }
 .active-checkbox-svg {
-  fill: var(--bgLightAccentActive);
+  fill: $bgLightAccentActive;
 }
 .disabled-checkbox-svg {
-  fill: var(--textLightDisabled);
+  fill: $textLightDisabled;
 }
 
 .large-checkbox {

@@ -2,24 +2,13 @@
 @import '../../../styles/typegraphy.scss';
 @import '../../../styles/radius.scss';
 
-:root {
-  --colorPurpleMain: rgba(122, 19, 255, 1);
-  --borderSecondary: rgba(8, 9, 28, 0.08);
-
-  --textLightDisabled: rgba(8, 9, 28, 0.36); 
-  --textLightCritical: rgba(229, 69, 69, 1);
-
-  --textLightSecondary: rgba(8, 9, 28, 0.6);
-  --textLightPrimary: rgba(8, 9, 28, 1);
-}
-
 .input-wrapper {
   display: flex;
   flex-direction: column;
   gap: 4px;
   max-width: 340px;
   width: 100%;
-  font-family: var(--fontFamilyMain);
+  font-family: $fontFamilyMain;
 }
 
 .input-container {
@@ -33,21 +22,21 @@
   max-height: 40px;
   flex-grow: 1;
 
-  border: 1px solid var(--borderSecondary);
-  border-radius: var(--border-large);
+  border: 1px solid $borderSecondary;
+  border-radius: $border-large;
 }
 .input-active-container {
-  outline: 1px solid var(--colorPurpleMain);
+  outline: 1px solid $colorPurpleMain;
 }
 .input-hover-container {
-  background: var(--borderSecondary);
+  background: $borderSecondary;
 }
 .input-error-container {
-  outline: 1px solid var(--textLightCritical);
+  outline: 1px solid $textLightCritical;
 }
 
 .border-rounded-container {
-  border-radius: var(--border-rounded);
+  border-radius: $border-rounded;
 }
 
 .input {
@@ -61,24 +50,24 @@
   text-overflow: ellipsis;
 }
 .input-container:has(.input:disabled) {
-  background: var(--borderSecondary);
+  background: $borderSecondary;
 }
 .input::placeholder {
   text-transform: capitalize;
 }
 .large-input {
-  font-size: var(--font-size-p3);
+  font-size: $font-size-p3;
 }
 .medium-input {
-  font-size: var(--font-size-p5);
+  font-size: $font-size-p5;
 }
 .small-input {
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
 }
 
 .large-container {
   padding: 14px 18px;
-  font-size: var(--font-size-p3);
+  font-size: $font-size-p3;
 }
 .large-container > svg {
   max-height: 20px;
@@ -87,7 +76,7 @@
 
 .medium-container {
   padding: 12px 16px;
-  font-size: var(--font-size-p5);
+  font-size: $font-size-p5;
 }
 .medium-container > svg {
   max-height: 16px;
@@ -96,7 +85,7 @@
 
 .small-container {
   padding: 10px 14px;
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
 }
 .small-container > svg {
   max-height: 14px;
@@ -104,39 +93,39 @@
 }
 
 .top-label {
-  color: var(--textLightSecondary);
+  color: $textLightSecondary;
   text-transform: capitalize;
   font-weight: 500;
 }
 .top-large-label {
-  font-size: var(--font-size-p3);
+  font-size: $font-size-p3;
 }
 .top-medium-label {
-  font-size: var(--font-size-p5);
+  font-size: $font-size-p5;
 }
 .top-small-label {
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
 }
 
 .bottom-label {
-  color: var(--textLightPrimary);
+  color: $textLightPrimary;
   font-weight: 400;
 }
 .bottom-large-label {
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
 }
 .bottom-medium-label {
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
 }
 .bottom-small-label {
-  font-size: var(--font-size-p9);
+  font-size: $font-size-p9;
 }
 
 .text-disabled {
-  color: var(--textLightDisabled);
+  color: $textLightDisabled;
 }
 .text-error {
-  color: var(--textLightCritical);
+  color: $textLightCritical;
 }
 
 .input-remove-svg {

@@ -3,27 +3,27 @@
 @import '../../../styles/radius.scss';
 
 .dropzone-wrapper {
-  outline: 2px dashed var(--borderLightPrimary);
-  border-radius: var(--border-large);
+  outline: 2px dashed $borderLightPrimary;
+  border-radius: $border-large;
 
   box-sizing: border-box;
 
-  font-family: var(--fontFamilyMain);
+  font-family: $fontFamilyMain;
 }
 .dropzone-wrapper:hover {
-  outline-color: var(--borderAccentHover);
+  outline-color: $borderAccentHover;
 }
 .dropzone-error-wrapper {
-  outline-color: var(--borderCritical);
+  outline-color: $borderCritical;
 }
 .dropzone-active-wrapper {
- background-color: var(--bgLightAccentSubduedActive); 
+ background-color: $bgLightAccentSubduedActive; 
 }
 .dropzone-disabled-wrapper {
-  background-color: var(--bgLightDisabled);
+  background-color: $bgLightDisabled;
 }
 .dropzone-disabled-wrapper:hover {
-  outline-color: var(--borderLightPrimary);
+  outline-color: $borderLightPrimary;
 }
 
 .large-dropzone-wrapper {
@@ -109,10 +109,10 @@
   padding-inline: 20px;
 }
 .error-dropzone-button {
-  color: var(--borderCritical);
+  color: $borderCritical;
 }
 .dropzone-button:disabled {
-  outline: 2px dashed var(--borderLightPrimary);
+  outline: 2px dashed $borderLightPrimary;
   background-color: inherit;
 }
 
@@ -123,18 +123,18 @@
 }
 .large-dropzone-text {
   max-width: 220px;
-  font-size: var(--font-size-p3);
+  font-size: $font-size-p3;
 }
 .medium-dropzone-text {
   max-width: 195px;
-  font-size: var(--font-size-p5);
+  font-size: $font-size-p5;
 }
 .small-dropzone-text {
   max-width: 170px;
-  font-size: var(--font-size-p7);
+  font-size: $font-size-p7;
 }
 .xs-dropzone-text {
   max-width: 140px;
-  font-size: var(--font-size-p9);
+  font-size: $font-size-p9;
 }
 

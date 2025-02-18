@@ -3,35 +3,35 @@
 @import '../../../styles/radius.scss';
 
 .toggle-wrapper {
-  border-radius: var(--border-special);
+  border-radius: $border-special;
   position: relative;
 }
 
 .light-toggle-wrapper {
-  background-color: var(--bgLightAccent);
+  background-color: $bgLightAccent;
 }
 .dark-toggle-wrapper {
-  background-color: var(--bgLightSecondary);
-  outline: 1px solid var(--borderLightPrimary);
+  background-color: $bgLightSecondary;
+  outline: 1px solid $borderLightPrimary;
 }
 
 .light-hover-toggle-wrapper {
-  background-color: var(--bgLightAccentHover);
+  background-color: $bgLightAccentHover;
 }
 .dark-hover-toggle-wrapper {
-  background-color: var(--bgLightSecondaryHover);  
+  background-color: $bgLightSecondaryHover;  
 }
 
 .light-active-toggle-wrapper {
-  background-color: var(--bgLightAccentActive);
+  background-color: $bgLightAccentActive;
 }
 .dark-active-toggle-wrapper {
-  background-color: var(--bgLightSecondaryHoverActive);
+  background-color: $bgLightSecondaryHoverActive;
 }
 
 .disabled-toggle-wrapper {
-  outline: 1px solid var(--borderLightPrimary);
-  background-color: var(--bgLightDisabled);
+  outline: 1px solid $borderLightPrimary;
+  background-color: $bgLightDisabled;
 }
 
 .large-toggle-wrapper {
@@ -95,13 +95,13 @@
 }
 
 .light-toggler-svg {
-  fill: var(--bgLightPrimary);
+  fill: $bgLightPrimary;
 }
 .dark-toggler-svg {
-  fill: var(--colorBlack600);
+  fill: $colorBlack600;
 }
 .disabled-toggler-svg {
-  fill: var(--bgLightDisabled);
+  fill: $bgLightDisabled;
 }
 
 .large-toggler-svg {

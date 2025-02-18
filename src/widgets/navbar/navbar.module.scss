@@ -1,0 +1,17 @@
+@import '../../shared/ui/styles/index.scss';
+
+.navbar {
+  background-color: $bgLightPrimary;
+  display: flex;
+  justify-content: space-between;
+  border-radius: $border-large;
+}
+
+.logo {
+  margin: 11px 24px;
+}
+
+.language-toggler {
+  margin: 12px 32px;
+  cursor: pointer;
+}

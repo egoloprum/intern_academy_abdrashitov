@@ -9,8 +9,8 @@
 .dropdown-list {
   width: fit-content;
   padding: 8px;
-  background-color: var(--bgLightSecondary);
-  border-radius: var(--border-large);
+  background-color: $bgLightSecondary;
+  border-radius: $border-large;
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
@@ -29,7 +29,7 @@
 }
 
 .dropdown-button:hover {
-  background-color: var(--bgLightAccentSubdued);
+  background-color: $bgLightAccentSubdued;
 }
 
 .dropdown-button > *:last-child {
