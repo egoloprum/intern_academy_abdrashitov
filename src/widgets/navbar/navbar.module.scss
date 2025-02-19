@@ -11,7 +11,16 @@
   margin: 11px 24px;
 }
 
-.language-toggler {
+.open-element {
+  margin: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.closed-element {
   margin: 12px 32px;
+}
+
+.language-toggler {
   cursor: pointer;
 }

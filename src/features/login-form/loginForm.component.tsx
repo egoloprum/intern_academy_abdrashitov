@@ -7,6 +7,7 @@ import { Input } from '@/shared/ui/components/Input Textarea/Input'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginValidator } from '@/app/validations/loginValidator';
+import { signIn } from 'next-auth/react'
 
 import Google from './assets/google.svg'
 import PasswordShow from './assets/passwordShow.svg'
@@ -27,6 +28,15 @@ const LoginForm = ({}) => {
   const onSubmit: SubmitHandler<LoginData> = (data) => console.log(data)
 
   const [passwordShow, setPasswordShow] = useState<boolean>(false)
+
+  const googleHandler = async () => {
+    try {
+      await signIn('google')
+    }
+    catch (error) {
+      console.log(error)
+    } 
+  }
 
   return (
     <form 
@@ -91,6 +101,7 @@ const LoginForm = ({}) => {
           type='button' 
           size='large'
           className={[styles[`google-button`], styles['button']].join(' ')}
+          onClick={googleHandler}
         >
           <Google /> Войти с помощью Google
         </Button>

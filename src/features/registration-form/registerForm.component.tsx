@@ -25,7 +25,7 @@ type RegisterData = {
 
 const RegisterForm = ({}) => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm<RegisterData>({
+  const { register, handleSubmit, formState: { errors }, trigger } = useForm<RegisterData>({
       resolver: zodResolver(RegisterValidator),
     })
     const onSubmit: SubmitHandler<RegisterData> = (data) => console.log(data)
@@ -48,10 +48,11 @@ const RegisterForm = ({}) => {
           inputSize='large'
           placeholder='ФИО'
           className={[styles[`username-input`], styles['input']].join(' ')}
-          error={errors.username ? true : false}
+          error={!!errors.username}
           topLabel=''
           bottomLabel={errors.username ? errors.username.message : ''}
           {...register("username")}
+          onChange={() => trigger("username")}
           required
         />
 
@@ -60,11 +61,12 @@ const RegisterForm = ({}) => {
             inputSize='large'
             placeholder='Номер телефона'
             className={[styles[`telephone-input`], styles['input']].join(' ')}
-            error={errors.telephone ? true : false}
+            error={!!errors.telephone}
             topLabel=''
             bottomLabel={errors.telephone ? errors.telephone.message : ''}
             {...register("telephone")}
-            value={phone} onChange={handleChange}
+            value={phone} 
+            onChange={(e) => {handleChange(e); trigger("telephone")}}
           />
 
 
@@ -73,10 +75,11 @@ const RegisterForm = ({}) => {
           inputSize='large'
           placeholder='Электронная почта'
           className={[styles[`email-input`], styles['input']].join(' ')}
-          error={errors.email ? true : false}
+          error={!!errors.email}
           topLabel=''
           bottomLabel={errors.email ? errors.email.message : ''}
           {...register("email")}
+          onChange={() => trigger("email")}
         />
 
         <Input 
@@ -85,9 +88,10 @@ const RegisterForm = ({}) => {
           inputSize='large'
           placeholder='Пароль'
           className={[styles[`password-input`], styles['input']].join(' ')}
-          error={errors.password ? true : false}
+          error={!!errors.password}
           topLabel=''
           bottomLabel={errors.password ? errors.password.message : ''}
+          onChange={() => trigger("password")}
         >
           { passwordShow ? (
             <PasswordHide className={styles[`password-svg`]} onClick={() => setPasswordShow(!passwordShow)} />
@@ -102,9 +106,10 @@ const RegisterForm = ({}) => {
           inputSize='large'
           placeholder='Повторить пароль'
           className={[styles[`password-input`], styles['input']].join(' ')}
-          error={errors.repeatPassword ? true : false}
+          error={!!errors.repeatPassword}
           topLabel=''
           bottomLabel={errors.repeatPassword ? errors.repeatPassword.message : ''}
+          onChange={() => trigger("repeatPassword")}
         >
           { repeatPasswordShow ? (
             <PasswordHide className={styles[`password-svg`]} onClick={() => setRepeatPasswordShow(!repeatPasswordShow)} />
@@ -118,6 +123,7 @@ const RegisterForm = ({}) => {
           size='large'
           mode='primary'
           className={[styles['button']].join(' ')}
+          // disabled={errors ? true : false}
         >
           Зарегистрироваться
         </Button>
@@ -130,11 +136,7 @@ const RegisterForm = ({}) => {
         >
           Войти
         </Button>
-
-
-
       </fieldset>
-
     </form>
   )
 }

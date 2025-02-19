@@ -1,6 +1,6 @@
 "use client"
 
-import { forwardRef, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
+import { FC, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
 import styles from './input.module.scss'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -14,7 +14,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({
+export const Input:FC<InputProps> = (({
   inputSize = "medium",
   rounded,
   topLabel = 'label',
@@ -24,7 +24,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   type,
   children,
   ...rest
-}, ref) => {
+}) => {
   return (
     <div className={[styles['input-wrapper'], className].join(' ')}>
       {topLabel.length ? (
@@ -53,7 +53,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
             styles[`${error && 'text-error'}`]
           ].join(' ')} 
           type={type} 
-          ref={ref}
           {...rest}
         />
 
