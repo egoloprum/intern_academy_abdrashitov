@@ -13,6 +13,7 @@ import PasswordShow from './assets/passwordShow.svg'
 import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './registerForm.module.scss'
+import { usePhoneInput } from '@/app/hooks/phoneNumber'
 
 type RegisterData = {
   username: string 
@@ -26,10 +27,13 @@ const RegisterForm = ({}) => {
 
   const { register, handleSubmit, formState: { errors } } = useForm<RegisterData>({
       resolver: zodResolver(RegisterValidator),
-    });
+    })
     const onSubmit: SubmitHandler<RegisterData> = (data) => console.log(data)
 
   const [passwordShow, setPasswordShow] = useState<boolean>(false)
+  const [repeatPasswordShow, setRepeatPasswordShow] = useState<boolean>(false)
+
+  const { phone, handleChange } = usePhoneInput()
 
   return (
     <form 
@@ -48,18 +52,21 @@ const RegisterForm = ({}) => {
           topLabel=''
           bottomLabel={errors.username ? errors.username.message : ''}
           {...register("username")}
+          required
         />
 
-        <Input 
-          type='text'
-          inputSize='large'
-          placeholder='Номер телефона'
-          className={[styles[`telephone-input`], styles['input']].join(' ')}
-          error={errors.telephone ? true : false}
-          topLabel=''
-          bottomLabel={errors.telephone ? errors.telephone.message : ''}
-          {...register("telephone")}
-        />
+          <Input 
+            type='text'
+            inputSize='large'
+            placeholder='Номер телефона'
+            className={[styles[`telephone-input`], styles['input']].join(' ')}
+            error={errors.telephone ? true : false}
+            topLabel=''
+            bottomLabel={errors.telephone ? errors.telephone.message : ''}
+            {...register("telephone")}
+            value={phone} onChange={handleChange}
+          />
+
 
         <Input 
           type='email'
@@ -90,19 +97,19 @@ const RegisterForm = ({}) => {
         </Input>
 
         <Input 
-          {...register("password")}
-          type={passwordShow ? 'text' : 'password'}
+          {...register("repeatPassword")}
+          type={repeatPasswordShow ? 'text' : 'password'}
           inputSize='large'
-          placeholder='Пароль'
+          placeholder='Повторить пароль'
           className={[styles[`password-input`], styles['input']].join(' ')}
           error={errors.repeatPassword ? true : false}
           topLabel=''
           bottomLabel={errors.repeatPassword ? errors.repeatPassword.message : ''}
         >
-          { passwordShow ? (
-            <PasswordHide className={styles[`password-svg`]} onClick={() => setPasswordShow(!passwordShow)} />
+          { repeatPasswordShow ? (
+            <PasswordHide className={styles[`password-svg`]} onClick={() => setRepeatPasswordShow(!repeatPasswordShow)} />
           ) : (
-            <PasswordShow className={styles[`password-svg`]} onClick={() => setPasswordShow(!passwordShow)} />
+            <PasswordShow className={styles[`password-svg`]} onClick={() => setRepeatPasswordShow(!repeatPasswordShow)} />
           ) }
         </Input>
 
@@ -112,7 +119,7 @@ const RegisterForm = ({}) => {
           mode='primary'
           className={[styles['button']].join(' ')}
         >
-          Заригестрироваться
+          Зарегистрироваться
         </Button>
         <Button 
           type='button' 

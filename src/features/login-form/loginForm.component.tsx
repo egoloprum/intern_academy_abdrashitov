@@ -76,7 +76,7 @@ const LoginForm = ({}) => {
           className={[styles[`register-button`], styles['button']].join(' ')}
           href='/register'
         >
-          Заригестрироваться
+          Зарегистрироваться
         </Button>
       </fieldset>
 

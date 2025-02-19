@@ -52,9 +52,6 @@
 .input-container:has(.input:disabled) {
   background: $borderSecondary;
 }
-.input::placeholder {
-  text-transform: capitalize;
-}
 .large-input {
   font-size: $font-size-p3;
 }
