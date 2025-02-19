@@ -1,8 +1,8 @@
 "use client"
 
 import { FC, useEffect, useRef, useState } from 'react'
-import Button from '../../Button/Button'
 import styles from './dropdown.module.scss'
+import { Button } from '../../Button'
 
 interface DropdownProps {
   size?: 'large' | 'medium' | 'small'
@@ -31,12 +31,14 @@ const Dropdown: FC<DropdownProps> = ({
         styles['dropdown-wrapper']
       ].join(' ')}>
       <Button 
-        text={'Dropdown Button'} 
         size={size}
         mode='secondary'
         onClick={() => setIsOpen(prev => !prev)}
-        isDisabled={isDisabled}
-      />
+        disabled={isDisabled}
+      >
+        Dropdown Button
+      </Button>
+      
       <ul 
         className={styles[`dropdown-list`]} 
         style={{ opacity: isOpen ? `1` : '0', maxHeight: dropdownHeight }}
@@ -45,12 +47,13 @@ const Dropdown: FC<DropdownProps> = ({
         {elements.map((element, index) => (
           <li key={index} className={styles[`dropdown-element`]}>
             <Button 
-              text={element}
               size={size}
               mode='clear'
               className={styles['dropdown-button']}
               onClick={() => setIsOpen(false)}
-            />
+            >
+              {element}
+            </Button>
           </li>
         ))}
       </ul>

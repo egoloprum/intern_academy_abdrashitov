@@ -2,11 +2,11 @@
 
 import { FC, useEffect, useRef, useState } from 'react'
 import IconSelect from '../Select/assets/IconSelect'
-import Button from '../../Button/Button'
 import IconSearch from './assets/IconSearch'
 import IconRemove from './assets/IconRemove'
 import SelectedList from './components/SelectedList'
 import styles from './styles/multiSelect.module.scss'
+import { Button } from '../../Button'
 
 interface MultiSelectProps {
   size?: 'large' | 'medium' | 'small' 
@@ -137,13 +137,13 @@ const MultiSelect: FC<MultiSelectProps> = ({
         {currentElements.map((element, index) => (
           <li key={index} className={styles[`multi-select-element`]} >
             <Button 
-              text={element}
               size={size}
               mode='clear'
-              isIconsNeeded={false}
               onClick={() => {setIsOpen(false); selectHandler(element)}}
               className={styles['multi-select-button']}
-            />
+            >
+              {element}
+            </Button>
           </li>
         ))}
       </ul>

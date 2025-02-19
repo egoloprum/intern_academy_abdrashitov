@@ -2,8 +2,8 @@
 
 import { FC, useEffect, useRef, useState } from 'react'
 import IconSelect from './assets/IconSelect'
-import Button from '../../Button/Button'
 import styles from './select.module.scss'
+import { Button } from '../../Button'
 
 interface SelectProps {
   size?: 'large' | 'medium' | 'small' 
@@ -58,12 +58,13 @@ const Select: FC<SelectProps> = ({
         {elements.map((element, index) => (
           <li key={index} className={styles[`select-element`]} >
             <Button 
-              text={element}
               size={size}
               mode='clear'
               className={styles['select-button']}
               onClick={() => {setIsOpen(false); setSelectValue(element)}}
-            />
+            >
+              {element}
+            </Button>
           </li>
         ))}
       </ul>

@@ -2,8 +2,8 @@
 
 import { FC, useState } from 'react'
 import FileDropzoneSvg from './assets/FileDropzoneSvg'
-import Button from '../../Button/Button'
 import styles from './fileDropzone.module.scss'
+import { Button } from '../../Button'
 
 interface FileDropzoneProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
@@ -92,15 +92,15 @@ const FileDropzone: FC<FileDropzoneProps> = ({
           <Button 
             size={size}
             mode={'clear'}
-            isIconsNeeded={false}
-            isDisabled={disabled}
-            text={`${size} button`}
+            disabled={disabled}
             className={[
               styles[`dropzone-button`],
               styles[`${size}-dropzone-button`],
               styles[`${isError && 'error-dropzone-button'}`]
             ].join(' ')}
-          />
+          >
+            {`${size} button`}
+          </Button>
         </div>
       </section>
     </div>

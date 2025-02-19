@@ -2,7 +2,7 @@
 
 import { FC, useState, useEffect } from 'react'
 import styles from './segment.module.scss'
-import Button from '../../Button/Button'
+import { Button } from '../../Button'
 
 interface SegmentedControlsProps {
   size?: 'large' | 'medium' | 'small' | 'xs'
@@ -50,11 +50,11 @@ const SegmentedControls: FC<SegmentedControlsProps> = ({
           key={index}
           size={size}
           mode={'clear'}
-          isIconsNeeded={false}
           onClick={() => setSelect(index)}
-          text={element}
           className={styles['segment-element']}
-        />
+        >
+          {element}
+        </Button>
       ))}
     </div>
   )
