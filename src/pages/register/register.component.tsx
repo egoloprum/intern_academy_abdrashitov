@@ -1,12 +1,12 @@
-import { FC } from 'react'
+import { RegisterForm } from '@/features/registration-form'
 import styles from './register.module.scss'
 
-interface RegisterProps {
-  
-}
-
-export const Register: FC<RegisterProps> = ({}) => {
-  return <div>Register</div>
+export const Register = ({}) => {
+  return(
+    <main className={styles[`register-main`]}>
+      <RegisterForm />
+    </main>
+  )
 }
 
 

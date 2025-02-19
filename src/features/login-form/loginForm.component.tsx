@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import { Button } from '@/shared/ui/components/Button'
 import { Input } from '@/shared/ui/components/Input Textarea/Input'
 
@@ -14,16 +14,12 @@ import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './loginForm.module.scss'
 
-interface LoginForm {
-  
-}
-
 type LoginData = {
   email: string
   password: string 
 }
 
-const LoginForm: FC<LoginForm> = ({}) => {
+const LoginForm = ({}) => {
 
   const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
     resolver: zodResolver(LoginValidator),

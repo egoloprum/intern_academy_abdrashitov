@@ -1,0 +1,38 @@
+@import '../../shared/ui/styles/index.scss';
+
+.form {
+  background-color: $bgLightPrimary;
+  max-width: 600px;
+  width: 100%;
+  padding: 32px;
+  border-radius: $border-large;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-family: $fontFamilyMain;
+}
+
+.form-label {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-element {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-element > *:nth-child(n)  {
+  max-width: none;
+}
+
+.button:nth-of-type(n) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+

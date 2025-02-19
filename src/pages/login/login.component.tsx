@@ -1,13 +1,8 @@
 import { LoginForm } from '@/features/login-form'
-import { FC } from 'react'
 
 import styles from './login.module.scss'
 
-interface LoginProps {
-  
-}
-
-export const Login: FC<LoginProps> = ({}) => {
+export const Login= ({}) => {
   return (
     <main className={styles[`login-main`]}>
       <LoginForm />
