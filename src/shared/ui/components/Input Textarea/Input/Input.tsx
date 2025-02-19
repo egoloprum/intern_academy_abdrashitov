@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, InputHTMLAttributes, useState } from 'react'
+import { FC, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
 import styles from './input.module.scss'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -10,26 +10,21 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   bottomLabel?: string
   error?: boolean
   className?: string 
-  placeholder?: string 
-
+  type?: HTMLInputTypeAttribute
+  children?: React.ReactNode
 }
 
 export const Input: FC<InputProps> = ({
   inputSize="medium",
   rounded,  
-  disabled=false, 
   topLabel='label', 
   bottomLabel='This is a helper text',
   error=false,
   className,
-  placeholder,
+  type,
+  children,
   ...rest
 }) => {
-  const [onActive, setOnActive] = useState<boolean>(false)
-  const [onHover, setOnHover] = useState<boolean>(false)
-
-  const [inputValue, setInputValue] = useState('')
-
   return (
     <div className={[styles['input-wrapper'], className].join(' ')}>
       { topLabel.length ? (
@@ -48,8 +43,6 @@ export const Input: FC<InputProps> = ({
           styles[`input-container`],
           styles[`${inputSize}-container`],
           styles[`${rounded && 'border-rounded-container'}`],
-          styles[`${onActive && 'input-active-container'}`],
-          styles[`${onHover && 'input-hover-container'}`],
           styles[`${error && 'input-error-container'}`],
         ].join(' ')}
       >
@@ -57,20 +50,13 @@ export const Input: FC<InputProps> = ({
           className={[
             styles[`input`],
             styles[`${inputSize}-input`],
-            styles[`${onHover && 'input-hover'}`],
             styles[`${error && 'text-error'}`]
           ].join(' ')} 
-          type="text" 
-          value={inputValue}
-          placeholder={placeholder}
-          onChange={(e) => setInputValue(e.target.value)}
-          onFocus={() => setOnActive(true)}
-          onBlur={() => setOnActive(false)}
-          onMouseEnter={() => setOnHover(true)}
-          onMouseLeave={() => setOnHover(false)}
-          disabled={disabled}
+          type={type} 
           {...rest}
         />
+
+        { children }
       </section>
 
       { bottomLabel.length ? (
@@ -79,7 +65,6 @@ export const Input: FC<InputProps> = ({
             styles[`bottom-label`],
             styles[`bottom-${inputSize}-label`],
             styles[`${error && 'text-error'}`],
-            styles[`${disabled && 'text-disabled'}`]
           ].join(' ')}
         >
           {bottomLabel}

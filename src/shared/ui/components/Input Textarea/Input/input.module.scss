@@ -24,10 +24,11 @@
   border: 1px solid $borderSecondary;
   border-radius: $border-large;
 }
-.input-active-container {
+
+.input-container:has(.input:active) {
   outline: 1px solid $colorPurpleMain;
 }
-.input-hover-container {
+.input-container:has(.input:hover) {
   background: $borderSecondary;
 }
 .input-error-container {
@@ -120,9 +121,10 @@
   font-size: $font-size-p9;
 }
 
-.text-disabled {
+.bottom-label:has(.input:disabled) {
   color: $textLightDisabled;
 }
+
 .text-error {
   color: $textLightCritical;
 }

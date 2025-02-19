@@ -15,7 +15,7 @@
   font-family: $fontFamilyMain;
 }
 
-.h3 {
+.form-label {
   font-size: 24px;
   font-weight: 700;
   text-align: center;
@@ -56,14 +56,14 @@
   justify-content: center;
 }
 
-// .login-button {
-
-// }
-
 .register-button {
   text-decoration: none;
 }
 
 .google-button {
   text-transform: none;
+}
+
+.password-svg {
+  cursor: pointer;
 }

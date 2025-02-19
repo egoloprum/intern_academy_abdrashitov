@@ -1,43 +1,71 @@
 "use client"
 
-import { Button } from '@/shared/ui/components/Button'
 import { FC, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Button } from '@/shared/ui/components/Button'
+import { Input } from '@/shared/ui/components/Input Textarea/Input'
+
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LoginValidator } from '@/app/validations/loginValidator';
 
 import Google from './assets/google.svg'
+import PasswordShow from './assets/passwordShow.svg'
+import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './loginForm.module.scss'
-import { Input } from '@/shared/ui/components/Input Textarea/Input'
 
 interface LoginForm {
   
 }
 
+type LoginData = {
+  email: string
+  password: string 
+}
+
 const LoginForm: FC<LoginForm> = ({}) => {
 
-  const [data, setData] = useState("")
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
+    resolver: zodResolver(LoginValidator),
+  });
+  const onSubmit: SubmitHandler<LoginData> = (data) => console.log(data)
+
+  const [passwordShow, setPasswordShow] = useState<boolean>(false)
 
   return (
     <form 
       className={styles[`form`]}
+      onSubmit={handleSubmit(onSubmit)}
     >
-      <h3 className={styles[`h3`]}>Авторизация</h3>
+      <h3 className={styles[`form-label`]}>Авторизация</h3>
 
       <fieldset className={[styles[`form-element-1`], styles[`fieldset`]].join(' ')}>
         <Input 
+          type='email'
           inputSize='large'
           placeholder='Электронная почта'
           className={[styles[`email-input`], styles['input']].join(' ')}
+          error={errors.email ? true : false}
           topLabel=''
-          bottomLabel=''
+          bottomLabel={errors.email ? errors.email.message : ''}
+          {...register("email")}
         />
         <Input 
+          {...register("password")}
+          type={passwordShow ? 'text' : 'password'}
           inputSize='large'
           placeholder='Пароль'
           className={[styles[`password-input`], styles['input']].join(' ')}
+          error={errors.password ? true : false}
           topLabel=''
-          bottomLabel=''
-        />
+          bottomLabel={errors.password ? errors.password.message : ''}
+        >
+          { passwordShow ? (
+            <PasswordHide className={styles[`password-svg`]} onClick={() => setPasswordShow(!passwordShow)} />
+          ) : (
+            <PasswordShow className={styles[`password-svg`]} onClick={() => setPasswordShow(!passwordShow)} />
+          ) }
+        </Input>
         <Button 
           type='submit' 
           size='large'
@@ -71,7 +99,6 @@ const LoginForm: FC<LoginForm> = ({}) => {
           <Google /> Войти с помощью Google
         </Button>
       </fieldset>
-
     </form>
   )
 }
