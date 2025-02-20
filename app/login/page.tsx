@@ -1,7 +1,16 @@
+import { authOptions } from "@/app/lib/auth";
 import { Login } from "@/pages/login"
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
+const page = async ({}) => {
+  const session = await getServerSession(authOptions)
+  console.log(session)
+  
+  if (session) {
+    redirect('/')
+  }
 
-const page = ({}) => {
   return (
     <Login />
   )
