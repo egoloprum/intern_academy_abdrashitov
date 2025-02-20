@@ -1,6 +1,6 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .input-wrapper {
   position: relative;
@@ -20,16 +20,16 @@
 }
 
 .checkbox-svg {
-  fill: $bgLightAccent;
+  fill: colors.$bgLightAccent;
 }
 .hover-checkbox-svg {
-  fill: $bgLightAccentHover;
+  fill: colors.$bgLightAccentHover;
 }
 .active-checkbox-svg {
-  fill: $bgLightAccentActive;
+  fill: colors.$bgLightAccentActive;
 }
 .disabled-checkbox-svg {
-  fill: $textLightDisabled;
+  fill: colors.$textLightDisabled;
 }
 
 .large-checkbox {

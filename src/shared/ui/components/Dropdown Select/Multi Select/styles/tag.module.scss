@@ -1,28 +1,28 @@
-@import '../../../../styles/colors.scss';
-@import '../../../../styles/typegraphy.scss';
-@import '../../../../styles/radius.scss';
+@use '../../../../styles/colors';
+@use '../../../../styles/typegraphy';
+@use '../../../../styles/radius';
 
 .tag-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  background-color: $bgLightSecondary;
-  border-radius: $border-large;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
   width: fit-content;
   text-wrap: nowrap;
 }
 .large-tag-wrapper {
   padding: 14px 16px;
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
 }
 .medium-tag-wrapper {
   padding: 12px 14px;
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
 }
 .small-tag-wrapper {
   padding: 10px 12px;
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 
 .multi-select-svg {

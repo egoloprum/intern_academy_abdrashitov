@@ -1,6 +1,6 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .segment-list {
   display: flex;
@@ -13,7 +13,7 @@
   max-width: 550px;
   width: 100%;
   padding: 4px;
-  border-radius: $border-large;
+  border-radius: radius.$border-large;
   position: relative;
 }
 
@@ -27,10 +27,10 @@
 }
 
 .segment-group-white {
-  background-color: $colorWhiteMain;
+  background-color: colors.$colorWhiteMain;
 }
 .segment-group-default {
-  background-color: $bgLightSecondary;
+  background-color: colors.$bgLightSecondary;
 }
 
 .sliding-background {
@@ -44,11 +44,11 @@
 .sliding-background-default {
   top: 50%;
   height: calc(100% - 8px);
-  background-color: $bgLightAccentSubdued;
-  border-radius: $border-large;
+  background-color: colors.$bgLightAccentSubdued;
+  border-radius: radius.$border-large;
 }
 .sliding-background-white {
   bottom: 0;
   height: 2px;
-  background-color: $textLightAccent;
+  background-color: colors.$textLightAccent;
 }

@@ -1,6 +1,6 @@
-@import '../../styles/colors.scss';
-@import '../../styles/typegraphy.scss';
-@import '../../styles/radius.scss';
+@use '../../styles/colors';
+@use '../../styles/typegraphy';
+@use '../../styles/radius';
 
 .button {
   display: flex;
@@ -9,10 +9,10 @@
   gap: 8px;
   background: none;
   border: none;
-  border-radius: $border-large;
+  border-radius: radius.$border-large;
   cursor: pointer;
-  font-family: $fontFamilyMain;
-  line-height: $line-height;
+  font-family: typegraphy.$fontFamilyMain;
+  line-height: typegraphy.$line-height;
   font-weight: 500;
   text-transform: capitalize;
 }
@@ -21,24 +21,24 @@
   justify-content: center;
 }
 .rounded-button {
-  border-radius: $border-rounded;
+  border-radius: radius.$border-rounded;
 }
 
 .large-button {
   padding: 16px 18px;
-  font-size: $font-size-p4;
+  font-size: typegraphy.$font-size-p4;
 }
 .medium-button {
   padding: 16px;
-  font-size: $font-size-p6;
+  font-size: typegraphy.$font-size-p6;
 }
 .small-button {
   padding: 14px 16px;
-  font-size: $font-size-p8;
+  font-size: typegraphy.$font-size-p8;
 }
 .xs-button {
   padding: 12px 16px;
-  font-size: $font-size-p10;
+  font-size: typegraphy.$font-size-p10;
 }
 
 .mini-button {
@@ -67,33 +67,33 @@
 }
 
 .primary-button {
-  background-color: $bgLightAccent;
-  color: $bgLightPrimary;
+  background-color: colors.$bgLightAccent;
+  color: colors.$bgLightPrimary;
 }
 .primary-button:hover {
-  background-color: $bgLightAccentHover;
+  background-color: colors.$bgLightAccentHover;
 }
 .primary-button:active {
-  background-color: $bgLightAccentActive;
+  background-color: colors.$bgLightAccentActive;
 }
 .primary-button-svg {
-  fill: $bgLightPrimary;
+  fill: colors.$bgLightPrimary;
 }
 
 .secondary-button {
-  background-color: $bgLightAccentSubdued;
-  color: $textLightAccent;
+  background-color: colors.$bgLightAccentSubdued;
+  color: colors.$textLightAccent;
 }
 .secondary-button:hover {
-  background-color: $bgLightAccentSubduedHover;
-  color: $textLightAccent;
+  background-color: colors.$bgLightAccentSubduedHover;
+  color: colors.$textLightAccent;
 }
 .secondary-button:active {
-  background-color: $bgLightAccentSubduedActive;
-  color: $textLightAccent;
+  background-color: colors.$bgLightAccentSubduedActive;
+  color: colors.$textLightAccent;
 }
 .secondary-button-svg {
-  fill: $textLightAccent;
+  fill: colors.$textLightAccent;
 }
 
 .large-button-svg {
@@ -115,58 +115,58 @@
 
 .clear-button {
   background-color: none;
-  color: $textLightAccent;
+  color: colors.$textLightAccent;
 }
 .clear-button:hover {
   background-color: none;
-  color: $textLightAccentHover;
+  color: colors.$textLightAccentHover;
 }
 .clear-button:active {
   background-color: none;
-  color: $textLightAccentActive;
+  color: colors.$textLightAccentActive;
 }
 .clear-button-svg {
-  fill: $textLightAccent;
+  fill: colors.$textLightAccent;
 }
 
 .critical-button {
-  background-color: $bgLightCritical;
-  color: $bgLightPrimary;
+  background-color: colors.$bgLightCritical;
+  color: colors.$bgLightPrimary;
 }
 .critical-button:hover {
-  background-color: $bgLightCriticalHover;
-  color: $bgLightPrimary;
+  background-color: colors.$bgLightCriticalHover;
+  color: colors.$bgLightPrimary;
 }
 .critical-button:active {
-  background-color: $bgLightCriticalActive;
-  color: $bgLightPrimary;
+  background-color: colors.$bgLightCriticalActive;
+  color: colors.$bgLightPrimary;
 }
 .critical-button-svg {
-  fill: $bgLightPrimary;;
+  fill: colors.$bgLightPrimary;;
 }
 
 .critical-secondary-button {
-  background-color: $bgLightCriticalSubdued;
-  color: $textLightCritical;
+  background-color: colors.$bgLightCriticalSubdued;
+  color: colors.$textLightCritical;
 }
 .critical-secondary-button:hover {
-  background-color: $bgLightCriticalSubduedHover;
-  color: $textLightCriticalHover;
+  background-color: colors.$bgLightCriticalSubduedHover;
+  color: colors.$textLightCriticalHover;
 }
 .critical-secondary-button:active {
-  background-color: $bgLightCriticalSubduedActive;
-  color: $textLightCriticalActive;
+  background-color: colors.$bgLightCriticalSubduedActive;
+  color: colors.$textLightCriticalActive;
 }
 .critical-secondary-button-svg {
-  fill: $textLightCritical;
+  fill: colors.$textLightCritical;
 }
 
 .button:disabled {
-  background-color: $bgLightDisabled;
-  color: $textLightDisabled;
+  background-color: colors.$bgLightDisabled;
+  color: colors.$textLightDisabled;
   cursor: default;
 }
 .disabled-button-svg {
-  fill: $textLightDisabled;
+  fill: colors.$textLightDisabled;
 }
 

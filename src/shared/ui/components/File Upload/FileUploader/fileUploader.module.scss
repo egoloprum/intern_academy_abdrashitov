@@ -1,12 +1,12 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .file-uploader-wrapper {
   max-width: 340px;
   width: 100%;
 
-  font-family: $fontFamilyMain;
+  font-family: typegraphy.$fontFamilyMain;
 
   display: flex;
   flex-direction: column;
@@ -16,8 +16,8 @@
 .file-uploader-container {
   padding: 14px 18px;
 
-  background-color: $bgLightSecondary;
-  border-radius: $border-large;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
 
   display: flex;
   align-items: center;
@@ -26,13 +26,13 @@
 }
 
 .file-uploader-container:active {
-  background-color: $bgLightSecondaryHoverActive;
+  background-color: colors.$bgLightSecondaryHoverActive;
 }
 .file-uploader-container:hover {
-  background-color: $bgLightSecondaryHover;
+  background-color: colors.$bgLightSecondaryHover;
 }
 .file-disabled-container {
-  background-color: $bgLightSecondaryHover;
+  background-color: colors.$bgLightSecondaryHover;
   user-select: none;
 }
 
@@ -52,43 +52,43 @@
 
 .large-file-uploader-container {
   padding: 14px 18px;
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
 }
 .medium-file-uploader-container {
   padding: 10px 16px;
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
 } 
 .small-file-uploader-container {
   padding: 8px 14px;
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 
 .file-text {
   width: 100%;
   font-weight: 500;
-  color: $textLightPrimary;
+  color: colors.$textLightPrimary;
   text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .file-disabled-text {
-  color: $textLightDisabled;
+  color: colors.$textLightDisabled;
 }
 
 .file-size {
   font-weight: 400;
   text-wrap: nowrap;
-  color: $textLightSecondary;
+  color: colors.$textLightSecondary;
 }
 
 .large-file-font {
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
 }
 .medium-file-font {
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
 }
 .small-file-font {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 
 .file-cancel-svg {
@@ -117,21 +117,21 @@
   font-weight: 400;
 }
 .large-file-label {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 .medium-file-label {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 .small-file-label {
-  font-size: $font-size-p9;
+  font-size: typegraphy.$font-size-p9;
 }
 
 .loading-bar {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: $bgLightAccentSubdued;
-  border-radius: $border-large; 
+  background-color: colors.$bgLightAccentSubdued;
+  border-radius: radius.$border-large; 
   width: 0%; 
   height: 100%;  
 }

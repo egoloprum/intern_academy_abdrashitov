@@ -1,15 +1,17 @@
-@import '../../shared/ui/styles/index.scss';
+@use '../../shared/ui/styles/colors' as colors;
+@use '../../shared/ui/styles/radius' as borders;
+@use '../../shared/ui/styles/typegraphy' as types;
 
 .form {
-  background-color: $bgLightPrimary;
+  background-color: colors.$bgLightPrimary;
   max-width: 600px;
   width: 100%;
   padding: 32px;
-  border-radius: $border-large;
+  border-radius: borders.$border-large;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  font-family: $fontFamilyMain;
+  font-family: types.$fontFamilyMain;
 }
 
 .form-label {

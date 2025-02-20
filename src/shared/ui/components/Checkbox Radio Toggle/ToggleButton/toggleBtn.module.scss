@@ -1,37 +1,38 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .toggle-wrapper {
-  border-radius: $border-special;
+  border-radius: radius.$border-special;
   position: relative;
 }
 
 .light-toggle-wrapper {
-  background-color: $bgLightAccent;
+  background-color: colors.$bgLightAccent;
 }
+
 .dark-toggle-wrapper {
-  background-color: $bgLightSecondary;
-  outline: 1px solid $borderLightPrimary;
+  background-color: colors.$bgLightSecondary;
+  outline: 1px solid colors.$borderLightPrimary;
 }
 
 .light-hover-toggle-wrapper {
-  background-color: $bgLightAccentHover;
+  background-color: colors.$bgLightAccentHover;
 }
 .dark-hover-toggle-wrapper {
-  background-color: $bgLightSecondaryHover;  
+  background-color: colors.$bgLightSecondaryHover;  
 }
 
 .light-active-toggle-wrapper {
-  background-color: $bgLightAccentActive;
+  background-color: colors.$bgLightAccentActive;
 }
 .dark-active-toggle-wrapper {
-  background-color: $bgLightSecondaryHoverActive;
+  background-color: colors.$bgLightSecondaryHoverActive;
 }
 
 .disabled-toggle-wrapper {
-  outline: 1px solid $borderLightPrimary;
-  background-color: $bgLightDisabled;
+  outline: 1px solid colors.$borderLightPrimary;
+  background-color: colors.$bgLightDisabled;
 }
 
 .large-toggle-wrapper {
@@ -95,13 +96,13 @@
 }
 
 .light-toggler-svg {
-  fill: $bgLightPrimary;
+  fill: colors.$bgLightPrimary;
 }
 .dark-toggler-svg {
-  fill: $colorBlack600;
+  fill: colors.$colorBlack600;
 }
 .disabled-toggler-svg {
-  fill: $bgLightDisabled;
+  fill: colors.$bgLightDisabled;
 }
 
 .large-toggler-svg {

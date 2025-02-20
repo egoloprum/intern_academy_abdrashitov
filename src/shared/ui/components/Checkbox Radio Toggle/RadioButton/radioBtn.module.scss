@@ -1,6 +1,6 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .input-wrapper {
   position: relative;
@@ -57,16 +57,16 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  fill: $bgLightAccent;
+  fill: colors.$bgLightAccent;
 }
 .hover-radio-svg {
-  fill: $bgLightAccentHover;
+  fill: colors.$bgLightAccentHover;
 }
 .active-radio-svg {
-  fill: $bgLightAccentActive;
+  fill: colors.$bgLightAccentActive;
 }
 .disabled-radio-svg {
-  fill: $textLightDisabled;
+  fill: colors.$textLightDisabled;
 }
 
 .large-radio-svg {

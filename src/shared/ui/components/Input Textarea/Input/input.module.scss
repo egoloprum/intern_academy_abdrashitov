@@ -1,6 +1,6 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .input-wrapper {
   display: flex;
@@ -8,9 +8,7 @@
   gap: 4px;
   max-width: 340px;
   width: 100%;
-  font-family: $fontFamilyMain;
-
-  
+  font-family: typegraphy.$fontFamilyMain;
 }
 
 .input-container {
@@ -21,22 +19,22 @@
   gap: 8px;
   padding: 12px 16px;
   max-width: inherit;
-  border: 1px solid $borderSecondary;
-  border-radius: $border-large;
+  border: 1px solid colors.$borderSecondary;
+  border-radius: radius.$border-large;
 }
 
 .input-container:has(.input:active) {
-  outline: 1px solid $colorPurpleMain;
+  outline: 1px solid colors.$colorPurpleMain;
 }
 .input-container:has(.input:hover) {
-  background: $borderSecondary;
+  background: colors.$borderSecondary;
 }
 .input-error-container {
-  outline: 1px solid $textLightCritical;
+  outline: 1px solid colors.$textLightCritical;
 }
 
 .border-rounded-container {
-  border-radius: $border-rounded;
+  border-radius: radius.$border-rounded;
 }
 
 .input {
@@ -50,21 +48,21 @@
   text-overflow: ellipsis;
 }
 .input-container:has(.input:disabled) {
-  background: $borderSecondary;
+  background: colors.$borderSecondary;
 }
 .large-input {
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
 }
 .medium-input {
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
 }
 .small-input {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 
 .large-container {
   padding: 14px 18px;
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
 }
 .large-container > svg {
   max-height: 20px;
@@ -73,7 +71,7 @@
 
 .medium-container {
   padding: 12px 16px;
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
 }
 .medium-container > svg {
   max-height: 16px;
@@ -82,7 +80,7 @@
 
 .small-container {
   padding: 10px 14px;
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 .small-container > svg {
   max-height: 14px;
@@ -90,40 +88,40 @@
 }
 
 .top-label {
-  color: $textLightSecondary;
+  color: colors.$textLightSecondary;
   text-transform: capitalize;
   font-weight: 500;
 }
 .top-large-label {
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
 }
 .top-medium-label {
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
 }
 .top-small-label {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 
 .bottom-label {
-  color: $textLightPrimary;
+  color: colors.$textLightPrimary;
   font-weight: 400;
 }
 .bottom-large-label {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 .bottom-medium-label {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
 }
 .bottom-small-label {
-  font-size: $font-size-p9;
+  font-size: typegraphy.$font-size-p9;
 }
 
 .bottom-label:has(.input:disabled) {
-  color: $textLightDisabled;
+  color: colors.$textLightDisabled;
 }
 
 .text-error {
-  color: $textLightCritical;
+  color: colors.$textLightCritical;
 }
 
 .input-remove-svg {

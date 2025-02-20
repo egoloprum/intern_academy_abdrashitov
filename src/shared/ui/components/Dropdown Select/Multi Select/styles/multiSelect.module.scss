@@ -1,6 +1,6 @@
-@import '../../../../styles/colors.scss';
-@import '../../../../styles/typegraphy.scss';
-@import '../../../../styles/radius.scss';
+@use '../../../../styles/colors';
+@use '../../../../styles/typegraphy';
+@use '../../../../styles/radius';
 
 .multi-select-wrapper {
   display: flex;
@@ -8,13 +8,13 @@
   gap: 4px;
   max-width: 340px;
   height: max-content;
-  font-family: $fontFamilyMain;
+  font-family: typegraphy.$fontFamilyMain;
 }
 
 .multi-select-opener {
   padding: 14px 18px;
-  border: 1px solid $borderLightPrimary;
-  border-radius: $border-large;
+  border: 1px solid colors.$borderLightPrimary;
+  border-radius: radius.$border-large;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -31,11 +31,11 @@
 }
 
 .multi-select-opener:hover {
-  background-color: $bgLightSecondary;
+  background-color: colors.$bgLightSecondary;
 }
 .open-multi-select-opener {
-  background-color: $bgLightSecondary;
-  border-color: $bgLightSecondary;
+  background-color: colors.$bgLightSecondary;
+  border-color: colors.$bgLightSecondary;
 }
 
 .selected-list {
@@ -49,22 +49,22 @@
 
 .multi-select-text {
   width: 100%;
-  color: $textLightSecondary;
+  color: colors.$textLightSecondary;
 }
 .open-multi-select-text {
-  color: $textLightPrimary;
+  color: colors.$textLightPrimary;
 }
 
 .large-multi-select-text {
-  font-size: $font-size-p3;
+  font-size: typegraphy.$font-size-p3;
   font-weight: 500;
 }
 .medium-multi-select-text {
-  font-size: $font-size-p5;
+  font-size: typegraphy.$font-size-p5;
   font-weight: 500;
 }
 .small-multi-select-text {
-  font-size: $font-size-p7;
+  font-size: typegraphy.$font-size-p7;
   font-weight: 500;
 }
 
@@ -97,15 +97,15 @@
 }
 
 .multi-select-label {
-  color: $textLightSecondary;
+  color: colors.$textLightSecondary;
 }
 
 .multi-select-search {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: $bgLightSecondary;
-  border-radius: $border-large;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
 }
 .multi-select-input {
   background-color: transparent;
@@ -128,8 +128,8 @@
   width: inherit;
   padding: 8px;
   margin: 0;
-  background-color: $bgLightSecondary;
-  border-radius: $border-large;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
@@ -141,19 +141,17 @@
 
 .multi-select-element > * {
   width: 100%;
-  color: $textLightPrimary;
+  color: colors.$textLightPrimary;
 }
 .multi-select-element > * > svg {
-  fill: $textLightPrimary;
+  fill: colors.$textLightPrimary;
 }
 .multi-select-element > * > span {
-  color: $textLightPrimary;
+  color: colors.$textLightPrimary;
   width: 100%;
   text-align: left;
 }
 
 .multi-select-element > *:hover {
-  background-color: $bgLightAccentSubdued;
+  background-color: colors.$bgLightAccentSubdued;
 }
-
-

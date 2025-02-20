@@ -24,10 +24,26 @@ const LoginForm = ({}) => {
 
   const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
     resolver: zodResolver(LoginValidator),
-  });
-  const onSubmit: SubmitHandler<LoginData> = (data) => console.log(data)
-
+  })
   const [passwordShow, setPasswordShow] = useState<boolean>(false)
+
+  const onSubmit: SubmitHandler<LoginData> = async (data) => {
+
+    const user = {
+      email: data.email,
+      password: data.password, 
+    }
+  
+    const result = await signIn('Credentials', {
+      redirect: false,
+      ...user,
+    })
+  
+    if (result?.error) {
+      console.error('Authentication failed:', result.error)
+      return
+    }
+  }
 
   const googleHandler = async () => {
     try {

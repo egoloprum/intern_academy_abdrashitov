@@ -1,6 +1,6 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/typegraphy.scss';
-@import '../../../styles/radius.scss';
+@use '../../../styles/colors';
+@use '../../../styles/typegraphy';
+@use '../../../styles/radius';
 
 .dropdown-wrapper {
   position: relative;
@@ -9,8 +9,8 @@
 .dropdown-list {
   width: fit-content;
   padding: 8px;
-  background-color: $bgLightSecondary;
-  border-radius: $border-large;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
   opacity: 1;
   transition: opacity 0.3s ease;
   overflow: auto;
@@ -29,7 +29,7 @@
 }
 
 .dropdown-button:hover {
-  background-color: $bgLightAccentSubdued;
+  background-color: colors.$bgLightAccentSubdued;
 }
 
 .dropdown-button > *:last-child {
