@@ -14,8 +14,6 @@ import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './registerForm.module.scss'
 import { usePhoneInput } from '@/app/hooks/phoneNumber'
-import { createUser } from '@/app/lib/db'
-import { signIn } from 'next-auth/react'
 import { useUserStore } from '@/app/stores/userStore'
 
 type RegisterData = {

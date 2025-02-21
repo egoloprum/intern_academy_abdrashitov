@@ -13,9 +13,6 @@
   text-transform: capitalize;
 }
 
-.no-icon-button {
-  justify-content: center;
-}
 .rounded-button {
   border-radius: radius.$border-rounded;
 }
@@ -72,9 +69,6 @@
 .primary-button:active {
   background-color: colors.$bgLightAccentActive;
 }
-.primary-button-svg {
-  fill: colors.$bgLightPrimary;
-}
 
 .secondary-button {
   background-color: colors.$bgLightAccentSubdued;
@@ -87,9 +81,6 @@
 .secondary-button:active {
   background-color: colors.$bgLightAccentSubduedActive;
   color: colors.$textLightAccent;
-}
-.secondary-button-svg {
-  fill: colors.$textLightAccent;
 }
 
 .large-button-svg {
@@ -121,9 +112,6 @@
   background-color: none;
   color: colors.$textLightAccentActive;
 }
-.clear-button-svg {
-  fill: colors.$textLightAccent;
-}
 
 .critical-button {
   background-color: colors.$bgLightCritical;
@@ -136,9 +124,6 @@
 .critical-button:active {
   background-color: colors.$bgLightCriticalActive;
   color: colors.$bgLightPrimary;
-}
-.critical-button-svg {
-  fill: colors.$bgLightPrimary;;
 }
 
 .critical-secondary-button {
@@ -153,16 +138,10 @@
   background-color: colors.$bgLightCriticalSubduedActive;
   color: colors.$textLightCriticalActive;
 }
-.critical-secondary-button-svg {
-  fill: colors.$textLightCritical;
-}
 
 .button:disabled {
   background-color: colors.$bgLightDisabled;
   color: colors.$textLightDisabled;
   cursor: default;
-}
-.disabled-button-svg {
-  fill: colors.$textLightDisabled;
 }
 
