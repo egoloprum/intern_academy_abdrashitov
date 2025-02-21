@@ -1,12 +1,8 @@
-@use '../../shared/ui/styles/colors' as colors;
-@use '../../shared/ui/styles/radius' as borders;
-@use '../../shared/ui/styles/typegraphy' as types;
-
 .navbar {
   background-color: colors.$bgLightPrimary;
   display: flex;
   justify-content: space-between;
-  border-radius: borders.$border-large;
+  border-radius: radius.$border-large;
 }
 
 .logo {

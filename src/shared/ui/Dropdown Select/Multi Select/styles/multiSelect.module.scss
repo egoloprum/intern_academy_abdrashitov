@@ -1,0 +1,153 @@
+.multi-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 340px;
+  height: max-content;
+  font-family: typegraphy.$fontFamilyMain;
+}
+
+.multi-select-opener {
+  padding: 14px 18px;
+  border: 1px solid colors.$borderLightPrimary;
+  border-radius: radius.$border-large;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.selected-opener {
+  padding-block: 4px;
+}
+.selected-svg {
+  margin-left: auto;
+}
+
+.multi-select-opener:hover {
+  background-color: colors.$bgLightSecondary;
+}
+.open-multi-select-opener {
+  background-color: colors.$bgLightSecondary;
+  border-color: colors.$bgLightSecondary;
+}
+
+.selected-list {
+  width: 80%;
+  display: flex;
+  gap: 8px; 
+  overflow-x: hidden; 
+  white-space: nowrap; 
+  cursor: grab;
+}
+
+.multi-select-text {
+  width: 100%;
+  color: colors.$textLightSecondary;
+}
+.open-multi-select-text {
+  color: colors.$textLightPrimary;
+}
+
+.large-multi-select-text {
+  font-size: typegraphy.$font-size-p3;
+  font-weight: 500;
+}
+.medium-multi-select-text {
+  font-size: typegraphy.$font-size-p5;
+  font-weight: 500;
+}
+.small-multi-select-text {
+  font-size: typegraphy.$font-size-p7;
+  font-weight: 500;
+}
+
+.multi-select-remove-svg {
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.multi-select-remove-svg:hover {
+  transform: rotate(90deg); 
+}
+.multi-select-dropper-svg {
+  transition: transform 0.3s ease;
+}
+.rotated-svg {
+  transform: rotate(90deg); 
+}
+
+.large-multi-select-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-multi-select-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-multi-select-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+
+.multi-select-label {
+  color: colors.$textLightSecondary;
+}
+
+.multi-select-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
+}
+.multi-select-input {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.large-multi-select-search {
+  padding: 10px 16px;
+}
+.medium-multi-select-search {
+  padding: 6px 14px;
+}
+.small-multi-select-search {
+  padding: 6px 12px;
+}
+
+.multi-select-list {
+  width: inherit;
+  padding: 8px;
+  margin: 0;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+}
+.multi-select-element {
+  list-style: none;
+  width: 100%;
+}
+
+.multi-select-element > * {
+  width: 100%;
+  color: colors.$textLightPrimary;
+}
+.multi-select-element > * > svg {
+  fill: colors.$textLightPrimary;
+}
+.multi-select-element > * > span {
+  color: colors.$textLightPrimary;
+  width: 100%;
+  text-align: left;
+}
+
+.multi-select-element > *:hover {
+  background-color: colors.$bgLightAccentSubdued;
+}

@@ -1,0 +1,101 @@
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 340px;
+  height: max-content;
+  font-family: typegraphy.$fontFamilyMain;
+}
+
+.select-opener {
+  padding: 14px 18px;
+  border: 1px solid colors.$borderLightPrimary;
+  border-radius: radius.$border-large;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.opener-button:hover {
+  background-color: colors.$bgLightSecondary;
+}
+.open-select-opener {
+  background-color: colors.$bgLightSecondary;
+  border-color: colors.$bgLightSecondary;
+}
+
+.select-text {
+  width: 100%;
+  color: colors.$textLightSecondary;
+}
+.open-select-text {
+  color: colors.$textLightPrimary;
+}
+
+.large-select-text {
+  font-size: typegraphy.$font-size-p3;
+  font-weight: 500;
+}
+.medium-select-text {
+  font-size: typegraphy.$font-size-p5;
+  font-weight: 500;
+}
+.small-select-text {
+  font-size: typegraphy.$font-size-p7;
+  font-weight: 500;
+}
+
+.large-select-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-select-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-select-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+
+.select-label {
+  color: colors.$textLightSecondary;
+}
+
+.select-list {
+  width: inherit;
+  padding: 8px;
+  margin: 0;
+  margin-top: 10px;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+}
+.select-element {
+  list-style: none;
+  width: 100%;
+}
+
+.select-element > * {
+  width: 100%;
+  justify-content: left;
+  color: colors.$textLightPrimary;
+}
+.select-element > * > svg {
+  fill: colors.$textLightPrimary;
+}
+.select-element > * > span {
+  color: colors.$textLightPrimary;
+}
+
+.select-element > *:hover {
+  background-color: colors.$bgLightAccentSubdued;
+}
+
+.select-element > * > *:last-child {
+  margin-left: auto;
+}

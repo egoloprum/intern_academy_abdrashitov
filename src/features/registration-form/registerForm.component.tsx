@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Input } from '@/shared/ui/components/Input Textarea/Input'
-import { Button } from '@/shared/ui/components/Button'
+import { Input } from '@/shared/ui/Input Textarea/Input'
+import { Button } from '@/shared/ui/Button'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { RegisterValidator } from '@/app/validations/loginValidator'

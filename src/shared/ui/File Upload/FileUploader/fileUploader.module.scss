@@ -1,0 +1,141 @@
+.file-uploader-wrapper {
+  max-width: 340px;
+  width: 100%;
+
+  font-family: typegraphy.$fontFamilyMain;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-uploader-container {
+  padding: 14px 18px;
+
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.file-uploader-container:active {
+  background-color: colors.$bgLightSecondaryHoverActive;
+}
+.file-uploader-container:hover {
+  background-color: colors.$bgLightSecondaryHover;
+}
+.file-disabled-container {
+  background-color: colors.$bgLightSecondaryHover;
+  user-select: none;
+}
+
+.file-input {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  width: 80%;
+  padding-block: 14px;
+  z-index: 0;
+  cursor: pointer;
+}
+.file-input:disabled {
+  cursor: default;
+}
+
+.large-file-uploader-container {
+  padding: 14px 18px;
+  font-size: typegraphy.$font-size-p3;
+}
+.medium-file-uploader-container {
+  padding: 10px 16px;
+  font-size: typegraphy.$font-size-p5;
+} 
+.small-file-uploader-container {
+  padding: 8px 14px;
+  font-size: typegraphy.$font-size-p7;
+}
+
+.file-text {
+  width: 100%;
+  font-weight: 500;
+  color: colors.$textLightPrimary;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.file-disabled-text {
+  color: colors.$textLightDisabled;
+}
+
+.file-size {
+  font-weight: 400;
+  text-wrap: nowrap;
+  color: colors.$textLightSecondary;
+}
+
+.large-file-font {
+  font-size: typegraphy.$font-size-p3;
+}
+.medium-file-font {
+  font-size: typegraphy.$font-size-p5;
+}
+.small-file-font {
+  font-size: typegraphy.$font-size-p7;
+}
+
+.file-cancel-svg {
+  z-index: 10;
+  cursor: pointer;
+}
+.rotate {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.large-file-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-file-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-file-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+
+.file-label {
+  font-weight: 400;
+}
+.large-file-label {
+  font-size: typegraphy.$font-size-p7;
+}
+.medium-file-label {
+  font-size: typegraphy.$font-size-p7;
+}
+.small-file-label {
+  font-size: typegraphy.$font-size-p9;
+}
+
+.loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: colors.$bgLightAccentSubdued;
+  border-radius: radius.$border-large; 
+  width: 0%; 
+  height: 100%;  
+}
+.loading-start {
+  width: 100%;
+  transition: width 1s ease; 
+}
+.loading-end {
+  width: 0;
+  transition: none;
+}

@@ -1,0 +1,136 @@
+.dropzone-wrapper {
+  outline: 2px dashed colors.$borderLightPrimary;
+  border-radius: radius.$border-large;
+
+  box-sizing: border-box;
+
+  font-family: typegraphy.$fontFamilyMain;
+}
+.dropzone-wrapper:hover {
+  outline-color: colors.$borderAccentHover;
+}
+.dropzone-error-wrapper {
+  outline-color: colors.$borderCritical;
+}
+.dropzone-active-wrapper {
+ background-color: colors.$bgLightAccentSubduedActive; 
+}
+.dropzone-disabled-wrapper {
+  background-color: colors.$bgLightDisabled;
+}
+.dropzone-disabled-wrapper:hover {
+  outline-color: colors.$borderLightPrimary;
+}
+
+.large-dropzone-wrapper {
+  max-width: 320px;
+  padding: 48px;
+}
+.medium-dropzone-wrapper {
+  max-width: 275px;
+  padding: 40px;
+}
+.small-dropzone-wrapper {
+  max-width: 230px;
+  padding: 32px;
+}
+.xs-dropzone-wrapper {
+  max-width: 190px;
+  padding: 24px;
+}
+
+.dropzone-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.dropzone-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.dropzone-input:disabled {
+  cursor: default;
+}
+
+.dropzone-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.large-dropzone-svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.medium-dropzone-svg {
+  max-width: 16px;
+  max-height: 16px;
+}
+.small-dropzone-svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+.xs-dropzone-svg {
+  max-width: 12px;
+  max-height: 12px;
+}
+
+.dropzone-insider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropzone-button {
+  padding-block: 2px;
+}
+.large-dropzone-button {
+  padding-inline: 26px;
+}
+.large-dropzone-button {
+  padding-inline: 24px;
+}
+.small-dropzone-button {
+  padding-inline: 22px;
+}
+.xs-dropzone-button {
+  padding-inline: 20px;
+}
+.error-dropzone-button {
+  color: colors.$borderCritical;
+}
+.dropzone-button:disabled {
+  outline: 2px dashed colors.$borderLightPrimary;
+  background-color: inherit;
+}
+
+.dropzone-text {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.large-dropzone-text {
+  max-width: 220px;
+  font-size: typegraphy.$font-size-p3;
+}
+.medium-dropzone-text {
+  max-width: 195px;
+  font-size: typegraphy.$font-size-p5;
+}
+.small-dropzone-text {
+  max-width: 170px;
+  font-size: typegraphy.$font-size-p7;
+}
+.xs-dropzone-text {
+  max-width: 140px;
+  font-size: typegraphy.$font-size-p9;
+}
+

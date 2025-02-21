@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from '@/shared/ui/components/Button'
+import { Button } from '@/shared/ui/Button'
 import { useUserStore } from '@/app/stores/userStore'
 
 export const LogoutBtn = ({}) => {

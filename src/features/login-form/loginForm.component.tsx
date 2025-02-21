@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from 'react'
-import { Button } from '@/shared/ui/components/Button'
-import { Input } from '@/shared/ui/components/Input Textarea/Input'
+import { Button } from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input Textarea/Input'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';

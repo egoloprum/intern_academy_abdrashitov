@@ -1,0 +1,96 @@
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 340px;
+  font-family: typegraphy.$fontFamilyMain;
+}
+
+.textarea {
+  max-width: 340px;
+  width: 100%;
+  min-height: 80px;
+  outline: none;
+  padding: 18px 4px 18px 14px;
+  resize: none;
+  border: 1px solid colors.$borderSecondary;
+  border-radius: radius.$border-large;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: colors.$borderSecondary #fff;
+}
+.textarea::placeholder {
+  text-transform: capitalize;
+}
+
+.textarea:active {
+  outline: 1px solid colors.$bgLightAccent;
+}
+.textarea:hover {
+  background: colors.$borderSecondary;
+}
+.textarea:disabled {
+  outline: none;
+  background: colors.$borderSecondary;
+}
+
+.textarea-error {
+  color: colors.$textLightCritical;
+  outline: 1px solid colors.$textLightCritical;
+}
+
+.large-textarea {
+  font-size: typegraphy.$font-size-p3;
+}
+.medium-textarea {
+  font-size: typegraphy.$font-size-p5;
+}
+.small-textarea {
+  font-size: typegraphy.$font-size-p7;
+}
+.xSmall-textarea {
+  font-size: typegraphy.$font-size-p9;
+}
+
+.top-label {
+  color: colors.$textLightSecondary;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.top-large-label {
+  font-size: typegraphy.$font-size-p3;
+}
+.top-medium-label {
+  font-size: typegraphy.$font-size-p5;
+}
+.top-small-label {
+  font-size: typegraphy.$font-size-p5;
+}
+.top-xSmall-label {
+  font-size: typegraphy.$font-size-p7;
+}
+
+.bottom-label {
+  color: colors.$textLightPrimary;
+  font-weight: 400;
+}
+.bottom-large-label {
+  font-size: typegraphy.$font-size-p7;
+}
+.bottom-medium-label {
+  font-size: typegraphy.$font-size-p7;
+}
+.bottom-small-label {
+  font-size: typegraphy.$font-size-p9;
+}
+.bottom-xSmall-label {
+  font-size: typegraphy.$font-size-p9;
+}
+
+.text-disabled {
+  color: colors.$textLightDisabled;
+}
+.text-error {
+  color: colors.$textLightCritical;
+}

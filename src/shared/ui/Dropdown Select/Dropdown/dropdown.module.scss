@@ -1,0 +1,33 @@
+.dropdown-wrapper {
+  position: relative;
+}
+
+.dropdown-list {
+  width: fit-content;
+  padding: 8px;
+  background-color: colors.$bgLightSecondary;
+  border-radius: radius.$border-large;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+  position: absolute;
+  z-index: 10;
+}
+
+.dropdown-element {
+  list-style: none;
+  width: 100%;
+}
+
+.dropdown-button {
+  width: 100%;
+  justify-content: left;
+}
+
+.dropdown-button:hover {
+  background-color: colors.$bgLightAccentSubdued;
+}
+
+.dropdown-button > *:last-child {
+  margin-left: auto;
+}
