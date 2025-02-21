@@ -23,7 +23,7 @@ const openDatabase = (): Promise<IDBDatabase> => {
   })
 }
 
-export const createUser  = async (user: User): Promise<string> => {
+export const createUser = async (user: User): Promise<string> => {
   await openDatabase()
 
   return new Promise((resolve, reject) => {

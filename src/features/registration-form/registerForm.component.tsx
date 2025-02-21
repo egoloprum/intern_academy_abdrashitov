@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { Input } from '@/shared/ui/components/Input Textarea/Input'
 import { Button } from '@/shared/ui/components/Button'
@@ -16,6 +16,7 @@ import styles from './registerForm.module.scss'
 import { usePhoneInput } from '@/app/hooks/phoneNumber'
 import { createUser } from '@/app/lib/db'
 import { signIn } from 'next-auth/react'
+import { useUserStore } from '@/app/stores/userStore'
 
 type RegisterData = {
   username: string 
@@ -28,39 +29,28 @@ type RegisterData = {
 const RegisterForm = ({}) => {
 
   const { register, handleSubmit, formState: { errors }, trigger } = useForm<RegisterData>({
-      resolver: zodResolver(RegisterValidator),
-    })
+    resolver: zodResolver(RegisterValidator),
+  })
 
   const [passwordShow, setPasswordShow] = useState<boolean>(false)
   const [repeatPasswordShow, setRepeatPasswordShow] = useState<boolean>(false)
 
   const { phone, handleChange } = usePhoneInput()
 
+  const { setUser, registerUser } = useUserStore()
+
   const onSubmit: SubmitHandler<RegisterData> = async (data) => {
-
-    const user = {
-      id: crypto.randomUUID(),
-      username: data.username,
-      telephone: data.telephone,
-      email: data.email,
-      password: data.password, 
-    } as User
-
-    try {
-      const isCreatedUser = await createUser(user)
-
-      if (!isCreatedUser) {
-        return
+    setUser(
+      {
+        id: crypto.randomUUID(),
+        username: data.username,
+        telephone: data.telephone,
+        email: data.email,
+        password: data.password, 
       }
+    )
 
-      const result = await signIn('credentials', {
-        redirect: true,
-        ...user
-      })
-
-    } catch (error) {
-      throw error
-    }
+    registerUser()
   }
 
   return (

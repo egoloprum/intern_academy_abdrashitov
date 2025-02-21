@@ -1,15 +1,15 @@
 "use client"
 
-import { signOut } from 'next-auth/react'
 import { Button } from '@/shared/ui/components/Button'
-
-const signOutHandler = async () => {
-  try {
-    await signOut()
-  } catch {}
-}
+import { useUserStore } from '@/app/stores/userStore'
 
 export const LogoutBtn = ({}) => {
+  const { logoutUser } = useUserStore()
+
+  const signOutHandler = async () => {
+    logoutUser()
+  }
+
   return (
     <Button
       type='button'

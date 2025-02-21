@@ -7,14 +7,13 @@ import { Input } from '@/shared/ui/components/Input Textarea/Input'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginValidator } from '@/app/validations/loginValidator';
-import { signIn } from 'next-auth/react'
 
 import Google from './assets/google.svg'
 import PasswordShow from './assets/passwordShow.svg'
 import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './loginForm.module.scss'
-import { getUser } from '@/app/lib/db'
+import { useUserStore } from '@/app/stores/userStore'
 
 type LoginData = {
   email: string
@@ -22,50 +21,19 @@ type LoginData = {
 }
 
 const LoginForm = ({}) => {
-
   const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
     resolver: zodResolver(LoginValidator),
   })
+  
+  const { loginUser, loginWithGoogle } = useUserStore()
   const [passwordShow, setPasswordShow] = useState<boolean>(false)
 
-  const authenticateUser  = async (email: string, password: string) => {
-    try {
-      const user = await getUser(email) 
-  
-      if (!user) {
-        throw new Error('User  not found')
-      }
-  
-      if (user.password !== password) {
-        throw new Error('Incorrect password')
-      }
-  
-      return user
-    } catch (error) {
-      throw error
-    }
-  }
-  
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
-    const user = await authenticateUser(data.email, data.password)
-
-    try {
-      const result = await signIn('credentials', {
-        redirect: true,
-        ...user,
-      })
-    } catch (error) {
-      throw error
-    }
+    loginUser(data)
   }
 
   const googleHandler = async () => {
-    try {
-      await signIn('google')
-    }
-    catch (error) {
-      throw error
-    } 
+    loginWithGoogle()
   }
 
   return (
