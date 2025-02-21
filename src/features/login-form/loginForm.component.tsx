@@ -14,6 +14,7 @@ import PasswordShow from './assets/passwordShow.svg'
 import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './loginForm.module.scss'
+import { getUser } from '@/app/lib/db'
 
 type LoginData = {
   email: string
@@ -27,21 +28,34 @@ const LoginForm = ({}) => {
   })
   const [passwordShow, setPasswordShow] = useState<boolean>(false)
 
-  const onSubmit: SubmitHandler<LoginData> = async (data) => {
-
-    const user = {
-      email: data.email,
-      password: data.password, 
+  const authenticateUser  = async (email: string, password: string) => {
+    try {
+      const user = await getUser(email) 
+  
+      if (!user) {
+        throw new Error('User  not found')
+      }
+  
+      if (user.password !== password) {
+        throw new Error('Incorrect password')
+      }
+  
+      return user
+    } catch (error) {
+      throw error
     }
+  }
   
-    const result = await signIn('Credentials', {
-      redirect: false,
-      ...user,
-    })
-  
-    if (result?.error) {
-      console.error('Authentication failed:', result.error)
-      return
+  const onSubmit: SubmitHandler<LoginData> = async (data) => {
+    const user = await authenticateUser(data.email, data.password)
+
+    try {
+      const result = await signIn('credentials', {
+        redirect: true,
+        ...user,
+      })
+    } catch (error) {
+      throw error
     }
   }
 
@@ -50,7 +64,7 @@ const LoginForm = ({}) => {
       await signIn('google')
     }
     catch (error) {
-      console.log(error)
+      throw error
     } 
   }
 

@@ -1,29 +1,85 @@
-import { openDB } from 'idb'
+const dbName = 'Task-3'
+const storeName = 'users'
+let db: IDBDatabase | null = null
 
-const DB_NAME = 'authDB'
-const STORE_NAME = 'users'
+const openDatabase = (): Promise<IDBDatabase> => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(dbName, 1)
 
-const isBrowser = typeof window !== 'undefined'
+    request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
+      const db = (event.target as IDBOpenDBRequest).result 
+      const objectStore = db.createObjectStore(storeName, { keyPath: 'id' })
+      objectStore.createIndex('email', 'email', { unique: true })
+    }
 
-export const initDB = async () => {
-  if (!isBrowser) return null
-  return openDB(DB_NAME, 1, {
-    upgrade(db) {
-      if (!db.objectStoreNames.contains(STORE_NAME)) {
-        db.createObjectStore(STORE_NAME, { keyPath: 'id' })
-      }
-    },
+    request.onsuccess = (event) => {
+      db = (event.target as IDBOpenDBRequest).result 
+      resolve(db)
+    }
+
+    request.onerror = (event) => {
+      reject('Database error: ' + (event.target as IDBRequest).error) 
+    }
   })
 }
 
-export const saveUser = async (user: User) => {
-  if (!isBrowser) return
-  const db = await initDB()
-  if (db) await db.put(STORE_NAME, user)
+export const createUser  = async (user: User): Promise<string> => {
+  await openDatabase()
+
+  return new Promise((resolve, reject) => {
+    if (!db) {
+      reject('Database not initialized')
+      return
+    }
+
+    const transaction = (db as IDBDatabase).transaction([storeName], 'readwrite')
+    const objectStore = transaction.objectStore(storeName)
+
+    const request = objectStore.add(user)
+
+    request.onsuccess = () => {
+      resolve('User  created successfully')
+    }
+
+    request.onerror = (event: Event) => { 
+      const target = event.target as IDBRequest 
+      if (target.error && target.error.name === 'ConstraintError') {
+        reject('Email must be unique')
+      } else {
+        reject('Error adding user: ' + (target.error ? target.error.message : 'Unknown error'))
+      }
+    }
+  })
 }
 
-export const getUser = async (id: string) => {
-  if (!isBrowser) return null
-  const db = await initDB()
-  return db ? await db.get(STORE_NAME, id) : null
+export const getUser  = async (email: string): Promise<User | null> => {
+  await openDatabase()
+
+  return new Promise((resolve, reject) => {
+    if (!db) {
+      reject('Database not initialized')
+      return
+    }
+
+    const transaction = (db as IDBDatabase).transaction([storeName], 'readonly')
+    const objectStore = transaction.objectStore(storeName)
+    const index = objectStore.index('email')
+
+    const request = index.get(email)
+
+    request.onsuccess = (event: Event) => { 
+      const target = event.target as IDBRequest 
+      const user = target.result as User
+      if (user) {
+        resolve(user)
+      } else {
+        resolve(null)
+      }
+    }
+
+    request.onerror = (event: Event) => { 
+      const target = event.target as IDBRequest
+      reject('Error retrieving user: ' + (target.error ? target.error.message : 'Unknown error'))
+    }
+  })
 }

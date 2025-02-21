@@ -14,7 +14,7 @@ import PasswordHide from './assets/passwordHide.svg'
 
 import styles from './registerForm.module.scss'
 import { usePhoneInput } from '@/app/hooks/phoneNumber'
-import { saveUser } from '@/app/lib/db'
+import { createUser } from '@/app/lib/db'
 import { signIn } from 'next-auth/react'
 
 type RegisterData = {
@@ -36,15 +36,7 @@ const RegisterForm = ({}) => {
 
   const { phone, handleChange } = usePhoneInput()
 
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-
   const onSubmit: SubmitHandler<RegisterData> = async (data) => {
-    if (!isClient) return
 
     const user = {
       id: crypto.randomUUID(),
@@ -52,19 +44,23 @@ const RegisterForm = ({}) => {
       telephone: data.telephone,
       email: data.email,
       password: data.password, 
+    } as User
+
+    try {
+      const isCreatedUser = await createUser(user)
+
+      if (!isCreatedUser) {
+        return
+      }
+
+      const result = await signIn('credentials', {
+        redirect: true,
+        ...user
+      })
+
+    } catch (error) {
+      throw error
     }
-  
-    const result = await signIn('Credentials', {
-      redirect: false,
-      ...user,
-    })
-  
-    if (result?.error) {
-      console.error('Authentication failed:', result.error)
-      return
-    }
-  
-    await saveUser(user)
   }
 
   return (

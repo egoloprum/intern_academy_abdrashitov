@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import Checked from './assets/Checked'
 import UnChecked from './assets/UnChecked'
 import Minus from './assets/Minus'
@@ -25,10 +25,6 @@ const Checkbox: FC<CheckboxProps> = ({
   const [clicked, setClicked] = useState<boolean>(isClicked)
   const [isHover, setIsHover] = useState<boolean>(false)
   const [isActive, setIsActive] = useState<boolean>(false)
-
-  useEffect(() => {
-    console.log(clicked)
-  }, [clicked])
 
   return (
     <div className={[
