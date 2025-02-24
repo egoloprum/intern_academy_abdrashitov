@@ -1,4 +1,5 @@
 import { authOptions } from '@/app/lib/auth'
+import Sidebar from '@/widgets/sidebar/sidebar.component';
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation';
 
@@ -12,8 +13,9 @@ export default async function Home() {
   }
 
   return (
-    <div>
-      home
-    </div> 
+    <main className='main-container'>
+      <Sidebar />
+
+    </main> 
   )
 }

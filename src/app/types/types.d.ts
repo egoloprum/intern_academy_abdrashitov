@@ -1,7 +1,0 @@
-interface User {
-  id: string
-  username: string
-  telephone: string
-  email: string
-  password: string
-}

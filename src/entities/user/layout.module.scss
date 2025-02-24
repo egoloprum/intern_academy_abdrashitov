@@ -1,0 +1,26 @@
+.user-layout-component {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: typegraphy.$fontFamilyMain;
+}
+
+.user-username {
+  font-size: typegraphy.$font-size-p2;
+  font-weight: 500;
+  color: colors.$colorBlackMain;
+}
+
+.user-email {
+  font-size: typegraphy.$font-size-p4;
+  font-weight: 500;
+  color: colors.$colorBlack500;
+}
+
+.user-telephone {
+  font-size: typegraphy.$font-size-p4;
+  font-weight: 500;
+  color: colors.$colorBlack500;
+}
+
+
