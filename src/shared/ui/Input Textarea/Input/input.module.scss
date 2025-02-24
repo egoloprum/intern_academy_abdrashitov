@@ -43,6 +43,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.input::placeholder {
+  color: colors.$colorBlack400;
+}
 .input-container:has(.input:disabled) {
   background: colors.$borderSecondary;
 }
@@ -85,7 +88,6 @@
 
 .top-label {
   color: colors.$textLightSecondary;
-  text-transform: capitalize;
   font-weight: 500;
 }
 .top-large-label {

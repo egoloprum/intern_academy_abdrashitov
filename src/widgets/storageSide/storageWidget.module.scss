@@ -6,3 +6,9 @@
 
   font-family: typegraphy.$fontFamilyMain;
 }
+
+.dividing-line {
+  border: 1px solid colors.$borderLightPrimary;
+  margin-block: 16px;
+  width: 100%;
+}

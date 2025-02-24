@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import { Navbar } from "@/widgets/navbar";
+import { FolderSheet } from "@/features/folder-sheet";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <FolderSheet />
       </body>
     </html>
   );

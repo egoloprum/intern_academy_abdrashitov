@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 
 import { StorageWidget } from '@/widgets/storageSide'
-import Sidebar from '@/widgets/sidebar/sidebar.component'
+import { Sidebar } from '@/widgets/sidebar'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)

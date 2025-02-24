@@ -7,7 +7,6 @@
 }
 
 .textarea {
-  max-width: 340px;
   width: 100%;
   min-height: 80px;
   outline: none;
@@ -19,9 +18,10 @@
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: colors.$borderSecondary #fff;
+  font-family: typegraphy.$fontFamilyMain;
 }
 .textarea::placeholder {
-  text-transform: capitalize;
+  color: colors.$colorBlack400;
 }
 
 .textarea:active {
@@ -55,7 +55,6 @@
 
 .top-label {
   color: colors.$textLightSecondary;
-  text-transform: capitalize;
   font-weight: 500;
 }
 .top-large-label {

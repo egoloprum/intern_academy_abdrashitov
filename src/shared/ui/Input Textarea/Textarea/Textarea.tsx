@@ -1,9 +1,9 @@
 "use client"
 
-import { FC } from 'react'
+import { FC, TextareaHTMLAttributes } from 'react'
 import styles from './textarea.module.scss'
 
-interface TextareaProps {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   size?: 'large' | 'medium' | 'small' | 'xSmall'
 
   isDisabled?: boolean
@@ -11,6 +11,8 @@ interface TextareaProps {
 
   topLabel?: string
   bottomLabel?: string
+
+  className?: string
 }
 
 const Textarea: FC<TextareaProps> = ({
@@ -18,11 +20,16 @@ const Textarea: FC<TextareaProps> = ({
   isDisabled=false,
   isError=false, 
   topLabel='label', 
-  bottomLabel='This is a helper text'
+  bottomLabel='This is a helper text',
+  className,
+  ...rest
 }) => {
   return (
     <div 
-      className={styles[`textarea-container`]}
+      className={
+        [styles[`textarea-container`], 
+        className].join(' ')
+      }
     >
       <label 
         className={[
@@ -30,7 +37,7 @@ const Textarea: FC<TextareaProps> = ({
           styles[`top-${size}-label`]
         ].join(' ')}
       >
-        {size} {topLabel}
+        {topLabel}
       </label>
       <textarea 
         className={[
@@ -38,8 +45,8 @@ const Textarea: FC<TextareaProps> = ({
           styles[`${size}-textarea`],
           styles[`${isError && 'textarea-error'}`]
         ].join(' ')}
-        placeholder={`${size} text area`}
         disabled={isDisabled}
+        {...rest}
       >
       </textarea>
       <label 

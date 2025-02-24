@@ -1,15 +1,25 @@
+import { Folder } from "@/entities/folder"
+import { User } from "@/entities/user"
+
 const dbName = 'Task-3'
-const storeName = 'users'
+let storeName = ['users', 'folder']
 let db: IDBDatabase | null = null
 
 const openDatabase = (): Promise<IDBDatabase> => {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(dbName, 1)
+    const request = indexedDB.open(dbName, 2)
 
     request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
       const db = (event.target as IDBOpenDBRequest).result 
-      const objectStore = db.createObjectStore(storeName, { keyPath: 'id' })
-      objectStore.createIndex('email', 'email', { unique: true })
+
+      if (!db.objectStoreNames.contains('users')) {
+        const objectStore = db.createObjectStore('users', { keyPath: 'id' });
+        objectStore.createIndex('email', 'email', { unique: true });
+      }
+
+      if (!db.objectStoreNames.contains('folder')) {
+        const folderStore = db.createObjectStore('folder', { keyPath: 'id' });
+      }
     }
 
     request.onsuccess = (event) => {
@@ -23,6 +33,37 @@ const openDatabase = (): Promise<IDBDatabase> => {
   })
 }
 
+export const createFolder = async (folder: Folder): Promise<string> => {
+  await openDatabase()
+
+  return new Promise((resolve, reject) => {
+    if (!db) {
+      reject('Database not initialized')
+      return
+    }
+    
+    const transaction = (db as IDBDatabase).transaction(['folder'], 'readwrite')
+    const objectStore = transaction.objectStore('folder')
+
+    console.log("folder", folder)
+
+    const request = objectStore.add(folder)
+
+    request.onsuccess = () => {
+      resolve('Folder created successfully')
+    }
+
+    request.onerror = (event: Event) => { 
+      const target = event.target as IDBRequest 
+      if (target.error && target.error.name === 'ConstraintError') {
+        reject('Name is required')
+      } else {
+        reject('Error adding folder: ' + (target.error ? target.error.message : 'Unknown error'))
+      }
+    }
+  })
+}
+
 export const createUser = async (user: User): Promise<string> => {
   await openDatabase()
 
@@ -32,8 +73,8 @@ export const createUser = async (user: User): Promise<string> => {
       return
     }
 
-    const transaction = (db as IDBDatabase).transaction([storeName], 'readwrite')
-    const objectStore = transaction.objectStore(storeName)
+    const transaction = (db as IDBDatabase).transaction(['users'], 'readwrite')
+    const objectStore = transaction.objectStore('users')
 
     const request = objectStore.add(user)
 
@@ -61,8 +102,8 @@ export const getUser  = async (email: string): Promise<User | null> => {
       return
     }
 
-    const transaction = (db as IDBDatabase).transaction([storeName], 'readonly')
-    const objectStore = transaction.objectStore(storeName)
+    const transaction = (db as IDBDatabase).transaction(['users'], 'readonly')
+    const objectStore = transaction.objectStore('users')
     const index = objectStore.index('email')
 
     const request = index.get(email)

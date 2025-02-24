@@ -1,6 +1,7 @@
 import { signIn, signOut } from 'next-auth/react'
 import { create } from 'zustand'
 import { createUser, getUser } from '../lib/db'
+import { User } from '@/entities/user'
 
 const authenticateUser  = async (email: string, password: string) => {
   try {
@@ -72,7 +73,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
       if (!currentUser) { return }
 
       const isCreated = await createUser(currentUser)
-
       if (!isCreated) { return }
 
       get().loginUser({
@@ -83,6 +83,5 @@ export const useUserStore = create<UserStore>((set, get) => ({
       throw error
     }
   }
-  
 }))
 

@@ -3,7 +3,7 @@ import { CreateFolderBtn } from '@/features/create-folder-button'
 
 import styles from './sidebar.module.scss'
 
-const Sidebar = ({}) => {
+export const Sidebar = ({}) => {
   return (
     <div className={styles[`sidebar`]}>
       <UserLayout />
@@ -12,4 +12,3 @@ const Sidebar = ({}) => {
   )
 }
 
-export default Sidebar

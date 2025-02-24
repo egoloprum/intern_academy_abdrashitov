@@ -1,0 +1,26 @@
+.folder-card {
+  max-width: 320px;
+  width: 100%;
+  padding: 16px;
+
+  background-color: colors.$bgLightSecondary;
+  font-family: typegraphy.$fontFamilyMain;
+
+  border-radius: radius.$border-large;
+}
+
+.folder-name {
+  font-weight: 500;
+  font-size: typegraphy.$font-size-p4;
+  color: colors.$colorBlackMain;
+}
+
+.folder-details {
+  font-weight: 500;
+  font-size: typegraphy.$font-size-p4;
+  color: colors.$textLightSecondary;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
