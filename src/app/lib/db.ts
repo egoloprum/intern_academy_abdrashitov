@@ -2,7 +2,6 @@ import { Folder } from "@/entities/folder"
 import { User } from "@/entities/user"
 
 const dbName = 'Task-3'
-let storeName = ['users', 'folder']
 let db: IDBDatabase | null = null
 
 const openDatabase = (): Promise<IDBDatabase> => {
@@ -89,6 +88,37 @@ export const createUser = async (user: User): Promise<string> => {
       } else {
         reject('Error adding user: ' + (target.error ? target.error.message : 'Unknown error'))
       }
+    }
+  })
+}
+
+export const getFolders = async (): Promise<Folder[] | null> => {
+  await openDatabase()
+
+  return new Promise((resolve, reject) => {
+    if (!db) {
+      reject('Database not initialized')
+      return
+    }
+
+    const transaction = (db as IDBDatabase).transaction(['folder'], 'readonly')
+    const objectStore = transaction.objectStore('folder')
+
+    const request = objectStore.getAll()
+
+    request.onsuccess = (event: Event) => { 
+      const target = event.target as IDBRequest 
+      const folders = target.result as Folder []
+      if (folders) {
+        resolve(folders)
+      } else {
+        resolve(null)
+      }
+    }
+
+    request.onerror = (event: Event) => { 
+      const target = event.target as IDBRequest
+      reject('Error retrieving folders: ' + (target.error ? target.error.message : 'Unknown error'))
     }
   })
 }

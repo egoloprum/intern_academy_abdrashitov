@@ -1,24 +1,31 @@
+"use client"
+
 import { AddFileBtn } from '@/features/add-file-button'
 import styles from './storageWidget.module.scss'
-import { FC } from 'react'
-import { Folder, FolderCard } from '@/entities/folder'
+import { useEffect } from 'react'
+import { FolderCard } from '@/entities/folder'
+import { useFolderStore } from '@/app/stores/folderStore'
 
-interface StorageWidgetProps {
-  folders?: Folder[]
-}
+export const StorageWidget = () => {
+  const { folders, setFolder, createFolder } = useFolderStore()
 
-export const StorageWidget:FC<StorageWidgetProps> = ({folders}) => {
+  useEffect(() => {
+    setFolder()
+  }, [setFolder])
+
   return (
     <div className={styles[`storage-container`]}>
 
-      { folders && (
-        <>
-          {folders.map((folder, index) => (
-            <FolderCard key={index} folder={folder} />
-          ))}
-          <div className={styles['dividing-line']}></div>
-        </>
-      )}
+      <div className={styles[`storage-wrapper`]}>
+        {folders && (
+          <>
+            {folders.map((folder, index) => (
+              <FolderCard key={index} folder={folder} />
+            ))}
+            <div className={styles['dividing-line']}></div>
+          </>
+        )}
+      </div>
     
 
       <AddFileBtn />

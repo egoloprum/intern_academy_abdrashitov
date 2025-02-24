@@ -8,7 +8,7 @@ import styles from './folderSheet.module.scss'
 import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input Textarea/Input'
 import Textarea from '@/shared/ui/Input Textarea/Textarea/Textarea'
-import { useFolderStore } from '@/app/stores/fileStore'
+import { useFolderStore } from '@/app/stores/folderStore'
 
 type FolderCreateData = {
   name: string 
@@ -16,11 +16,10 @@ type FolderCreateData = {
 }
 
 export const FolderSheet = ({}) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FolderCreateData>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FolderCreateData>({
     resolver: zodResolver(FolderCreateValidator),
   })
-
-  const { createFolder } = useFolderStore()
+  const { createFolder, setFolder } = useFolderStore()
 
   const onSubmit: SubmitHandler<FolderCreateData> = async (data) => {
     console.log(data)
@@ -36,7 +35,8 @@ export const FolderSheet = ({}) => {
     }
 
     createFolder(folder)
-
+    setFolder()
+    reset()
     closeModalHandler()
   }
 

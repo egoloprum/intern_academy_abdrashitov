@@ -1,5 +1,7 @@
 .folder-card {
   max-width: 320px;
+  height: 170px;
+  
   width: 100%;
   padding: 16px;
 
@@ -7,6 +9,10 @@
   font-family: typegraphy.$fontFamilyMain;
 
   border-radius: radius.$border-large;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .folder-name {
@@ -16,8 +22,8 @@
 }
 
 .folder-details {
-  font-weight: 500;
-  font-size: typegraphy.$font-size-p4;
+  font-weight: 400;
+  font-size: typegraphy.$font-size-p5;
   color: colors.$textLightSecondary;
 
   display: flex;

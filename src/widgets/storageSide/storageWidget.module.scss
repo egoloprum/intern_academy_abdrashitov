@@ -7,6 +7,12 @@
   font-family: typegraphy.$fontFamilyMain;
 }
 
+.storage-wrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .dividing-line {
   border: 1px solid colors.$borderLightPrimary;
   margin-block: 16px;
