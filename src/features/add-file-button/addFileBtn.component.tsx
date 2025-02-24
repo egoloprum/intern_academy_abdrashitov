@@ -1,17 +1,17 @@
 import { Button } from '@/shared/ui/Button'
 import Plus from './assets/plus.svg'
 
-import styles from './createFolderBtn.module.scss'
+import styles from './addFileBtn.module.scss'
 
-export const CreateFolderBtn = ({}) => {
+export const AddFileBtn = ({}) => {
   return (
     <Button
       type='button'
       size='small'
-      className={styles[`create-folder-btn`]}
+      className={styles[`add-file-btn`]}
     >
       <Plus />
-      Создать папку
+      Добавить файл
     </Button>
   )
 }

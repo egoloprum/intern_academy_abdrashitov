@@ -2,13 +2,10 @@
   background-color: colors.$colorWhiteMain;
   max-width: 320px;
   width: 100%;
-  height: 100%;
 
   padding: 16px;
   border-radius: radius.$border-large;
 
-  position: absolute;
-  
   display: flex;
   flex-direction: column;
   gap: 16px;
