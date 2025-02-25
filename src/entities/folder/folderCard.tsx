@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import styles from './folderCard.module.scss'
 import { Folder } from './model'
+import { EditFolderBtn } from '@/features/edit-folder-button'
+import { DeleteFolderBtn } from '@/features/delete-folder-button'
 
 interface FolderCardProps {
   folder: Folder
@@ -23,10 +25,18 @@ export const FolderCard: FC<FolderCardProps> = ({folder}) => {
         {folder.name}
       </p>
 
-      <p className={styles[`folder-details`]}>
-        <span>Общий размер файлов: {folder.size || 0}</span>
-        <span>Последние изменения: {formatDate(folder.edited_at)}</span>
-      </p>
+      <div className={styles[`folder-bottom`]}>
+        <p className={styles[`folder-details`]}>
+          <span>Общий размер файлов: {folder.size || 0}</span>
+          <span>Последние изменения: {formatDate(folder.edited_at)}</span>
+        </p>
+
+        <div className={styles[`folder-buttons`]}>
+          <EditFolderBtn id={folder.id} />
+          <DeleteFolderBtn id={folder.id} />
+        </div>
+      </div>
+
     </div>
   )
 }

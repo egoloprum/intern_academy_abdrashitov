@@ -1,0 +1,60 @@
+.delete-modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: colors.$colorWhiteMain;
+  border: none;
+  outline: none;
+  border-radius: radius.$border-large;
+  padding: 32px;
+  max-width: 600px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.delete-modal-container::backdrop {
+  background-color: colors.$bgLightSecondary;
+}
+
+.delete-modal-container
+
+.delete-modal-wrapper {
+  max-width: 600px;
+  width: 100%;
+  padding: 32px;
+  border: radius.$border-large;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.delete-modal-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: typegraphy.$fontFamilyMain;
+}
+.delete-modal-label > h3 {
+  color: colors.$colorBlackMain;
+  font-weight: 700;
+  font-size: typegraphy.$font-size-h3;
+}
+.delete-modal-label > p {
+  color: colors.$textLightSecondary;
+  font-weight: 500;
+  font-size: typegraphy.$font-size-p4;
+}
+
+.delete-modal-buttons {
+  display: flex;
+  gap: 8px;
+}
+.delete-modal-buttons > * {
+  width: 100%;
+  justify-content: center;
+}
