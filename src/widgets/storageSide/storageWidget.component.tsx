@@ -7,7 +7,7 @@ import { FolderCard } from '@/entities/folder'
 import { useFolderStore } from '@/app/stores/folderStore'
 
 export const StorageWidget = () => {
-  const { folders, setFolder, createFolder } = useFolderStore()
+  const { folders, setFolder } = useFolderStore()
 
   useEffect(() => {
     setFolder()

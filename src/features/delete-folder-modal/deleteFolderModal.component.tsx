@@ -1,6 +1,7 @@
 "use client"
 
 import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { useFolderStore } from '@/app/stores/folderStore'
 import styles from './deleteFolderModal.module.scss'
 import { Button } from '@/shared/ui/Button'
 
@@ -21,18 +22,23 @@ interface DeleteFolderModalRef {
 
 export const DeleteFolderModal = forwardRef<DeleteFolderModalRef, DeleteFolderModalProps>(
   ({ id, onClose }, ref) => {
-    const dialogRef = useRef<HTMLDialogElement>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null)
 
-    useImperativeHandle(ref, () => ({
-      showModal: () => {
-        dialogRef.current?.showModal()
-      },
-      close: () => {
-        dialogRef.current?.close()
-      },
-    }))
+  useImperativeHandle(ref, () => ({
+    showModal: () => {
+      dialogRef.current?.showModal()
+    },
+    close: () => {
+      dialogRef.current?.close()
+    },
+  }))
+
+  const { deleteFolder, setFolder } = useFolderStore()
+
   const deleteHandler = () => {
     console.log("Deleting folder with id:", id)
+    deleteFolder(id)
+    setFolder()
     onClose()
   }
 
@@ -66,3 +72,5 @@ export const DeleteFolderModal = forwardRef<DeleteFolderModalRef, DeleteFolderMo
     </dialog>
   )
 })
+
+DeleteFolderModal.displayName = 'DeleteFolderModal'

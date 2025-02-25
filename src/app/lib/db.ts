@@ -12,12 +12,12 @@ const openDatabase = (): Promise<IDBDatabase> => {
       const db = (event.target as IDBOpenDBRequest).result 
 
       if (!db.objectStoreNames.contains('users')) {
-        const objectStore = db.createObjectStore('users', { keyPath: 'id' });
-        objectStore.createIndex('email', 'email', { unique: true });
+        const objectStore = db.createObjectStore('users', { keyPath: 'id' })
+        objectStore.createIndex('email', 'email', { unique: true })
       }
 
       if (!db.objectStoreNames.contains('folder')) {
-        const folderStore = db.createObjectStore('folder', { keyPath: 'id' });
+        db.createObjectStore('folder', { keyPath: 'id' })
       }
     }
 
@@ -59,6 +59,31 @@ export const createFolder = async (folder: Folder): Promise<string> => {
       } else {
         reject('Error adding folder: ' + (target.error ? target.error.message : 'Unknown error'))
       }
+    }
+  })
+}
+
+export const deleteFolder = async (folderId: string): Promise<string> => {
+  await openDatabase()
+
+  return new Promise((resolve, reject) => {
+    if (!db) {
+      reject('Database not initialized')
+      return
+    }
+
+    const transaction = (db as IDBDatabase).transaction(['folder'], 'readwrite')
+    const objectStore = transaction.objectStore('folder')
+
+    const request = objectStore.delete(folderId)
+
+    request.onsuccess = () => {
+      resolve('Folder deleted successfully')
+    }
+
+    request.onerror = (event: Event) => {
+      const target = event.target as IDBRequest
+      reject('Error deleting folder: ' + (target.error ? target.error.message : 'Unknown error'))
     }
   })
 }

@@ -16,7 +16,7 @@ type FolderCreateData = {
 }
 
 export const FolderSheet = ({}) => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FolderCreateData>({
+  const { register, handleSubmit, reset } = useForm<FolderCreateData>({
     resolver: zodResolver(FolderCreateValidator),
   })
   const { createFolder, setFolder } = useFolderStore()
