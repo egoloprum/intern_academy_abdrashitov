@@ -1,29 +1,35 @@
 "use client"
 
+import { FC } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FolderCreateValidator } from '@/app/validations/folderValidator'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { useFolderStore } from '@/app/stores/folderStore'
 
-import styles from './folderSheet.module.scss'
+import styles from './sideModal.module.scss'
 import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input Textarea/Input'
 import Textarea from '@/shared/ui/Input Textarea/Textarea/Textarea'
-import { useFolderStore } from '@/app/stores/folderStore'
+import ToggleBtn from '@/shared/ui/Checkbox Radio Toggle/ToggleButton/ToggleBtn'
 
-type FolderCreateData = {
-  name: string 
-  description: string 
+interface SideModalProps {
+  folderId?: string 
 }
 
-export const FolderSheet = ({}) => {
-  const { register, handleSubmit, reset } = useForm<FolderCreateData>({
+type FolderData = {
+  name: string 
+  description: string 
+  isArchived?: boolean
+}
+
+export const SideModal:FC<SideModalProps> = ({folderId}) => {
+  const { register, handleSubmit, reset } = useForm<FolderData>({
     resolver: zodResolver(FolderCreateValidator),
   })
   const { createFolder, setFolder } = useFolderStore()
 
-  const onSubmit: SubmitHandler<FolderCreateData> = async (data) => {
-    console.log(data)
-
+  const onSubmit: SubmitHandler<FolderData> = async (data) => {
     const dateNow = new Date()
 
     const folder = {
@@ -54,7 +60,7 @@ export const FolderSheet = ({}) => {
         <fieldset className={styles[`folder-fieldset-1`]}>
           <div className={styles['folder-label']}>
             <h3>
-              Создать папку
+              { folderId ? 'Редактировать' : 'Создать' } папку
             </h3>
             <p>
               Отличный способ сгруппировать нужные вам файлы
@@ -75,6 +81,14 @@ export const FolderSheet = ({}) => {
               placeholder='Введите описание'
               {...register('description')}
             />
+
+            { folderId && (
+              <ToggleBtn
+                inputSize='medium'
+                label='Поместить в архив'
+              />
+            )}
+
           </div>
         </fieldset>
 
@@ -83,7 +97,7 @@ export const FolderSheet = ({}) => {
             type='submit'
             size='small'
           >
-            Создать
+            { folderId ? 'Сохранить' : 'Создать' }
           </Button>
           <Button
             type='button'

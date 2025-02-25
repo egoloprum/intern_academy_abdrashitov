@@ -8,11 +8,7 @@ import { Button } from '@/shared/ui/Button'
 interface DeleteFolderModalProps {
   id: string   
   onClose: () => void
-}
-
-interface DeleteFolderModalProps {
-  id: string   
-  onClose: () => void
+  children?: React.ReactNode
 }
 
 interface DeleteFolderModalRef {
@@ -21,7 +17,7 @@ interface DeleteFolderModalRef {
 }
 
 export const DeleteFolderModal = forwardRef<DeleteFolderModalRef, DeleteFolderModalProps>(
-  ({ id, onClose }, ref) => {
+  ({ id, onClose, children }, ref) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useImperativeHandle(ref, () => ({
@@ -49,7 +45,7 @@ export const DeleteFolderModal = forwardRef<DeleteFolderModalRef, DeleteFolderMo
     >
       <div className={styles[`delete-modal-label`]}>
         <h3>Удалить папку?</h3>
-        <p>Удаление повлечет за собой потерю всех данных по этой папке</p>
+        { children }
       </div>
       <div className={styles[`delete-modal-buttons`]}>
         <Button

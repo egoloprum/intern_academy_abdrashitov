@@ -1,57 +1,77 @@
 "use client"
 
-import { FC, useState } from 'react'
-import Toggler from './assets/Toggler'
+import { FC, InputHTMLAttributes, useRef, useState } from 'react'
+import Ball from './assets/ball.svg'
 import styles from './toggleBtn.module.scss'
 
-interface ToggleBtnProps {
-  size?: 'large' | 'medium' | 'small' | 'xs'
+interface ToggleBtnProps extends InputHTMLAttributes<HTMLInputElement> {
+  inputSize?: 'large' | 'medium' | 'small' | 'xs'
   isDisabled?: boolean
-  theme?: "light" | "dark"
+  label?: string
+  className?: string 
 }
 
 const ToggleBtn: FC<ToggleBtnProps> = ({
-  size="medium",
+  inputSize="medium",
   isDisabled=false,
-  theme="dark"
+  label,
+  className,
+  ...rest
 }) => {
-  const [toggler, setToggler] = useState<boolean>(false)
+  const [isToggled, setisToggled] = useState<string>("")
   const [isHover, setIsHover] = useState<boolean>(false)
   const [isActive, setIsActive] = useState<boolean>(false)
+  
+  const checkboxRef = useRef<HTMLInputElement>(null)
+
+  const handleClick = () => {
+    if (checkboxRef.current) {
+      setisToggled(checkboxRef.current.checked ? "light" : "dark")
+    }
+  }
 
   return (
-    <div className={[
-      styles[`toggle-wrapper`],
-      styles[`${size}-toggle-wrapper`],
-      styles[`${theme}-toggle-wrapper`],
-      styles[`${isHover ? `${theme}-hover-toggle-wrapper` : ''}`],
-      styles[`${isActive ? `${theme}-active-toggle-wrapper` : ''}`],
-      styles[`${isDisabled && `disabled-toggle-wrapper`}`],
-    ].join(' ')}>
-      <input 
-        type="checkbox"  
-        className={[
-          styles[`toggle-input`],
-          styles[`${size}-toggle-input`],
-        ].join(' ')}
-        onClick={() => setToggler(!toggler)}
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        onMouseDown={() => setIsActive(true)}
-        onMouseUp={() => setIsActive(false)}
-        disabled={isDisabled}
-      />
-
-      <Toggler
-       className={[
-        styles[`toggler-svg`],
-        styles[`${size}-toggler-svg`],
-        styles[`${theme}-toggler-svg`],
-        styles[`${toggler && 'clicked-toggler-svg'}`],
-        styles[`${isDisabled && 'disabled-toggler-svg'}`],
+    <div 
+      className={[
+        styles[`toggle-container`]
       ].join(' ')}
-      />
-      
+    >
+      <label
+        className={[
+          styles[`toggle-wrapper`],
+          styles[`${inputSize}-toggle-wrapper`],
+          styles[`${isDisabled && `disabled-toggle-wrapper`}`],
+          styles[`${isToggled}-toggle-wrapper`],
+          styles[`${isHover && `${isToggled}-hover-toggle-wrapper`}`],
+          styles[`${isActive && `${isToggled}-active-toggle-wrapper`}`],
+        ].join(' ')}
+      >
+        <input 
+          type="checkbox"
+          className={[
+            styles[`toggle-input`],
+            styles[`${inputSize}-toggle-input`],
+          ].join(' ')}
+          onClick={handleClick}
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          onMouseDown={() => setIsActive(true)}
+          onMouseUp={() => setIsActive(false)}
+          disabled={isDisabled}
+          ref={checkboxRef}
+          {...rest}
+        />
+
+        <Ball
+        className={[
+          styles[`toggler-svg`],
+          styles[`${inputSize}-toggler-svg`],
+        ].join(' ')}
+        />
+      </label>
+      <label htmlFor="">
+        {label}
+      </label>
     </div>
   )
 }

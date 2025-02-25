@@ -1,15 +1,26 @@
+.toggle-container {
+  padding-block: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: typegraphy.$fontFamilyMain;
+  font-size: typegraphy.$font-size-p6;
+  color: colors.$textLightSecondary;
+}
+
 .toggle-wrapper {
   border-radius: radius.$border-special;
+  outline: 1px solid colors.$borderLightPrimary;
+  background-color: colors.$bgLightSecondary;
+  z-index: 0;
   position: relative;
 }
 
 .light-toggle-wrapper {
   background-color: colors.$bgLightAccent;
 }
-
 .dark-toggle-wrapper {
   background-color: colors.$bgLightSecondary;
-  outline: 1px solid colors.$borderLightPrimary;
 }
 
 .light-hover-toggle-wrapper {
@@ -24,11 +35,6 @@
 }
 .dark-active-toggle-wrapper {
   background-color: colors.$bgLightSecondaryHoverActive;
-}
-
-.disabled-toggle-wrapper {
-  outline: 1px solid colors.$borderLightPrimary;
-  background-color: colors.$bgLightDisabled;
 }
 
 .large-toggle-wrapper {
@@ -49,71 +55,37 @@
 }
 
 .toggle-input {
+  width: 36px;
+  height: 18px;
+  border-radius: radius.$border-special;
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
   margin: 0;
   cursor: pointer;
   z-index: 10;
-}
-.toggle-input:disabled {
-  cursor: default;
-}
-
-.large-toggle-input {
-  width: 40px;
-  height: 20px;
-}
-.medium-toggle-input {
-  width: 36px;
-  height: 18px;
-}
-.small-toggle-input {
-  width: 32px;
-  height: 16px;
-}
-.xs-toggle-input {
-  width: 28px;
-  height: 14px;
+  opacity: 0;
 }
 
 .toggler-svg {
+  fill: colors.$colorBlack600;
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 2%;
   transform: translate(0, -50%);
-  margin-inline: 2px;
+  margin-right: 2px;
   transition: 0.3s ease;
 }
 
-.clicked-toggler-svg {
+.toggle-wrapper input:checked + .toggler-svg {
   left: 50%;
+  fill: colors.$colorWhiteMain;
 }
 
-.light-toggler-svg {
-  fill: colors.$bgLightPrimary;
-}
-.dark-toggler-svg {
-  fill: colors.$colorBlack600;
-}
-.disabled-toggler-svg {
+.toggle-wrapper input:disabled + .toggler-svg {
   fill: colors.$bgLightDisabled;
 }
 
-.large-toggler-svg {
-  width: 16px;
-  height: 16px;
-}
-.medium-toggler-svg {
-  width: 14px;
-  height: 14px;
-}
-.small-toggler-svg {
-  width: 12px;
-  height: 12px;
-}
-.xs-toggler-svg {
-  width: 10px;
-  height: 10px;
-}
+
+
+
