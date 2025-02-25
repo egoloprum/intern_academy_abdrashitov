@@ -1,13 +1,13 @@
 import { Folder } from '@/entities/folder'
 import { create } from 'zustand'
-import { createFolder, deleteFolder, getFolders } from '../lib/db'
+import { createFolder, deleteFolder, editFolder, getFolders } from '../lib/db'
 
 type FolderStore = {
   folders: Folder[] | null
 
   setFolder: () => void
   createFolder: (folder: Folder) => void
-  // editFolder: (folder: Folder) => void
+  editFolder: (folderId: string, name: string, description: string, isArchived: boolean, edited_at: string) => void
   deleteFolder: (folderId: string) => void
 }
 
@@ -29,6 +29,14 @@ export const useFolderStore = create<FolderStore>((set) => ({
     try {
       const isCreated = await createFolder(folder)
       if (!isCreated) { return }
+    } catch (error) {
+      throw error
+    }
+  },
+  editFolder: async (folderId: string, name: string, description: string, isArchived: boolean, edited_at: string) => {
+    try {
+      const isEdited =  await editFolder(folderId, name, description, isArchived, edited_at)
+      if (!isEdited) { return }
     } catch (error) {
       throw error
     }

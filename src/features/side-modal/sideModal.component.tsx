@@ -1,6 +1,6 @@
 "use client"
 
-import { FC } from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FolderCreateValidator } from '@/app/validations/folderValidator'
@@ -15,6 +15,7 @@ import ToggleBtn from '@/shared/ui/Checkbox Radio Toggle/ToggleButton/ToggleBtn'
 
 interface SideModalProps {
   folderId?: string 
+  onClose?: () => void
 }
 
 type FolderData = {
@@ -23,11 +24,29 @@ type FolderData = {
   isArchived?: boolean
 }
 
-export const SideModal:FC<SideModalProps> = ({folderId}) => {
+type SideModalRef = {
+  showModal: () => void
+  close: () => void
+}
+
+export const SideModal = forwardRef<SideModalRef, SideModalProps>(
+  ({ folderId, onClose = () => {} }, ref) => {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    showModal: () => {
+      dialogRef.current?.showModal()
+    },
+    close: () => {
+      dialogRef.current?.close()
+    },
+  }))
+
   const { register, handleSubmit, reset } = useForm<FolderData>({
     resolver: zodResolver(FolderCreateValidator),
   })
-  const { createFolder, setFolder } = useFolderStore()
+
+  const { createFolder, editFolder, setFolder } = useFolderStore()
 
   const onSubmit: SubmitHandler<FolderData> = async (data) => {
     const dateNow = new Date()
@@ -40,19 +59,25 @@ export const SideModal:FC<SideModalProps> = ({folderId}) => {
       files: null
     }
 
+    if (folderId) {
+      editFolder(folderId, data.name, data.description, data.isArchived || false, `${dateNow}`)
+      setFolder()
+      reset()
+      onClose()
+      return 
+    }
+
     createFolder(folder)
     setFolder()
     reset()
-    closeModalHandler()
-  }
-
-  const closeModalHandler = () => {
-    const folderDialog = document.querySelector('.folder-create-dialog') as HTMLDialogElement;
-    folderDialog.close()
+    onClose()
   }
 
   return (
-    <dialog className={[styles['folder-sheet'], 'folder-create-dialog'].join(' ')}>
+    <dialog 
+      ref={dialogRef}
+      className={[styles['folder-sheet'], 'folder-create-dialog'].join(' ')}
+    >
       <form
         className={styles[`folder-form`]}
         onSubmit={handleSubmit(onSubmit)}
@@ -86,6 +111,7 @@ export const SideModal:FC<SideModalProps> = ({folderId}) => {
               <ToggleBtn
                 inputSize='medium'
                 label='Поместить в архив'
+                {...register('isArchived')}
               />
             )}
 
@@ -103,7 +129,7 @@ export const SideModal:FC<SideModalProps> = ({folderId}) => {
             type='button'
             mode='secondary'
             size='small'
-            onClick={closeModalHandler}
+            onClick={onClose}
           >
             Отмена
           </Button>
@@ -111,5 +137,6 @@ export const SideModal:FC<SideModalProps> = ({folderId}) => {
       </form>
     </dialog>
   )
-}
+})
 
+SideModal.displayName = 'SideModal'

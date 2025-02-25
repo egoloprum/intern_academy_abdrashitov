@@ -33,7 +33,8 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
   return (
     <div 
       className={[
-        styles[`toggle-container`]
+        styles[`toggle-container`],
+        className
       ].join(' ')}
     >
       <label

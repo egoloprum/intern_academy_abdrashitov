@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import { Navbar } from "@/widgets/navbar";
-import { SideModal } from "@/features/side-modal";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {children}
-        <SideModal 
-          
-        />
+        {children}          
       </body>
     </html>
   );

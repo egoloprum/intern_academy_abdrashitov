@@ -63,6 +63,63 @@ export const createFolder = async (folder: Folder): Promise<string> => {
   })
 }
 
+export const editFolder = async (
+  folderId: string, 
+  name: string, 
+  description: string, 
+  isArchived: boolean, 
+  edited_at: string
+): Promise<string> => {
+  await openDatabase()
+
+  return new Promise((resolve, reject) => {
+    if (!db) {
+      reject('Database not initialized')
+      return
+    }
+
+    const transaction = (db as IDBDatabase).transaction(['folder'], 'readwrite')
+    const objectStore = transaction.objectStore('folder')
+
+    const request = objectStore.get(folderId)
+
+    request.onsuccess = (event: Event) => {
+      const target = event.target as IDBRequest
+      const folder = target.result
+
+      if (!folder) {
+        reject('Folder not found')
+        return
+      }
+
+      const editedFolder = {
+        id: folderId,
+        name: name,
+        description: description,
+        isArchived: isArchived,
+        edited_at: edited_at,
+        files: folder.files
+      }
+
+      const updateRequest = objectStore.put(editedFolder)
+
+      updateRequest.onsuccess = () => {
+        resolve('Folder updated successfully')
+      }
+
+      updateRequest.onerror = (event: Event) => {
+        const target = event.target as IDBRequest
+        reject('Error updating folder: ' + (target.error ? target.error.message : 'Unknown error'))
+      }
+    }
+
+    request.onerror = (event: Event) => {
+      const target = event.target as IDBRequest
+      reject('Error retrieving folder: ' + (target.error ? target.error.message : 'Unknown error'))
+    }
+  })
+}
+
 export const deleteFolder = async (folderId: string): Promise<string> => {
   await openDatabase()
 
