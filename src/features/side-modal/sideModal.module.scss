@@ -65,3 +65,7 @@
   flex-grow: 1;
   justify-content: center;
 }
+
+.toggle-hide > *:last-child {
+  display: none;
+}

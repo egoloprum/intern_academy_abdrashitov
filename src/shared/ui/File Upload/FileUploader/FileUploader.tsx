@@ -29,7 +29,7 @@ const FileUploader: FC<FileUploaderProps> = ({
 
       setTimeout(() => {
         setIsLoading(false)
-      }, 1000)
+      }, 500)
     } else {
       setFileName(null)
       setFileSize(null)

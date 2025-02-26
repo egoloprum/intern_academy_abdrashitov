@@ -7,7 +7,7 @@ body {
 body {
   padding: 24px;
   position: relative;
-  overflow: clip;
+  overflow-x: clip;
 }
 
 * {
@@ -31,11 +31,11 @@ body {
 }
 
 .opening {
-  animation: fadein 1s ease forwards;
+  animation: fadein 0.5s ease forwards;
 }
 
 .closing {
-  animation: fadeout 1s ease forwards
+  animation: fadeout 0.5s ease forwards
 }
 
 @keyframes fadein {

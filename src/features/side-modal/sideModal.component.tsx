@@ -34,11 +34,16 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
   ({ folderId, onClose = () => {} }, ref) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
+  const { register, handleSubmit, reset } = useForm<FolderData>({
+    resolver: zodResolver(FolderCreateValidator),
+  })
+
   useImperativeHandle(ref, () => ({
     showModal: () => {
       dialogRef.current?.classList.remove('closing')
       dialogRef.current?.classList.add('opening')
       dialogRef.current?.showModal()
+      reset()
     },
     close: () => {
       dialogRef.current?.classList.remove('opening')
@@ -46,13 +51,9 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
       setTimeout(() => {
         dialogRef.current?.close()
         dialogRef.current?.classList.remove('closing')
-      }, 1000)
+      }, 500)
     },
   }))
-
-  const { register, handleSubmit, reset } = useForm<FolderData>({
-    resolver: zodResolver(FolderCreateValidator),
-  })
 
   const { createFolder, editFolder, getFolderById, setFolder } = useFolderStore()
   const [fetchedFolder, setFetchedFolder] = useState<Folder | null>(null)
@@ -71,9 +72,10 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
         })
       }
     }
-  }, [fetchedFolder, reset])
+  }, [folderId, getFolderById, fetchedFolder, reset])
 
   const onSubmit: SubmitHandler<FolderData> = async (data) => {
+    reset()
     const dateNow = new Date()
 
     const folder = {
@@ -115,7 +117,7 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
             </p>
           </div>
 
-          <div className={styles[`folder-input`]}>
+          <div className={[styles[`folder-input`], styles[`${!folderId && 'toggle-hide'}`]].join(' ')}>
             <Input 
               topLabel='Название папки'
               bottomLabel=''
@@ -132,13 +134,14 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
               defaultValue={fetchedFolder?.description}
             />
 
-            {folderId && (
-              <ToggleBtn
-                inputSize='medium'
-                label='Поместить в архив'
-                {...register('isArchived')}
-              />
-            )}
+
+            <ToggleBtn
+              inputSize='medium'
+              label='Поместить в архив'
+              className={styles[``]}
+              {...register('isArchived')}
+            />
+
           </div>
         </fieldset>
 

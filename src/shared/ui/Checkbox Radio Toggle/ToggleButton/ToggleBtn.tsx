@@ -24,6 +24,7 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
     <div 
       className={[
         styles[`toggle-container`],
+        className
       ].join(' ')}
     >
       <label
@@ -40,7 +41,6 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
           className={[
             styles[`toggle-input`],
             styles[`${inputSize}-toggle-input`],
-            className
           ].join(' ')}
           disabled={isDisabled}
           ref={checkboxRef}
