@@ -12,25 +12,20 @@ interface EditFolderBtnProps {
 }
 
 export const EditFolderBtn: FC<EditFolderBtnProps> = ({id}) => {
-  const [isDialogOpen, setDialogOpen] = useState<boolean>(false)
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true) 
+  }, [])
 
   const openDialog = () => {
-    setDialogOpen(true)
     dialogRef.current?.showModal()
   }
 
   const closeDialog = () => {
-    setDialogOpen(false)
     dialogRef.current?.close()
   }
-
-  useEffect(() => {
-    if (isDialogOpen) {
-      dialogRef.current?.showModal()
-    }
-  }, [isDialogOpen])
-  
 
   return (
     <>
@@ -43,7 +38,7 @@ export const EditFolderBtn: FC<EditFolderBtnProps> = ({id}) => {
       >
         <Edit />
       </Button>
-      {isDialogOpen && createPortal(
+      {isClient && createPortal(
         <SideModal folderId={id} onClose={closeDialog} ref={dialogRef} />,
         document.body 
       )}

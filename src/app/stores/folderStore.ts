@@ -7,11 +7,12 @@ type FolderStore = {
 
   setFolder: () => void
   createFolder: (folder: Folder) => void
+  getFolderById: (folderId: string) => Folder | null
   editFolder: (folderId: string, name: string, description: string, isArchived: boolean, edited_at: string) => void
   deleteFolder: (folderId: string) => void
 }
 
-export const useFolderStore = create<FolderStore>((set) => ({
+export const useFolderStore = create<FolderStore>((set, get) => ({
   folders: null,
   setFolder: async () => {
     try {
@@ -25,6 +26,13 @@ export const useFolderStore = create<FolderStore>((set) => ({
       throw error
     }
   },
+  getFolderById: (folderId: string) => {
+    const { folders } = get()
+    if (!folders) {
+      return null
+    }
+    return folders.find(folder => folder.id === folderId) || null
+  },
   createFolder: async (folder: Folder) => {
     try {
       const isCreated = await createFolder(folder)
@@ -33,7 +41,13 @@ export const useFolderStore = create<FolderStore>((set) => ({
       throw error
     }
   },
-  editFolder: async (folderId: string, name: string, description: string, isArchived: boolean, edited_at: string) => {
+  editFolder: async (
+    folderId: string, 
+    name: string, 
+    description: string, 
+    isArchived: boolean, 
+    edited_at: string
+  ) => {
     try {
       const isEdited =  await editFolder(folderId, name, description, isArchived, edited_at)
       if (!isEdited) { return }

@@ -1,21 +1,17 @@
 .folder-sheet {
   position: fixed;
-  z-index: 10;
+  transform: translateX(-100%);
   left: 100%;
   top: 0;
-  transform: translate(-100%, 0);
-
   border: none;
   outline: none;
   border-radius: radius.$border-large;
-  background-color: colors.$colorWhiteMain;
+  background-color: colors.$colorWhiteMain; 
   padding: 32px;
-
   max-width: 600px;
   width: 100%;
   min-height: 100vh;
   height: 100%;
-
   font-family: typegraphy.$fontFamilyMain;
 }
 

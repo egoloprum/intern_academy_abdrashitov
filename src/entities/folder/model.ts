@@ -7,5 +7,5 @@ export type Folder = {
   description?: string 
   size?: string 
   edited_at: string
-  is_archived?: boolean
+  isArchived?: boolean
 }

@@ -16,24 +16,26 @@
   position: relative;
 }
 
-.light-toggle-wrapper {
+.toggle-wrapper:has(.toggle-input:checked) {
   background-color: colors.$bgLightAccent;
 }
-.dark-toggle-wrapper {
+.toggle-wrapper:not(:has(.toggle-input:checked)) {
   background-color: colors.$bgLightSecondary;
 }
 
-.light-hover-toggle-wrapper {
+.toggle-wrapper:has(.toggle-input:hover) {
   background-color: colors.$bgLightAccentHover;
 }
-.dark-hover-toggle-wrapper {
-  background-color: colors.$bgLightSecondaryHover;  
+
+.toggle-wrapper:not(:has(.toggle-input:checked)):hover {
+  background-color: colors.$bgLightSecondaryHover;
 }
 
-.light-active-toggle-wrapper {
+.toggle-wrapper:has(.toggle-input:active) {
   background-color: colors.$bgLightAccentActive;
 }
-.dark-active-toggle-wrapper {
+
+.toggle-wrapper:not(:has(.toggle-input:checked)):active {
   background-color: colors.$bgLightSecondaryHoverActive;
 }
 

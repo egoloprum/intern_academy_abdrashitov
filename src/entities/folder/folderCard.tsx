@@ -1,8 +1,11 @@
 import { FC } from 'react'
-import styles from './folderCard.module.scss'
+
 import { Folder } from './model'
 import { EditFolderBtn } from '@/features/edit-folder-button'
 import { DeleteFolderBtn } from '@/features/delete-folder-button'
+
+import styles from './folderCard.module.scss'
+import Archive from './assets/archive.svg'
 
 interface FolderCardProps {
   folder: Folder
@@ -21,8 +24,11 @@ function formatDate(date: string) {
 export const FolderCard: FC<FolderCardProps> = ({folder}) => {
   return (
     <div className={styles[`folder-card`]}>
-      <p className={styles[`folder-name`]}>
-        {folder.name}
+      <p className={styles[`folder-top`]}>
+        <span>{folder.name}</span>
+        {folder.isArchived && 
+          <Archive />
+        }
       </p>
 
       <div className={styles[`folder-bottom`]}>

@@ -1,6 +1,6 @@
 "use client"
 
-import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FolderCreateValidator } from '@/app/validations/folderValidator'
@@ -12,6 +12,7 @@ import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input Textarea/Input'
 import Textarea from '@/shared/ui/Input Textarea/Textarea/Textarea'
 import ToggleBtn from '@/shared/ui/Checkbox Radio Toggle/ToggleButton/ToggleBtn'
+import { Folder } from '@/entities/folder'
 
 interface SideModalProps {
   folderId?: string 
@@ -21,7 +22,7 @@ interface SideModalProps {
 type FolderData = {
   name: string 
   description: string 
-  isArchived?: boolean
+  isArchived: boolean
 }
 
 type SideModalRef = {
@@ -35,10 +36,17 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
 
   useImperativeHandle(ref, () => ({
     showModal: () => {
+      dialogRef.current?.classList.remove('closing')
+      dialogRef.current?.classList.add('opening')
       dialogRef.current?.showModal()
     },
     close: () => {
-      dialogRef.current?.close()
+      dialogRef.current?.classList.remove('opening')
+      dialogRef.current?.classList.add('closing')
+      setTimeout(() => {
+        dialogRef.current?.close()
+        dialogRef.current?.classList.remove('closing')
+      }, 1000)
     },
   }))
 
@@ -46,7 +54,24 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
     resolver: zodResolver(FolderCreateValidator),
   })
 
-  const { createFolder, editFolder, setFolder } = useFolderStore()
+  const { createFolder, editFolder, getFolderById, setFolder } = useFolderStore()
+  const [fetchedFolder, setFetchedFolder] = useState<Folder | null>(null)
+
+  useEffect(() => {
+    if (folderId) {
+      const folder = getFolderById(folderId)
+      setFetchedFolder(folder)
+      reset()
+
+      if (folder) {
+        reset({
+          name: folder.name,
+          description: folder.description,
+          isArchived: folder.isArchived || false, 
+        })
+      }
+    }
+  }, [fetchedFolder, reset])
 
   const onSubmit: SubmitHandler<FolderData> = async (data) => {
     const dateNow = new Date()
@@ -60,16 +85,14 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
     }
 
     if (folderId) {
-      editFolder(folderId, data.name, data.description, data.isArchived || false, `${dateNow}`)
+      editFolder(folderId, data.name, data.description, data.isArchived, `${dateNow}`)
       setFolder()
-      reset()
       onClose()
       return 
     }
 
     createFolder(folder)
     setFolder()
-    reset()
     onClose()
   }
 
@@ -98,6 +121,7 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
               bottomLabel=''
               placeholder='Введите название'
               {...register('name')}
+              defaultValue={fetchedFolder?.name}
               required
             />
             <Textarea 
@@ -105,16 +129,16 @@ export const SideModal = forwardRef<SideModalRef, SideModalProps>(
               bottomLabel=''
               placeholder='Введите описание'
               {...register('description')}
+              defaultValue={fetchedFolder?.description}
             />
 
-            { folderId && (
+            {folderId && (
               <ToggleBtn
                 inputSize='medium'
                 label='Поместить в архив'
                 {...register('isArchived')}
               />
             )}
-
           </div>
         </fieldset>
 

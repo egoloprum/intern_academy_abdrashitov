@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, InputHTMLAttributes, useRef, useState } from 'react'
+import { FC, InputHTMLAttributes, useRef } from 'react'
 import Ball from './assets/ball.svg'
 import styles from './toggleBtn.module.scss'
 
@@ -18,23 +18,12 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
   className,
   ...rest
 }) => {
-  const [isToggled, setisToggled] = useState<string>("")
-  const [isHover, setIsHover] = useState<boolean>(false)
-  const [isActive, setIsActive] = useState<boolean>(false)
-  
   const checkboxRef = useRef<HTMLInputElement>(null)
-
-  const handleClick = () => {
-    if (checkboxRef.current) {
-      setisToggled(checkboxRef.current.checked ? "light" : "dark")
-    }
-  }
 
   return (
     <div 
       className={[
         styles[`toggle-container`],
-        className
       ].join(' ')}
     >
       <label
@@ -42,22 +31,17 @@ const ToggleBtn: FC<ToggleBtnProps> = ({
           styles[`toggle-wrapper`],
           styles[`${inputSize}-toggle-wrapper`],
           styles[`${isDisabled && `disabled-toggle-wrapper`}`],
-          styles[`${isToggled}-toggle-wrapper`],
-          styles[`${isHover && `${isToggled}-hover-toggle-wrapper`}`],
-          styles[`${isActive && `${isToggled}-active-toggle-wrapper`}`],
         ].join(' ')}
+        htmlFor='checkbox'
       >
         <input 
           type="checkbox"
+          id='checkbox'
           className={[
             styles[`toggle-input`],
             styles[`${inputSize}-toggle-input`],
+            className
           ].join(' ')}
-          onClick={handleClick}
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-          onMouseDown={() => setIsActive(true)}
-          onMouseUp={() => setIsActive(false)}
           disabled={isDisabled}
           ref={checkboxRef}
           {...rest}

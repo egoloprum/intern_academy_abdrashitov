@@ -7,26 +7,21 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { SideModal } from '../side-modal'
 
-
 export const CreateFolderBtn = ({}) => {
-  const [isDialogOpen, setDialogOpen] = useState<boolean>(false)
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true) 
+  }, [])
 
   const openDialog = () => {
-    setDialogOpen(true)
     dialogRef.current?.showModal()
   }
 
   const closeDialog = () => {
-    setDialogOpen(false)
     dialogRef.current?.close()
   }
-
-  useEffect(() => {
-    if (isDialogOpen) {
-      dialogRef.current?.showModal()
-    }
-  }, [isDialogOpen])
   
   return (
     <>
@@ -39,7 +34,7 @@ export const CreateFolderBtn = ({}) => {
         <Plus />
         Создать папку
       </Button>
-      {isDialogOpen && createPortal(
+      {isClient && createPortal(
         <SideModal onClose={closeDialog} ref={dialogRef} />,
         document.body 
       )}

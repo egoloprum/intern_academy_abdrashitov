@@ -15,10 +15,13 @@
   justify-content: space-between;
 }
 
-.folder-name {
+.folder-top {
   font-weight: 500;
   font-size: typegraphy.$font-size-p4;
   color: colors.$colorBlackMain;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .folder-bottom {
@@ -39,5 +42,5 @@
 .folder-buttons {
   display: flex;
   gap: 4px;
-  align-items:end;
+  align-items: flex-end;
 }

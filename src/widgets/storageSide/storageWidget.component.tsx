@@ -17,14 +17,14 @@ export const StorageWidget = () => {
     <div className={styles[`storage-container`]}>
 
       <div className={styles[`storage-wrapper`]}>
-        {folders && (
+        {folders?.length ? (
           <>
             {folders.map((folder, index) => (
               <FolderCard key={index} folder={folder} />
             ))}
             <div className={styles['dividing-line']}></div>
           </>
-        )}
+        ) : null}
       </div>
     
 

@@ -7,6 +7,7 @@ body {
 body {
   padding: 24px;
   position: relative;
+  overflow: clip;
 }
 
 * {
@@ -26,5 +27,30 @@ body {
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;
+  }
+}
+
+.opening {
+  animation: fadein 1s ease forwards;
+}
+
+.closing {
+  animation: fadeout 1s ease forwards
+}
+
+@keyframes fadein {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+@keyframes fadeout {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
